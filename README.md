@@ -1,2 +1,2 @@
 # FoodHealthMMLLM
-Food-Health MultiModal Large Language Models
+Food-Health MultiModal Large Language Models By BUPT
