@@ -40,6 +40,20 @@ def mixup_data(x, y, alpha=1.0):
     return mixed_x, y_a, y_b, lam
 
 
+
+class MSEOEEMLoss(nn.Module):
+    # online easy element miner
+    def __init__(self, percent=0.5):
+        super(MSEOEEMLoss, self).__init__()
+        self.OHEM_percent = percent
+        self.criterion = nn.MSELoss(reduction='none')
+    def forward(self, output, target):
+        focal_loss = self.criterion(output, target)
+        # Online Hard Example Mining: top x% losses (pixel-wise). Refer to http://www.robots.ox.ac.uk/~tvg/publications/2017/0026.pdf
+        OHEM, _ = focal_loss.topk(k=int(self.OHEM_percent * [*focal_loss.shape][0]), largest=False)
+        return OHEM.mean()
+
+
 class ClsLightning(pl.LightningModule):
     def __init__(self, num_classes, net_type='faster_vit', mixup=False, uncert=False, reg_cls=True, resolution=[224, 224]):
         super().__init__()
@@ -74,12 +88,8 @@ class ClsLightning(pl.LightningModule):
             self.model = faster_vit_2_any_res(pretrained=True, resolution=resolution)
             self.model.head = nn.Linear(self.model.num_features, num_classes)
 
-        from utils.cls_utils import AccuracyTopK
-        self.valid_acc = torchmetrics.Accuracy()
-        self.valid_top5_acc = AccuracyTopK(top_k=2)
-
+        self.valid_acc = torchmetrics.MeanMetric()
         print(f'ClsLightning with {self.net_type}')
-
 
     def _init_weights(self, m):
         from timm.models.layers import trunc_normal_
@@ -95,16 +105,10 @@ class ClsLightning(pl.LightningModule):
 
     def init_args(self, args):
         self.args = args
-        if 'SmoothCE' in args['loss_type']:
-            self.criterion = SmoothCE()
-        elif 'FocalOHEMLoss' in args['loss_type']:
-            self.criterion = FocalOHEMLoss(num_classes=self.num_classes)
-        elif 'CrossEntropy' in args['loss_type']:
-            self.criterion = torch.nn.CrossEntropyLoss()
-        elif 'loss_gls' in args['loss_type']:
-            from criterions.ce_loss import loss_gls
-            self.criterion = loss_gls
-            # self.criterion = lambda y, gt: loss_gls(y, gt, hard_ratio=0.3)
+        from criterions.ghm_loss import GHMR
+        self.criterion = GHMR()
+        # self.criterion = MSEOEEMLoss(percent=0.5)
+        # self.criterion = nn.MSELoss(reduction='mean')
         self.milestones = args['milestones'] if 'milestones' in args.keys() else None
         self.lr = args['lr']
 
@@ -206,26 +210,10 @@ class ClsLightning(pl.LightningModule):
     def training_step(self, sample, batch_nb):
         # REQUIRED
         ims = sample['image']
-        target = sample['label']
+        target = sample['label'].float()
 
-        if random.random() < 0.3:
-        # if random.random() < 1.0:
-            output = self(ims)
-            loss = self.criterion(output, target)
-        else:
-            # cutmix # generate mixed sample
-            beta=1.0
-            lam = np.random.beta(beta, beta)
-            rand_index = torch.randperm(ims.size()[0]).cuda()
-            target_a = target
-            target_b = target[rand_index]
-            bbx1, bby1, bbx2, bby2 = rand_bbox(ims.size(), lam)
-            ims[:, :, bbx1:bbx2, bby1:bby2] = ims[rand_index, :, bbx1:bbx2, bby1:bby2]
-            # adjust lambda to exactly match pixel ratio
-            lam = 1 - ((bbx2 - bbx1) * (bby2 - bby1) / (ims.size()[-1] * ims.size()[-2]))
-            # compute output
-            output = self(ims)
-            loss = self.criterion(output, target_a) * lam + self.criterion(output, target_b) * (1. - lam)
+        output = self(ims).squeeze(-1)
+        loss = self.criterion(output, target)
         info = {'loss': loss, 'focal_loss': loss, 'flow_loss': loss.detach()}
         self.training_step_outputs.append(info)
         self.log("loss", loss, prog_bar=True, on_epoch=True)  # , on_epoch=True is needed to be cleared each epoch
@@ -255,13 +243,11 @@ class ClsLightning(pl.LightningModule):
         with torch.no_grad():
             im_path = sample['im_path'][0]
             ims = sample['image']
-            target = sample['label']
-            output = self(ims)
+            target = sample['label'].float()
+            output = self(ims).squeeze(-1)
 
             loss = self.criterion(output, target)
-            acc1, acc5 = accuracy(output, target, topk=(1, 1))
-            self.valid_acc(output.softmax(dim=-1), target)
-            self.valid_top5_acc(output.softmax(dim=-1), target)
+            self.valid_acc(torch.abs(output - target))
             info = {'val_loss': loss, 'focal_loss': loss.detach()}
             self.validation_step_outputs.append(info)
             return info
@@ -277,11 +263,10 @@ class ClsLightning(pl.LightningModule):
         val_loss = val_loss / len(validation_step_outputs)
         focal_loss = focal_loss / len(validation_step_outputs)
 
-        acc_avg = self.valid_acc.compute()
-        acc5_avg = self.valid_top5_acc.compute()
-        print('####### acc1: {:.4f}, acc5: {:.4f}, val seed: {:.8f}, val loss: {:.8f}'.format(acc_avg, acc5_avg, focal_loss, val_loss))
-        self.log('acc1', acc_avg)
-        self.log('acc5', acc5_avg)
+        diff_avg = self.valid_acc.compute()
+        print('####### diff_avg: {:.4f}, val seed: {:.8f}, val loss: {:.8f}'.format(diff_avg, focal_loss, val_loss))
+        self.log('acc1', 1.0/diff_avg)
+        self.log('acc5', 1.0/diff_avg)
         self.log('val_loss', val_loss)
         self.log('epoch', self.current_epoch)
 
@@ -289,13 +274,11 @@ class ClsLightning(pl.LightningModule):
         with torch.no_grad():
             im_path = sample['im_path'][0]
             ims = sample['image']
-            target = sample['label']
-            output = self(ims)
+            target = sample['label'].float()
+            output = self(ims).squeeze(-1)
 
             loss = self.criterion(output, target)
-            acc1, acc5 = accuracy(output, target, topk=(1, 1))
-            self.valid_acc(output.softmax(dim=-1), target)
-            self.valid_top5_acc(output.softmax(dim=-1), target)
+            self.valid_acc(torch.abs(output - target))
             info = {'val_loss': loss, 'focal_loss': loss.detach()}
             self.validation_step_outputs.append(info)
             return info
@@ -311,16 +294,14 @@ class ClsLightning(pl.LightningModule):
         val_loss = val_loss / len(validation_step_outputs)
         focal_loss = focal_loss / len(validation_step_outputs)
 
-        acc_avg = self.valid_acc.compute()
-        acc5_avg = self.valid_top5_acc.compute()
-        print('####### acc1: {:.4f}, acc5: {:.4f}, val seed: {:.8f}, val loss: {:.8f}'.format(acc_avg, acc5_avg,
-                                                                                              focal_loss, val_loss))
+        diff_avg = self.valid_acc.compute()
+        print('####### diff_avg: {:.4f}, val seed: {:.8f}, val loss: {:.8f}'.format(diff_avg, focal_loss, val_loss))
 
 
 if __name__ == '__main__':
 
     class export_clsLightning(nn.Module):
-        def __init__(self, num_classes, net_type='fbnet_c', resolution=[384, 384]):
+        def __init__(self, num_classes, net_type='fbnet_c', resolution=[224, 224]):
             super().__init__()
             self.args, self.criterion, self.milestones = None, None, None
             self.net_type = net_type
@@ -358,14 +339,13 @@ if __name__ == '__main__':
             y = self.model(x)
             return y
 
-    inp_size = (384, 384)
-    # ckpt_path = '/home/xuzhenbo/MoE-LLaVA/cls_hasFood/cls_hasFood/best-acc1=0.9727-epoch=059-max060.ckpt'
-    ckpt_path = '/home/xuzhenbo/MoE-LLaVA/cls_hasFood/cls_hasFood/epoch=059-max060-v2.ckpt'
-    save_jit_path = '/home/xuzhenbo/MoE-LLaVA/cls_hasFood/cls_hasFood/has_food_fv'
+    inp_size = (224, 224)
+    ckpt_path = '/home/xuzhenbo/MoE-LLaVA/cls_foodWeight/cls_foodWeight/best-acc1=3.9336-epoch=019-max120.ckpt'
+    save_jit_path = '/home/xuzhenbo/MoE-LLaVA/cls_foodWeight/cls_foodWeight/food_weight_fv'
 
 
     print('-----------export gpu jit------------------')
-    model = export_clsLightning(net_type='faster_vit', num_classes=2)
+    model = export_clsLightning(net_type='faster_vit', num_classes=1)
     ckpt = torch.load(ckpt_path, map_location=lambda storage, loc: storage)['state_dict']
     # ckpt = remove_module_in_dict(ckpt)
     device = torch.device("cpu")
@@ -391,10 +371,10 @@ if __name__ == '__main__':
         transforms.ToTensor(),
         transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD)
     ])
-    for real_input_path in sorted(make_dataset('/media/fast_data/food_image_test')):
+    for real_input_path in ['/home/data_llm/new_fresh_devices2/*小花牛/*小花牛_002c27da-4db4-445b-aa54-2121124c4994_0.914-kg.jpg', '/home/data_llm/new_fresh_devices2/*小花牛/*小花牛_08a12700-f091-4064-9088-dd579b6c32de_0.436-kg.jpg', '/home/data_llm/new_fresh_devices2/*小花牛/*小花牛_0cc6c293-e8be-4995-8ef9-d893fd48a3cf_1.882-kg.jpg']:
         real_input = transform(Image.open(real_input_path).convert('RGB')).unsqueeze(0).to(device)
         re = model(real_input)
-        re = torch.softmax(re, dim=-1)
-        ans = re[0,1]>re[0,0]
-        print(real_input_path, ans)
+        print(real_input_path, re)
 
+
+    # export PYTHONPATH=/home/xuzhenbo/MoE-LLaVA && conda activate trt_ascend

@@ -192,7 +192,7 @@ if 'train2' in args.keys() and args['train2']:
                      default_root_dir=args['save_dir'],
                      callbacks=[checkpoint_callback1, checkpoint_callback2, checkpoint_callback3, checkpoint_callback4],
                      precision=32 if 'precision' not in args.keys() else args['precision'],
-                     num_sanity_val_steps=0,
+                     num_sanity_val_steps=-1,
                      sync_batchnorm=True,  # set to True when bs is too small on one card
                      gradient_clip_val=1.0 if 'gradient_clip_val' not in args.keys() else args['gradient_clip_val'],
                      gradient_clip_algorithm="norm")

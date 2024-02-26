@@ -7,5 +7,9 @@ def get_model(args, name, model_opts):
         from models.clsLightning import ClsLightning
         model = ClsLightning(**model_opts)
         return model
+    elif name == "common_reg_net":
+        from models.regLightning import ClsLightning
+        model = ClsLightning(**model_opts)
+        return model
     else:
         raise RuntimeError("model \"{}\" not available".format(name))

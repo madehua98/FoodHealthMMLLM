@@ -11,6 +11,8 @@ food_image_roots = [
     '/home/xuzhenbo/food_dataset/food-101',
     '/home/xuzhenbo/food_dataset/Food2k_complete',
     '/home/xuzhenbo/fresh_data/生鲜基础库226种_230614',
+    '/home/xuzhenbo/food_dataset/eating_scenario',
+    '/home/xuzhenbo/food_dataset/eating_scenario',
                ]
 
 nonfood_image_roots = [

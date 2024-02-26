@@ -1,7 +1,14 @@
 # cli demo and quant to 4bit
 conda activate llama_factory && export PYTHONPATH=/mnt/LLaMA-Factory && export https_proxy=127.0.0.1:7890 && export http_proxy=127.0.0.1:7890
+pip install bitsandbytes --no-cache-dir
+pip install "git+https://github.com/PanQiWei/AutoGPTQ.git@v0.7.0"
+sudo nano ~/.bashrc
+export CUDA_HOME = /usr/local/cuda
+export PATH = $CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:/usr/local/cuda/lib64
+source ~/.bashrc
 CUDA_VISIBLE_DEVICES=7 USE_MODELSCOPE_HUB=0 python src/cli_demo.py --model_name_or_path Qwen/Qwen1.5-14B-Chat --template qwen --finetuning_type lora  --quantization_bit 4 --temperature 0.1 --length_penalty 1.3
-CUDA_VISIBLE_DEVICES=4,5,6 USE_MODELSCOPE_HUB=0 python -u src/export_model.py --model_name_or_path Qwen/Qwen1.5-14B-Chat --template qwen --export_dir /mnt/LLaMA-Factory/qwen1.5_14B_export_4bit --export_quantization_bit 4 --export_quantization_dataset data/c4_demo.json
+CUDA_VISIBLE_DEVICES=0,1,2 USE_MODELSCOPE_HUB=0 python -u src/export_model.py --model_name_or_path Qwen/Qwen1.5-14B-Chat --template qwen --export_dir /mnt/LLaMA-Factory/qwen1.5_14B_export_4bit --export_quantization_bit 4 --export_quantization_dataset data/c4_demo.json
 
 
 # deploy with fastchat

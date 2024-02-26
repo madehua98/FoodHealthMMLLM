@@ -174,8 +174,12 @@ class common_cls(Dataset):
 
         if type == 'train':
             transform = transforms.Compose([
-                SquarePad(),
-                transforms.Resize((im_size,im_size), interpolation=3),
+                transforms.RandomChoice([
+                    SquarePad(),
+                    transforms.RandomResizedCrop(im_size, scale=(0.55, 1.0), ratio=(3.0 / 4.0, 4.0 / 3.0), interpolation=3),
+                ]),
+                # SquarePad(),
+                transforms.Resize((im_size, im_size), interpolation=3),
                 transforms.RandomAffine(degrees=0, translate=(0.05, 0.05)),
                 transforms.RandomHorizontalFlip(),
                 transforms.ToTensor(),
@@ -225,6 +229,76 @@ class common_cls(Dataset):
                 sample['image'] = self.transform(sample['image'])
                 break
             except:
+                index = random.randint(0, self.real_size - 1)
+                print('dataloader except')
+                continue
+        return sample
+
+
+class common_reg(Dataset):
+    def __init__(self, config_file=None, type="train", size=None, im_size=224, imagenet_normalize=True):
+        from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
+        self.type = type
+
+        if type == 'train':
+            transform = transforms.Compose([
+                SquarePad(),
+                # SquarePad(),
+                transforms.Resize((im_size, im_size), interpolation=3),
+                transforms.RandomAffine(degrees=0, translate=(0.05, 0.05)),
+                transforms.RandomHorizontalFlip(),
+                transforms.ToTensor(),
+                transforms.RandomApply(
+                    [transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD), ],
+                    p=1.0 if imagenet_normalize else 0.0
+                ),
+            ])
+
+        else:
+            transform = transforms.Compose([
+                SquarePad(),
+                transforms.Resize((im_size,im_size), interpolation=3),  # BICUBIC interpolation
+                transforms.ToTensor(),
+                transforms.RandomApply(
+                    [transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD), ],
+                    p=1.0 if imagenet_normalize else 0.0
+                ),
+            ])
+
+        info = load_pickle(config_file)[type]
+        self.image_list, self.label_list = list(info.keys()), list(info.values())
+
+        self.real_size = len(self.image_list)
+        self.size = size
+        self.transform = transform
+        print('common_cls', type, 'sample num:', len(self.image_list))
+
+    def __len__(self):
+        return self.real_size if self.size is None else self.size
+
+    def get_data(self, index):
+        sample = {}
+        im_path = self.image_list[index]
+        label = self.label_list[index]
+        sample['image'] = Image.open(im_path).convert('RGB')
+        sample['label'] = label
+        sample['im_path'] = im_path
+        return sample
+
+    def __getitem__(self, index):
+        # if self.type == 'train':
+        #     index = random.randint(0, self.real_size - 1)
+        # sample = self.get_data(index)
+        # sample['image'] = self.transform(sample['image'])
+        while 1:
+            try:
+                if self.type == 'train':
+                    index = random.randint(0, self.real_size - 1)
+                sample = self.get_data(index)
+                sample['image'] = self.transform(sample['image'])
+                break
+            except:
+                index = random.randint(0, self.real_size - 1)
                 print('dataloader except')
                 continue
         return sample

@@ -32,11 +32,11 @@ args = dict(
     loss_opts={},
 
     save_dir='./cls_hasFood',
-    resume_path=os.path.join(project_root, 'cls_hasFood/cls_hasFood/epoch=035-max060.ckpt'),
+    resume_path=os.path.join(project_root, 'cls_hasFood/cls_hasFood/best-acc1=0.9727-epoch=059-max060.ckpt'),
     # remove_key_words=['poincare_head.'],
     gpus=gpu,
     check_val_every_n_epoch=5,
-    train1=True,
+    train1=False,
     train2=True,
     final_test=True,
     precision=precision,
@@ -89,5 +89,5 @@ def get_args():
 
 '''
 cd /home/xuzhenbo/MoE-LLaVA/cls_hasFood
-CUDA_VISIBLE_DEVICES=6,7,8,9 nohup python -u ../train2.py cls_finetune_hasFood > fv2_4card.out & 
+CUDA_VISIBLE_DEVICES=4,6,8,9 nohup python -u ../train2.py cls_finetune_hasFood > fv2_4card.out & 
 '''
