@@ -1,22 +1,23 @@
 # cli demo and quant to 4bit
 conda activate llama_factory && export PYTHONPATH=/mnt/LLaMA-Factory && export https_proxy=127.0.0.1:7890 && export http_proxy=127.0.0.1:7890
+conda install cudatoolkit-dev=11.7 -c conda-forge
 pip install bitsandbytes --no-cache-dir
-pip install "git+https://github.com/PanQiWei/AutoGPTQ.git@v0.7.0"
-sudo nano ~/.bashrc
-export CUDA_HOME = /usr/local/cuda
-export PATH = $CUDA_HOME/bin:$PATH
-export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:/usr/local/cuda/lib64
-source ~/.bashrc
-CUDA_VISIBLE_DEVICES=7 USE_MODELSCOPE_HUB=0 python src/cli_demo.py --model_name_or_path Qwen/Qwen1.5-14B-Chat --template qwen --finetuning_type lora  --quantization_bit 4 --temperature 0.1 --length_penalty 1.3
-CUDA_VISIBLE_DEVICES=0,1,2 USE_MODELSCOPE_HUB=0 python -u src/export_model.py --model_name_or_path Qwen/Qwen1.5-14B-Chat --template qwen --export_dir /mnt/LLaMA-Factory/qwen1.5_14B_export_4bit --export_quantization_bit 4 --export_quantization_dataset data/c4_demo.json
+pip install optimum -U
+pip install auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu117/
+pip install "fschat[model_worker,webui]"
+pip install "gradio>=3.38.0,<4.0.0"
+# install llvm
+After cloning this repo, remove the .toml file
+Go to setup.py file and set cuda version to 11.8, like;
+MAIN_CUDA_VERSION = "11.8"
+Then install xformers for cuda 11.8, with;
+pip install -U xformers --index-url https://download.pytorch.org/whl/cu118
+Comment out or remove, torch and xformers from the requirements.txt
+You might get an error of packaging module not found, install with pip install packaging
+Now you can install vLLM from source with CUDA 11.8 by simply running pip install -e .
 
 
-# deploy with fastchat
-nohup python3 -m fastchat.serve.controller > controller_qwen_filter.out &
-
-CUDA_VISIBLE_DEVICES=7 nohup python3 -m fastchat.serve.vllm_worker --model-path Qwen/Qwen1.5-14B-Chat --limit-worker-concurrency 10 --num-gpus 1 --conv-template qwen > server_qwen_filter_fs.out &
-CUDA_VISIBLE_DEVICES=5 nohup python3 -m fastchat.serve.vllm_worker --model-path qwen_14B_1228_export_4bit --limit-worker-concurrency 10 --conv-template qwen-7b-chat > server_qwen_14B_0104_export.out & 
-
-nohup python3 -m fastchat.serve.openai_api_server --host localhost --port 8886 > server_qwen_filter.out &
-
-# use api to query
+# run server
+python -m vllm.entrypoints.openai.api_server --model Qwen/Qwen1.5-7B-Chat --dtype half --max-model-len 1024
+# inference using
+tools/txt_filter_query.py
