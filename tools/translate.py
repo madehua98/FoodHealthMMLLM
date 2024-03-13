@@ -5,7 +5,7 @@ from transformers import AutoTokenizer
 # name = "haoranxu/ALMA-7B-R"
 # name = "haoranxu/ALMA-13B-R"
 
-for name in ["haoranxu/ALMA-13B-R"]:
+for name in ["haoranxu/ALMA-7B-R", "haoranxu/ALMA-13B-R"]:
 
     print(name)
     # Load base model and LoRA weights
@@ -28,6 +28,26 @@ for name in ["haoranxu/ALMA-13B-R"]:
         print(outputs)
 
     del model, tokenizer
+
+from transformers import pipeline
+for name in ["Unbabel/TowerInstruct-7B-v0.1", "Unbabel/TowerInstruct-13B-v0.1"]:
+
+    print(name)
+    pipe = pipeline("text-generation", model=name, torch_dtype=torch.bfloat16, device_map="auto")
+    # We use the tokenizer’s chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
+    prompts = [
+        "Translate the following text from Chinese into English.\nChinese: 我爱机器翻译。\nEnglish:",
+        "Translate the following text from English into Chinese.\nEnglish: The multi-modality large language model is designed for the big AGI industry.\nChinese:",
+        "Translate the following text from English into Chinese.\nEnglish: Chocolate Peanut Butter Protein Bars.\nChinese:",
+    ]
+    for prompt in prompts:
+        messages = [
+            {"role": "user", "content": prompt},
+        ]
+        prompt = pipe.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        outputs = pipe(prompt, max_new_tokens=256, do_sample=False)
+        print(outputs[0]["generated_text"])
+    del pipe
 
 
 '''
