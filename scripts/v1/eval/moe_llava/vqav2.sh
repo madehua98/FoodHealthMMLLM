@@ -6,11 +6,12 @@ IFS=',' read -ra GPULIST <<< "$gpu_list"
 CHUNKS=${#GPULIST[@]}
 
 CONV="conv_template"
-CKPT_NAME="your_ckpt_name"
-CKPT="checkpoints/${CKPT_NAME}"
+#CKPT_NAME="your_ckpt_name"
+#CKPT="checkpoints/${CKPT_NAME}"
+CKPT="/media/LLM_data/model/MoE-LLaVA-Qwen-1.8B-4e"
 SPLIT="llava_vqav2_mscoco_test-dev2015"
 EVAL="eval"
-
+export https_proxy=127.0.0.1:7890 && export http_proxy=127.0.0.1:7890
 for IDX in $(seq 0 $((CHUNKS-1))); do
     deepspeed --include localhost:${GPULIST[$IDX]} --master_port $((${GPULIST[$IDX]} + 29501)) moellava/eval/model_vqa_loader.py \
         --model-path ${CKPT} \

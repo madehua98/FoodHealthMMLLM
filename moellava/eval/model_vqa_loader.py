@@ -78,7 +78,13 @@ def eval_model(args):
 
     if args.return_gating_logit is not None:
         from moellava.utils import get_gating_logit_by_hook
-        print(model)
+        # print(model)
+        # state_dict = model.state_dict()
+        # parameters_to_save = {}
+        # for name, param in state_dict.items():
+        #     if "mm_projector.image_spatial_proj" in name:
+        #         parameters_to_save[name] = param.cpu().detach()
+        #     torch.save(parameters_to_save, "/media/LLM_data/model/moellava/checkpoints/llavaqwen1.8B_mm_projector.bin")
         fea_hooks = get_gating_logit_by_hook(model)
         all_gating_logits = {}
     image_processor = processor['image']
@@ -168,7 +174,7 @@ if __name__ == "__main__":
     parser.add_argument("--num_beams", type=int, default=1)
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument("--local_rank", type=int, default=-1)
-    parser.add_argument("--return_gating_logit", type=str, default=None)
+    parser.add_argument("--return_gating_logit", type=str, default="true")
     args = parser.parse_args()
 
     eval_model(args)

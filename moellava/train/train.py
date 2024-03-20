@@ -18,7 +18,7 @@ import os
 import copy
 import random
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 import json
 import logging
 import pathlib
@@ -145,6 +145,7 @@ class TrainingArguments(transformers.TrainingArguments):
     lora_bias: str = "none"
     mm_projector_lr: Optional[float] = None
     group_by_modality_length: bool = field(default=False)
+    check_point_file_name: Optional[str] = None
 
 
 
@@ -980,7 +981,9 @@ class LazySupervisedDataset(Dataset):
                 image_file = image_file if isinstance(image_file, list) else [image_file]
                 image_file = order_pick_k(image_file, MAX_IMAGE_LENGTH)
                 # print(f"total {len(self.list_data_dict[i]['image'])} now {len(image_file)}")
-                image = [Image.open(os.path.join(image_folder, file)).convert('RGB') for file in image_file]
+
+                #image = [Image.open(os.path.join(image_folder, file)).convert('RGB') for file in image_file]
+                image = [Image.open(file).convert('RGB') for file in image_file]
                 # print(image[0])
                 if self.data_args.image_aspect_ratio == 'pad':
                     image = [expand2square(i, tuple(int(x * 255) for x in image_processor.image_mean)) for i in image]
@@ -1019,7 +1022,10 @@ class LazySupervisedDataset(Dataset):
 
                 image_file = image_file if isinstance(image_file, list) else [image_file]
                 image_file = order_pick_k(image_file, MAX_IMAGE_LENGTH)
-                image = [Image.open(os.path.join(image_folder, file)).convert('RGB') for file in image_file]
+
+                #image = [Image.open(os.path.join(image_folder, file)).convert('RGB') for file in image_file]
+                image = [Image.open(file).convert('RGB') for file in image_file]
+
                 if self.data_args.image_aspect_ratio == 'pad':
                     image = [expand2square(i, tuple(int(x * 255) for x in image_processor.image_mean)) for i in image]
                     image = [image_processor.preprocess(i, return_tensors='pt')['pixel_values'][0] for i in image]
@@ -1146,6 +1152,13 @@ def train():
     parser = transformers.HfArgumentParser(
         (ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+    with open(training_args.check_point_file_name, mode="w", encoding="utf-8") as file:
+        model_dict = asdict(model_args)
+        data_dict = asdict(data_args)
+        training_dict = asdict(training_args)
+        merged_dict = data_dict | training_dict | model_dict
+        json.dump(merged_dict, file, ensure_ascii=False, indent=4)
+
     local_rank = training_args.local_rank
     compute_dtype = (torch.float16 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
 
@@ -1376,8 +1389,7 @@ def train():
                     model.to(torch.float16)
             rank0_print("Adding LoRA adapters...")
             model = get_peft_model(model, lora_config)
-    # ==============================================================================================
-
+    #==============================================================================================
     if 'mpt' in model_args.model_name_or_path:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
             model_args.model_name_or_path,
@@ -1397,8 +1409,13 @@ def train():
                 padding_side="right",
                 use_fast=False,
             )
+            smart_tokenizer_and_embedding_resize(
+                special_tokens_dict=dict(unk_token="<|extra_0|>", eos_token="<|endoftext|>"),
+                tokenizer=tokenizer,
+                model=model,
+            )
             tokenizer.add_special_tokens({'unk_token': '<|extra_0|>', 'eos_token': '<|endoftext|>'})
-        if 'qwen' in model_args.model_name_or_path.lower() and '1.5' in model_args.model_name_or_path.lower():
+        elif 'qwen' in model_args.model_name_or_path.lower() and '1.5' in model_args.model_name_or_path.lower():
             tokenizer = transformers.AutoTokenizer.from_pretrained(
                 model_args.model_name_or_path,
                 cache_dir=training_args.cache_dir,
@@ -1434,10 +1451,9 @@ def train():
                 padding_side="right",
                 use_fast=False,
             )
+
     # import ipdb
     # ipdb.set_trace()
-    # print(tokenizer)
-    # print(tokenizer)
     if model_args.version == "v0":
         if tokenizer.pad_token is None:
             smart_tokenizer_and_embedding_resize(
@@ -1521,7 +1537,6 @@ def train():
             rank0_print(name)
     rank0_print(model)
     # sys.exit()
-
     data_module = make_supervised_data_module(tokenizer=tokenizer,
                                               data_args=data_args)
     trainer = LLaVATrainer(model=model,
@@ -1530,13 +1545,12 @@ def train():
                     **data_module)
 
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
+        print("*"*100)
         trainer.train(resume_from_checkpoint=True)
     else:
         trainer.train()
     trainer.save_state()
-
     model.config.use_cache = True
-
     if training_args.lora_enable and not model_args.moe_enable:
         state_dict = get_peft_state_maybe_zero_3(
             model.named_parameters(), training_args.lora_bias
@@ -1562,7 +1576,7 @@ def train():
             model.config.save_pretrained(training_args.output_dir)
             if training_args.local_rank == 0 or training_args.local_rank == -1:
                 [os.remove(i) for i in glob(os.path.join(training_args.output_dir, 'adapter_*'))]
-    # print(model.state_dict().keys())
+    print(model.state_dict().keys())
 
 if __name__ == "__main__":
     train()
