@@ -5,7 +5,7 @@ from moellava.train.llama_xformers_attn_monkey_patch import (
     replace_llama_attn_with_xformers_attn,
 )
 
-replace_llama_attn_with_xformers_attn()
+#replace_llama_attn_with_xformers_attn()
 
 from moellava.train.train import train
 
