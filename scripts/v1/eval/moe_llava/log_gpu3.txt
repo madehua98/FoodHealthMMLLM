@@ -1,0 +1,2403 @@
+[2024-05-16 21:39:13,840] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-16 21:39:16,832] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-05-16 21:39:16,832] [INFO] [runner.py:555:main] cmd = /home/data_llm/anaconda3/envs/moellava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbM119 --master_addr=127.0.0.1 --master_port=29503 --enable_each_rank_log=None test_food.py --model-path /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v101_0426/checkpoint-1419 --question-file /mnt/data_llm/json_file/101_questions_part3.jsonl --image-folder  --answers-file /home/data_llm/madehua/FoodHealthMMLLM/eval/food101/answers/MoE-LLaVA-Phi2-2.7B-4e-v101_0426-checkpoint-1419.jsonl --temperature 0 --conv-mode phi
+[2024-05-16 21:39:18,232] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-16 21:39:20,834] [INFO] [launch.py:138:main] 0 NCCL_IB_TIMEOUT=22
+[2024-05-16 21:39:20,834] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [3]}
+[2024-05-16 21:39:20,834] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-05-16 21:39:20,834] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-05-16 21:39:20,834] [INFO] [launch.py:163:main] dist_world_size=1
+[2024-05-16 21:39:20,834] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=3
+[2024-05-16 21:39:24,150] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[2024-05-16 21:39:25,642] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-05-16 21:39:25,642] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-05-16 21:39:25,642] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-05-16 21:39:25,703] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,706] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,708] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,710] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,712] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,714] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,716] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,718] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,720] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,723] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,725] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,727] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,729] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,731] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,733] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+[2024-05-16 21:39:25,736] [INFO] [logging.py:96:log_dist] [Rank 0] Creating MoE layer with num_experts: 4 | num_local_experts: 4 | expert_parallel_size: 1
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:07,  3.93s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:07<00:03,  3.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.34s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.76s/it]
+[2024-05-16 21:39:34,240] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2024-05-16 21:39:34,241] [INFO] [logging.py:96:log_dist] [Rank 0] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+model.layers.0.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.2.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.4.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.6.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.8.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.10.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.12.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.14.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.16.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.18.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.20.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.22.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.24.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.26.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.28.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+model.layers.30.mlp.deepspeed_moe.gate.wg Linear(in_features=2560, out_features=4, bias=False) match!!!!!!!!!!!!!!!!!!!!!!!!!
+  0%|          | 0/6312 [00:00<?, ?it/s]Data 12626 already validated, skipping
+Data 12627 already validated, skipping
+Data 12628 already validated, skipping
+  0%|          | 3/6312 [00:00<05:21, 19.62it/s]Data 12629 already validated, skipping
+Data 12630 already validated, skipping
+Data 12631 already validated, skipping
+  0%|          | 6/6312 [00:00<05:09, 20.38it/s]Data 12632 already validated, skipping
+Data 12633 already validated, skipping
+Data 12634 already validated, skipping
+  0%|          | 9/6312 [00:00<04:46, 21.98it/s]Data 12635 already validated, skipping
+Data 12636 already validated, skipping
+Data 12637 already validated, skipping
+  0%|          | 12/6312 [00:00<05:05, 20.59it/s]Data 12638 already validated, skipping
+Data 12639 already validated, skipping
+Data 12640 already validated, skipping
+  0%|          | 15/6312 [00:00<05:00, 20.93it/s]Data 12641 already validated, skipping
+Data 12642 already validated, skipping
+Data 12643 already validated, skipping
+  0%|          | 18/6312 [00:00<05:03, 20.75it/s]Data 12644 already validated, skipping
+Data 12645 already validated, skipping
+Data 12646 already validated, skipping
+  0%|          | 21/6312 [00:01<05:03, 20.74it/s]Data 12647 already validated, skipping
+Data 12648 already validated, skipping
+Data 12649 already validated, skipping
+  0%|          | 24/6312 [00:01<05:00, 20.94it/s]Data 12650 already validated, skipping
+Data 12651 already validated, skipping
+Data 12652 already validated, skipping
+  0%|          | 27/6312 [00:01<05:28, 19.12it/s]Data 12653 already validated, skipping
+Data 12654 already validated, skipping
+Data 12655 already validated, skipping
+  0%|          | 30/6312 [00:01<05:32, 18.87it/s]Data 12656 already validated, skipping
+Data 12657 already validated, skipping
+  1%|          | 32/6312 [00:01<05:50, 17.94it/s]Data 12658 already validated, skipping
+Data 12659 already validated, skipping
+Data 12660 already validated, skipping
+Data 12661 already validated, skipping
+  1%|          | 36/6312 [00:01<04:40, 22.34it/s]Data 12662 already validated, skipping
+Data 12663 already validated, skipping
+Data 12664 already validated, skipping
+  1%|          | 39/6312 [00:01<04:50, 21.59it/s]Data 12665 already validated, skipping
+Data 12666 already validated, skipping
+Data 12667 already validated, skipping
+Data 12668 already validated, skipping
+  1%|          | 43/6312 [00:02<04:32, 23.05it/s]Data 12669 already validated, skipping
+Data 12670 already validated, skipping
+Data 12671 already validated, skipping
+  1%|          | 46/6312 [00:02<04:41, 22.25it/s]Data 12672 already validated, skipping
+Data 12673 already validated, skipping
+Data 12674 already validated, skipping
+  1%|          | 49/6312 [00:02<04:47, 21.78it/s]Data 12675 already validated, skipping
+Data 12676 already validated, skipping
+Data 12677 already validated, skipping
+  1%|          | 52/6312 [00:02<04:43, 22.08it/s]Data 12678 already validated, skipping
+Data 12679 already validated, skipping
+Data 12680 already validated, skipping
+  1%|          | 55/6312 [00:02<04:53, 21.32it/s]Data 12681 already validated, skipping
+Data 12682 already validated, skipping
+Data 12683 already validated, skipping
+  1%|          | 58/6312 [00:02<05:02, 20.71it/s]Data 12684 already validated, skipping
+Data 12685 already validated, skipping
+Data 12686 already validated, skipping
+  1%|          | 61/6312 [00:02<05:14, 19.87it/s]Data 12687 already validated, skipping
+Data 12688 already validated, skipping
+Data 12689 already validated, skipping
+  1%|          | 64/6312 [00:03<04:51, 21.46it/s]Data 12690 already validated, skipping
+Data 12691 already validated, skipping
+Data 12692 already validated, skipping
+  1%|          | 67/6312 [00:03<05:33, 18.74it/s]Data 12693 already validated, skipping
+Data 12694 already validated, skipping
+  1%|          | 69/6312 [00:03<05:54, 17.63it/s]Data 12695 already validated, skipping
+Data 12696 already validated, skipping
+Data 12697 already validated, skipping
+  1%|          | 72/6312 [00:03<05:39, 18.39it/s]Data 12698 already validated, skipping
+Data 12699 already validated, skipping
+Data 12700 already validated, skipping
+  1%|          | 75/6312 [00:03<05:09, 20.12it/s]Data 12701 already validated, skipping
+Data 12702 already validated, skipping
+Data 12703 already validated, skipping
+  1%|          | 78/6312 [00:03<05:20, 19.47it/s]Data 12704 already validated, skipping
+Data 12705 already validated, skipping
+  1%|▏         | 80/6312 [00:03<05:28, 18.95it/s]Data 12706 already validated, skipping
+Data 12707 already validated, skipping
+  1%|▏         | 82/6312 [00:04<05:55, 17.50it/s]Data 12708 already validated, skipping
+Data 12709 already validated, skipping
+Data 12710 already validated, skipping
+  1%|▏         | 85/6312 [00:04<05:36, 18.48it/s]Data 12711 already validated, skipping
+Data 12712 already validated, skipping
+Data 12713 already validated, skipping
+  1%|▏         | 88/6312 [00:04<05:30, 18.85it/s]Data 12714 already validated, skipping
+Data 12715 already validated, skipping
+  1%|▏         | 90/6312 [00:04<05:52, 17.67it/s]Data 12716 already validated, skipping
+Data 12717 already validated, skipping
+Data 12718 already validated, skipping
+  1%|▏         | 93/6312 [00:04<05:36, 18.49it/s]Data 12719 already validated, skipping
+Data 12720 already validated, skipping
+  2%|▏         | 95/6312 [00:04<05:53, 17.61it/s]Data 12721 already validated, skipping
+Data 12722 already validated, skipping
+Data 12723 already validated, skipping
+  2%|▏         | 98/6312 [00:04<05:34, 18.58it/s]Data 12724 already validated, skipping
+Data 12725 already validated, skipping
+Data 12726 already validated, skipping
+  2%|▏         | 101/6312 [00:05<05:28, 18.88it/s]Data 12727 already validated, skipping
+Data 12728 already validated, skipping
+  2%|▏         | 103/6312 [00:05<05:34, 18.55it/s]Data 12729 already validated, skipping
+Data 12730 already validated, skipping
+Data 12731 already validated, skipping
+  2%|▏         | 106/6312 [00:05<05:30, 18.77it/s]Data 12732 already validated, skipping
+Data 12733 already validated, skipping
+  2%|▏         | 108/6312 [00:05<05:31, 18.70it/s]Data 12734 already validated, skipping
+Data 12735 already validated, skipping
+  2%|▏         | 110/6312 [00:05<05:40, 18.22it/s]Data 12736 already validated, skipping
+Data 12737 already validated, skipping
+  2%|▏         | 112/6312 [00:05<06:01, 17.14it/s]Data 12738 already validated, skipping
+Data 12739 already validated, skipping
+  2%|▏         | 114/6312 [00:05<06:29, 15.93it/s]Data 12740 already validated, skipping
+Data 12741 already validated, skipping
+Data 12742 already validated, skipping
+  2%|▏         | 117/6312 [00:06<06:13, 16.60it/s]Data 12743 already validated, skipping
+Data 12744 already validated, skipping
+  2%|▏         | 119/6312 [00:06<06:15, 16.47it/s]Data 12745 already validated, skipping
+Data 12746 already validated, skipping
+  2%|▏         | 121/6312 [00:06<06:22, 16.17it/s]Data 12747 already validated, skipping
+Data 12748 already validated, skipping
+  2%|▏         | 123/6312 [00:06<06:02, 17.07it/s]Data 12749 already validated, skipping
+Data 12750 already validated, skipping
+  2%|▏         | 125/6312 [00:06<06:04, 16.97it/s]Data 12751 already validated, skipping
+Data 12752 already validated, skipping
+  2%|▏         | 127/6312 [00:06<06:23, 16.13it/s]Data 12753 already validated, skipping
+Data 12754 already validated, skipping
+  2%|▏         | 129/6312 [00:06<06:37, 15.57it/s]Data 12755 already validated, skipping
+Data 12756 already validated, skipping
+  2%|▏         | 131/6312 [00:06<06:39, 15.47it/s]Data 12757 already validated, skipping
+Data 12758 already validated, skipping
+Data 12759 already validated, skipping
+  2%|▏         | 134/6312 [00:07<06:01, 17.07it/s]Data 12760 already validated, skipping
+Data 12761 already validated, skipping
+Data 12762 already validated, skipping
+  2%|▏         | 137/6312 [00:07<05:42, 18.02it/s]Data 12763 already validated, skipping
+Data 12764 already validated, skipping
+  2%|▏         | 139/6312 [00:07<05:58, 17.24it/s]Data 12765 already validated, skipping
+Data 12766 already validated, skipping
+  2%|▏         | 141/6312 [00:07<06:24, 16.04it/s]Data 12767 already validated, skipping
+Data 12768 already validated, skipping
+  2%|▏         | 143/6312 [00:07<06:23, 16.09it/s]Data 12769 already validated, skipping
+Data 12770 already validated, skipping
+Data 12771 already validated, skipping
+  2%|▏         | 146/6312 [00:07<05:50, 17.59it/s]Data 12772 already validated, skipping
+Data 12773 already validated, skipping
+Data 12774 already validated, skipping
+  2%|▏         | 149/6312 [00:07<05:14, 19.61it/s]Data 12775 already validated, skipping
+Data 12776 already validated, skipping
+  2%|▏         | 151/6312 [00:07<05:17, 19.38it/s]Data 12777 already validated, skipping
+Data 12778 already validated, skipping
+Data 12779 already validated, skipping
+  2%|▏         | 154/6312 [00:08<05:25, 18.92it/s]Data 12780 already validated, skipping
+Data 12781 already validated, skipping
+Data 12782 already validated, skipping
+  2%|▏         | 157/6312 [00:08<05:14, 19.59it/s]Data 12783 already validated, skipping
+Data 12784 already validated, skipping
+Data 12785 already validated, skipping
+  3%|▎         | 160/6312 [00:08<05:07, 20.01it/s]Data 12786 already validated, skipping
+Data 12787 already validated, skipping
+Data 12788 already validated, skipping
+  3%|▎         | 163/6312 [00:08<04:42, 21.78it/s]Data 12789 already validated, skipping
+Data 12790 already validated, skipping
+Data 12791 already validated, skipping
+  3%|▎         | 166/6312 [00:08<04:46, 21.48it/s]Data 12792 already validated, skipping
+Data 12793 already validated, skipping
+Data 12794 already validated, skipping
+  3%|▎         | 169/6312 [00:08<04:22, 23.38it/s]Data 12795 already validated, skipping
+Data 12796 already validated, skipping
+Data 12797 already validated, skipping
+  3%|▎         | 172/6312 [00:08<04:30, 22.72it/s]Data 12798 already validated, skipping
+Data 12799 already validated, skipping
+Data 12800 already validated, skipping
+  3%|▎         | 175/6312 [00:09<05:01, 20.33it/s]Data 12801 already validated, skipping
+Data 12802 already validated, skipping
+Data 12803 already validated, skipping
+  3%|▎         | 178/6312 [00:09<04:44, 21.54it/s]Data 12804 already validated, skipping
+Data 12805 already validated, skipping
+Data 12806 already validated, skipping
+  3%|▎         | 181/6312 [00:09<04:33, 22.42it/s]Data 12807 already validated, skipping
+Data 12808 already validated, skipping
+Data 12809 already validated, skipping
+  3%|▎         | 184/6312 [00:09<05:00, 20.42it/s]Data 12810 already validated, skipping
+Data 12811 already validated, skipping
+Data 12812 already validated, skipping
+  3%|▎         | 187/6312 [00:09<04:52, 20.94it/s]Data 12813 already validated, skipping
+Data 12814 already validated, skipping
+Data 12815 already validated, skipping
+  3%|▎         | 190/6312 [00:09<04:38, 21.95it/s]Data 12816 already validated, skipping
+Data 12817 already validated, skipping
+Data 12818 already validated, skipping
+  3%|▎         | 193/6312 [00:09<04:53, 20.82it/s]Data 12819 already validated, skipping
+Data 12820 already validated, skipping
+Data 12821 already validated, skipping
+  3%|▎         | 196/6312 [00:10<04:53, 20.82it/s]Data 12822 already validated, skipping
+Data 12823 already validated, skipping
+Data 12824 already validated, skipping
+  3%|▎         | 199/6312 [00:10<04:45, 21.38it/s]Data 12825 already validated, skipping
+Data 12826 already validated, skipping
+Data 12827 already validated, skipping
+  3%|▎         | 202/6312 [00:10<04:46, 21.31it/s]Data 12828 already validated, skipping
+Data 12829 already validated, skipping
+Data 12830 already validated, skipping
+  3%|▎         | 205/6312 [00:10<05:19, 19.09it/s]Data 12831 already validated, skipping
+Data 12832 already validated, skipping
+Data 12833 already validated, skipping
+  3%|▎         | 208/6312 [00:10<05:14, 19.42it/s]Data 12834 already validated, skipping
+Data 12835 already validated, skipping
+Data 12836 already validated, skipping
+  3%|▎         | 211/6312 [00:10<05:08, 19.79it/s]Data 12837 already validated, skipping
+Data 12838 already validated, skipping
+Data 12839 already validated, skipping
+  3%|▎         | 214/6312 [00:11<05:12, 19.50it/s]Data 12840 already validated, skipping
+Data 12841 already validated, skipping
+Data 12842 already validated, skipping
+  3%|▎         | 217/6312 [00:11<04:46, 21.30it/s]Data 12843 already validated, skipping
+Data 12844 already validated, skipping
+Data 12845 already validated, skipping
+  3%|▎         | 220/6312 [00:11<04:30, 22.51it/s]Data 12846 already validated, skipping
+Data 12847 already validated, skipping
+Data 12848 already validated, skipping
+  4%|▎         | 223/6312 [00:11<05:08, 19.76it/s]Data 12849 already validated, skipping
+Data 12850 already validated, skipping
+Data 12851 already validated, skipping
+  4%|▎         | 226/6312 [00:11<04:55, 20.56it/s]Data 12852 already validated, skipping
+Data 12853 already validated, skipping
+Data 12854 already validated, skipping
+  4%|▎         | 229/6312 [00:11<04:55, 20.57it/s]Data 12855 already validated, skipping
+Data 12856 already validated, skipping
+Data 12857 already validated, skipping
+  4%|▎         | 232/6312 [00:11<05:28, 18.51it/s]Data 12858 already validated, skipping
+Data 12859 already validated, skipping
+Data 12860 already validated, skipping
+  4%|▎         | 235/6312 [00:12<05:18, 19.07it/s]Data 12861 already validated, skipping
+Data 12862 already validated, skipping
+Data 12863 already validated, skipping
+  4%|▍         | 238/6312 [00:12<05:11, 19.51it/s]Data 12864 already validated, skipping
+Data 12865 already validated, skipping
+  4%|▍         | 240/6312 [00:12<05:33, 18.21it/s]Data 12866 already validated, skipping
+Data 12867 already validated, skipping
+Data 12868 already validated, skipping
+  4%|▍         | 243/6312 [00:12<05:14, 19.31it/s]Data 12869 already validated, skipping
+Data 12870 already validated, skipping
+  4%|▍         | 245/6312 [00:12<05:30, 18.35it/s]Data 12871 already validated, skipping
+Data 12872 already validated, skipping
+Data 12873 already validated, skipping
+  4%|▍         | 248/6312 [00:12<05:24, 18.68it/s]Data 12874 already validated, skipping
+Data 12875 already validated, skipping
+  4%|▍         | 250/6312 [00:12<05:46, 17.50it/s]Data 12876 already validated, skipping
+Data 12877 already validated, skipping
+Data 12878 already validated, skipping
+  4%|▍         | 253/6312 [00:13<05:28, 18.42it/s]Data 12879 already validated, skipping
+Data 12880 already validated, skipping
+  4%|▍         | 255/6312 [00:13<05:53, 17.12it/s]Data 12881 already validated, skipping
+Data 12882 already validated, skipping
+  4%|▍         | 257/6312 [00:13<06:06, 16.52it/s]Data 12883 already validated, skipping
+Data 12884 already validated, skipping
+Data 12885 already validated, skipping
+  4%|▍         | 260/6312 [00:13<05:35, 18.05it/s]Data 12886 already validated, skipping
+Data 12887 already validated, skipping
+  4%|▍         | 262/6312 [00:13<05:27, 18.47it/s]Data 12888 already validated, skipping
+Data 12889 already validated, skipping
+  4%|▍         | 264/6312 [00:13<05:36, 17.95it/s]Data 12890 already validated, skipping
+Data 12891 already validated, skipping
+Data 12892 already validated, skipping
+  4%|▍         | 267/6312 [00:13<05:19, 18.91it/s]Data 12893 already validated, skipping
+Data 12894 already validated, skipping
+  4%|▍         | 269/6312 [00:13<05:45, 17.48it/s]Data 12895 already validated, skipping
+Data 12896 already validated, skipping
+  4%|▍         | 271/6312 [00:14<06:00, 16.78it/s]Data 12897 already validated, skipping
+Data 12898 already validated, skipping
+Data 12899 already validated, skipping
+  4%|▍         | 274/6312 [00:14<05:36, 17.96it/s]Data 12900 already validated, skipping
+Data 12901 already validated, skipping
+  4%|▍         | 276/6312 [00:14<05:52, 17.10it/s]Data 12902 already validated, skipping
+Data 12903 already validated, skipping
+Data 12904 already validated, skipping
+  4%|▍         | 279/6312 [00:14<05:44, 17.52it/s]Data 12905 already validated, skipping
+Data 12906 already validated, skipping
+  4%|▍         | 281/6312 [00:14<05:56, 16.91it/s]Data 12907 already validated, skipping
+Data 12908 already validated, skipping
+Data 12909 already validated, skipping
+  4%|▍         | 284/6312 [00:14<05:08, 19.53it/s]Data 12910 already validated, skipping
+Data 12911 already validated, skipping
+  5%|▍         | 286/6312 [00:14<05:11, 19.35it/s]Data 12912 already validated, skipping
+Data 12913 already validated, skipping
+Data 12914 already validated, skipping
+  5%|▍         | 289/6312 [00:15<05:00, 20.07it/s]Data 12915 already validated, skipping
+Data 12916 already validated, skipping
+Data 12917 already validated, skipping
+  5%|▍         | 292/6312 [00:15<05:25, 18.49it/s]Data 12918 already validated, skipping
+Data 12919 already validated, skipping
+  5%|▍         | 294/6312 [00:15<05:40, 17.67it/s]Data 12920 already validated, skipping
+Data 12921 already validated, skipping
+Data 12922 already validated, skipping
+  5%|▍         | 297/6312 [00:15<05:41, 17.60it/s]Data 12923 already validated, skipping
+Data 12924 already validated, skipping
+Data 12925 already validated, skipping
+  5%|▍         | 300/6312 [00:15<04:58, 20.17it/s]Data 12926 already validated, skipping
+Data 12927 already validated, skipping
+Data 12928 already validated, skipping
+  5%|▍         | 303/6312 [00:15<05:06, 19.60it/s]Data 12929 already validated, skipping
+Data 12930 already validated, skipping
+Data 12931 already validated, skipping
+  5%|▍         | 306/6312 [00:15<05:07, 19.56it/s]Data 12932 already validated, skipping
+Data 12933 already validated, skipping
+Data 12934 already validated, skipping
+  5%|▍         | 309/6312 [00:16<04:54, 20.39it/s]Data 12935 already validated, skipping
+Data 12936 already validated, skipping
+Data 12937 already validated, skipping
+  5%|▍         | 312/6312 [00:16<04:47, 20.89it/s]Data 12938 already validated, skipping
+Data 12939 already validated, skipping
+Data 12940 already validated, skipping
+  5%|▍         | 315/6312 [00:16<04:30, 22.20it/s]Data 12941 already validated, skipping
+Data 12942 already validated, skipping
+Data 12943 already validated, skipping
+  5%|▌         | 318/6312 [00:16<05:12, 19.19it/s]Data 12944 already validated, skipping
+Data 12945 already validated, skipping
+Data 12946 already validated, skipping
+  5%|▌         | 321/6312 [00:16<05:44, 17.37it/s]Data 12947 already validated, skipping
+Data 12948 already validated, skipping
+Data 12949 already validated, skipping
+  5%|▌         | 324/6312 [00:16<05:19, 18.76it/s]Data 12950 already validated, skipping
+Data 12951 already validated, skipping
+  5%|▌         | 326/6312 [00:16<05:27, 18.31it/s]Data 12952 already validated, skipping
+Data 12953 already validated, skipping
+Data 12954 already validated, skipping
+  5%|▌         | 329/6312 [00:17<04:54, 20.32it/s]Data 12955 already validated, skipping
+Data 12956 already validated, skipping
+Data 12957 already validated, skipping
+  5%|▌         | 332/6312 [00:17<05:24, 18.42it/s]Data 12958 already validated, skipping
+Data 12959 already validated, skipping
+Data 12960 already validated, skipping
+  5%|▌         | 335/6312 [00:17<05:12, 19.14it/s]Data 12961 already validated, skipping
+Data 12962 already validated, skipping
+  5%|▌         | 337/6312 [00:17<05:38, 17.64it/s]Data 12963 already validated, skipping
+Data 12964 already validated, skipping
+  5%|▌         | 339/6312 [00:17<05:56, 16.75it/s]Data 12965 already validated, skipping
+Data 12966 already validated, skipping
+  5%|▌         | 341/6312 [00:17<06:04, 16.38it/s]Data 12967 already validated, skipping
+Data 12968 already validated, skipping
+Data 12969 already validated, skipping
+  5%|▌         | 344/6312 [00:18<05:39, 17.55it/s]Data 12970 already validated, skipping
+Data 12971 already validated, skipping
+Data 12972 already validated, skipping
+  5%|▌         | 347/6312 [00:18<05:16, 18.83it/s]Data 12973 already validated, skipping
+Data 12974 already validated, skipping
+  6%|▌         | 349/6312 [00:18<05:18, 18.75it/s]Data 12975 already validated, skipping
+Data 12976 already validated, skipping
+  6%|▌         | 351/6312 [00:18<05:37, 17.65it/s]Data 12977 already validated, skipping
+Data 12978 already validated, skipping
+  6%|▌         | 353/6312 [00:18<05:45, 17.22it/s]Data 12979 already validated, skipping
+Data 12980 already validated, skipping
+Data 12981 already validated, skipping
+  6%|▌         | 356/6312 [00:18<05:01, 19.77it/s]Data 12982 already validated, skipping
+Data 12983 already validated, skipping
+Data 12984 already validated, skipping
+  6%|▌         | 359/6312 [00:18<05:17, 18.77it/s]Data 12985 already validated, skipping
+Data 12986 already validated, skipping
+  6%|▌         | 361/6312 [00:18<05:27, 18.15it/s]Data 12987 already validated, skipping
+Data 12988 already validated, skipping
+Data 12989 already validated, skipping
+  6%|▌         | 364/6312 [00:19<05:07, 19.34it/s]Data 12990 already validated, skipping
+Data 12991 already validated, skipping
+Data 12992 already validated, skipping
+  6%|▌         | 367/6312 [00:19<05:07, 19.32it/s]Data 12993 already validated, skipping
+Data 12994 already validated, skipping
+Data 12995 already validated, skipping
+  6%|▌         | 370/6312 [00:19<05:03, 19.59it/s]Data 12996 already validated, skipping
+Data 12997 already validated, skipping
+Data 12998 already validated, skipping
+  6%|▌         | 373/6312 [00:19<04:59, 19.85it/s]Data 12999 already validated, skipping
+Data 13000 already validated, skipping
+Data 13001 already validated, skipping
+  6%|▌         | 376/6312 [00:19<05:01, 19.72it/s]Data 13002 already validated, skipping
+Data 13003 already validated, skipping
+  6%|▌         | 378/6312 [00:19<05:10, 19.12it/s]Data 13004 already validated, skipping
+Data 13005 already validated, skipping
+Data 13006 already validated, skipping
+  6%|▌         | 381/6312 [00:19<04:51, 20.33it/s]Data 13007 already validated, skipping
+Data 13008 already validated, skipping
+Data 13009 already validated, skipping
+  6%|▌         | 384/6312 [00:20<05:01, 19.64it/s]Data 13010 already validated, skipping
+Data 13011 already validated, skipping
+Data 13012 already validated, skipping
+  6%|▌         | 387/6312 [00:20<04:58, 19.88it/s]Data 13013 already validated, skipping
+Data 13014 already validated, skipping
+  6%|▌         | 389/6312 [00:20<05:26, 18.12it/s]Data 13015 already validated, skipping
+Data 13016 already validated, skipping
+  6%|▌         | 391/6312 [00:20<05:53, 16.76it/s]Data 13017 already validated, skipping
+Data 13018 already validated, skipping
+Data 13019 already validated, skipping
+  6%|▌         | 394/6312 [00:20<05:29, 17.95it/s]Data 13020 already validated, skipping
+Data 13021 already validated, skipping
+  6%|▋         | 396/6312 [00:20<05:41, 17.33it/s]Data 13022 already validated, skipping
+Data 13023 already validated, skipping
+  6%|▋         | 398/6312 [00:20<05:52, 16.76it/s]Data 13024 already validated, skipping
+Data 13025 already validated, skipping
+Data 13026 already validated, skipping
+  6%|▋         | 401/6312 [00:21<05:34, 17.67it/s]Data 13027 already validated, skipping
+Data 13028 already validated, skipping
+Data 13029 already validated, skipping
+  6%|▋         | 404/6312 [00:21<05:11, 18.94it/s]Data 13030 already validated, skipping
+Data 13031 already validated, skipping
+Data 13032 already validated, skipping
+  6%|▋         | 407/6312 [00:21<05:00, 19.66it/s]Data 13033 already validated, skipping
+Data 13034 already validated, skipping
+Data 13035 already validated, skipping
+  6%|▋         | 410/6312 [00:21<05:07, 19.22it/s]Data 13036 already validated, skipping
+Data 13037 already validated, skipping
+Data 13038 already validated, skipping
+  7%|▋         | 413/6312 [00:21<04:42, 20.90it/s]Data 13039 already validated, skipping
+Data 13040 already validated, skipping
+Data 13041 already validated, skipping
+  7%|▋         | 416/6312 [00:21<04:38, 21.21it/s]Data 13042 already validated, skipping
+Data 13043 already validated, skipping
+Data 13044 already validated, skipping
+  7%|▋         | 419/6312 [00:21<04:36, 21.28it/s]Data 13045 already validated, skipping
+Data 13046 already validated, skipping
+Data 13047 already validated, skipping
+  7%|▋         | 422/6312 [00:22<04:47, 20.52it/s]Data 13048 already validated, skipping
+Data 13049 already validated, skipping
+Data 13050 already validated, skipping
+  7%|▋         | 425/6312 [00:22<05:05, 19.27it/s]Data 13051 already validated, skipping
+Data 13052 already validated, skipping
+Data 13053 already validated, skipping
+  7%|▋         | 428/6312 [00:22<05:03, 19.37it/s]Data 13054 already validated, skipping
+Data 13055 already validated, skipping
+  7%|▋         | 430/6312 [00:22<05:23, 18.18it/s]Data 13056 already validated, skipping
+Data 13057 already validated, skipping
+  7%|▋         | 432/6312 [00:22<05:40, 17.26it/s]Data 13058 already validated, skipping
+Data 13059 already validated, skipping
+Data 13060 already validated, skipping
+  7%|▋         | 435/6312 [00:22<05:02, 19.44it/s]Data 13061 already validated, skipping
+Data 13062 already validated, skipping
+Data 13063 already validated, skipping
+  7%|▋         | 438/6312 [00:22<05:05, 19.24it/s]Data 13064 already validated, skipping
+Data 13065 already validated, skipping
+Data 13066 already validated, skipping
+  7%|▋         | 441/6312 [00:23<05:00, 19.53it/s]Data 13067 already validated, skipping
+Data 13068 already validated, skipping
+  7%|▋         | 443/6312 [00:23<05:19, 18.37it/s]Data 13069 already validated, skipping
+Data 13070 already validated, skipping
+Data 13071 already validated, skipping
+  7%|▋         | 446/6312 [00:23<05:07, 19.08it/s]Data 13072 already validated, skipping
+Data 13073 already validated, skipping
+  7%|▋         | 448/6312 [00:23<05:15, 18.60it/s]Data 13074 already validated, skipping
+Data 13075 already validated, skipping
+  7%|▋         | 450/6312 [00:23<05:25, 17.99it/s]Data 13076 already validated, skipping
+Data 13077 already validated, skipping
+Data 13078 already validated, skipping
+  7%|▋         | 453/6312 [00:23<05:20, 18.27it/s]Data 13079 already validated, skipping
+Data 13080 already validated, skipping
+  7%|▋         | 455/6312 [00:23<05:42, 17.08it/s]Data 13081 already validated, skipping
+Data 13082 already validated, skipping
+  7%|▋         | 457/6312 [00:24<05:45, 16.96it/s]Data 13083 already validated, skipping
+Data 13084 already validated, skipping
+Data 13085 already validated, skipping
+  7%|▋         | 460/6312 [00:24<05:30, 17.71it/s]Data 13086 already validated, skipping
+Data 13087 already validated, skipping
+Data 13088 already validated, skipping
+  7%|▋         | 463/6312 [00:24<05:23, 18.10it/s]Data 13089 already validated, skipping
+Data 13090 already validated, skipping
+  7%|▋         | 465/6312 [00:24<05:37, 17.35it/s]Data 13091 already validated, skipping
+Data 13092 already validated, skipping
+Data 13093 already validated, skipping
+  7%|▋         | 468/6312 [00:24<05:33, 17.51it/s]Data 13094 already validated, skipping
+Data 13095 already validated, skipping
+  7%|▋         | 470/6312 [00:24<05:50, 16.69it/s]Data 13096 already validated, skipping
+Data 13097 already validated, skipping
+Data 13098 already validated, skipping
+  7%|▋         | 473/6312 [00:24<05:19, 18.27it/s]Data 13099 already validated, skipping
+Data 13100 already validated, skipping
+  8%|▊         | 475/6312 [00:24<05:17, 18.39it/s]Data 13101 already validated, skipping
+Data 13102 already validated, skipping
+  8%|▊         | 477/6312 [00:25<05:57, 16.32it/s]Data 13103 already validated, skipping
+Data 13104 already validated, skipping
+Data 13105 already validated, skipping
+  8%|▊         | 480/6312 [00:25<05:30, 17.67it/s]Data 13106 already validated, skipping
+Data 13107 already validated, skipping
+Data 13108 already validated, skipping
+  8%|▊         | 483/6312 [00:25<05:06, 18.99it/s]Data 13109 already validated, skipping
+Data 13110 already validated, skipping
+  8%|▊         | 485/6312 [00:25<05:13, 18.61it/s]Data 13111 already validated, skipping
+Data 13112 already validated, skipping
+Data 13113 already validated, skipping
+  8%|▊         | 488/6312 [00:25<04:54, 19.79it/s]Data 13114 already validated, skipping
+Data 13115 already validated, skipping
+  8%|▊         | 490/6312 [00:25<05:08, 18.87it/s]Data 13116 already validated, skipping
+Data 13117 already validated, skipping
+Data 13118 already validated, skipping
+  8%|▊         | 493/6312 [00:25<05:05, 19.05it/s]Data 13119 already validated, skipping
+Data 13120 already validated, skipping
+Data 13121 already validated, skipping
+  8%|▊         | 496/6312 [00:26<04:48, 20.17it/s]Data 13122 already validated, skipping
+Data 13123 already validated, skipping
+Data 13124 already validated, skipping
+  8%|▊         | 499/6312 [00:26<04:50, 19.98it/s]Data 13125 already validated, skipping
+Data 13126 already validated, skipping
+Data 13127 already validated, skipping
+  8%|▊         | 502/6312 [00:26<05:08, 18.84it/s]Data 13128 already validated, skipping
+Data 13129 already validated, skipping
+  8%|▊         | 504/6312 [00:26<05:30, 17.56it/s]Data 13130 already validated, skipping
+Data 13131 already validated, skipping
+Data 13132 already validated, skipping
+  8%|▊         | 507/6312 [00:26<05:08, 18.83it/s]Data 13133 already validated, skipping
+Data 13134 already validated, skipping
+  8%|▊         | 509/6312 [00:26<05:23, 17.92it/s]Data 13135 already validated, skipping
+Data 13136 already validated, skipping
+Data 13137 already validated, skipping
+  8%|▊         | 512/6312 [00:26<05:09, 18.75it/s]Data 13138 already validated, skipping
+Data 13139 already validated, skipping
+Data 13140 already validated, skipping
+  8%|▊         | 515/6312 [00:27<04:55, 19.61it/s]Data 13141 already validated, skipping
+Data 13142 already validated, skipping
+  8%|▊         | 517/6312 [00:27<05:06, 18.92it/s]Data 13143 already validated, skipping
+Data 13144 already validated, skipping
+Data 13145 already validated, skipping
+  8%|▊         | 520/6312 [00:27<05:03, 19.11it/s]Data 13146 already validated, skipping
+Data 13147 already validated, skipping
+  8%|▊         | 522/6312 [00:27<05:16, 18.29it/s]Data 13148 already validated, skipping
+Data 13149 already validated, skipping
+Data 13150 already validated, skipping
+  8%|▊         | 525/6312 [00:27<05:00, 19.24it/s]Data 13151 already validated, skipping
+Data 13152 already validated, skipping
+Data 13153 already validated, skipping
+  8%|▊         | 528/6312 [00:27<04:29, 21.49it/s]Data 13154 already validated, skipping
+Data 13155 already validated, skipping
+Data 13156 already validated, skipping
+  8%|▊         | 531/6312 [00:27<04:39, 20.69it/s]Data 13157 already validated, skipping
+Data 13158 already validated, skipping
+Data 13159 already validated, skipping
+  8%|▊         | 534/6312 [00:28<05:19, 18.07it/s]Data 13160 already validated, skipping
+Data 13161 already validated, skipping
+  8%|▊         | 536/6312 [00:28<05:42, 16.86it/s]Data 13162 already validated, skipping
+Data 13163 already validated, skipping
+  9%|▊         | 538/6312 [00:28<06:02, 15.91it/s]Data 13164 already validated, skipping
+Data 13165 already validated, skipping
+Data 13166 already validated, skipping
+  9%|▊         | 541/6312 [00:28<05:34, 17.24it/s]Data 13167 already validated, skipping
+Data 13168 already validated, skipping
+Data 13169 already validated, skipping
+  9%|▊         | 544/6312 [00:28<04:55, 19.50it/s]Data 13170 already validated, skipping
+Data 13171 already validated, skipping
+Data 13172 already validated, skipping
+  9%|▊         | 547/6312 [00:28<04:45, 20.16it/s]Data 13173 already validated, skipping
+Data 13174 already validated, skipping
+Data 13175 already validated, skipping
+  9%|▊         | 550/6312 [00:28<05:02, 19.07it/s]Data 13176 already validated, skipping
+Data 13177 already validated, skipping
+  9%|▊         | 552/6312 [00:29<05:07, 18.76it/s]Data 13178 already validated, skipping
+Data 13179 already validated, skipping
+Data 13180 already validated, skipping
+  9%|▉         | 555/6312 [00:29<04:53, 19.64it/s]Data 13181 already validated, skipping
+Data 13182 already validated, skipping
+  9%|▉         | 557/6312 [00:29<05:13, 18.35it/s]Data 13183 already validated, skipping
+Data 13184 already validated, skipping
+  9%|▉         | 559/6312 [00:29<05:23, 17.78it/s]Data 13185 already validated, skipping
+Data 13186 already validated, skipping
+  9%|▉         | 561/6312 [00:29<05:22, 17.86it/s]Data 13187 already validated, skipping
+Data 13188 already validated, skipping
+  9%|▉         | 563/6312 [00:29<05:23, 17.77it/s]Data 13189 already validated, skipping
+Data 13190 already validated, skipping
+Data 13191 already validated, skipping
+  9%|▉         | 566/6312 [00:29<05:01, 19.03it/s]Data 13192 already validated, skipping
+Data 13193 already validated, skipping
+Data 13194 already validated, skipping
+  9%|▉         | 569/6312 [00:29<04:43, 20.23it/s]Data 13195 already validated, skipping
+Data 13196 already validated, skipping
+Data 13197 already validated, skipping
+  9%|▉         | 572/6312 [00:30<05:04, 18.85it/s]Data 13198 already validated, skipping
+Data 13199 already validated, skipping
+Data 13200 already validated, skipping
+  9%|▉         | 575/6312 [00:30<05:01, 19.04it/s]Data 13201 already validated, skipping
+Data 13202 already validated, skipping
+Data 13203 already validated, skipping
+  9%|▉         | 578/6312 [00:30<04:51, 19.64it/s]Data 13204 already validated, skipping
+Data 13205 already validated, skipping
+  9%|▉         | 580/6312 [00:30<05:07, 18.65it/s]Data 13206 already validated, skipping
+Data 13207 already validated, skipping
+Data 13208 already validated, skipping
+  9%|▉         | 583/6312 [00:30<05:04, 18.81it/s]Data 13209 already validated, skipping
+Data 13210 already validated, skipping
+Data 13211 already validated, skipping
+  9%|▉         | 586/6312 [00:30<04:55, 19.38it/s]Data 13212 already validated, skipping
+Data 13213 already validated, skipping
+  9%|▉         | 588/6312 [00:31<05:23, 17.69it/s]Data 13214 already validated, skipping
+Data 13215 already validated, skipping
+Data 13216 already validated, skipping
+  9%|▉         | 591/6312 [00:31<05:02, 18.90it/s]Data 13217 already validated, skipping
+Data 13218 already validated, skipping
+Data 13219 already validated, skipping
+  9%|▉         | 594/6312 [00:31<04:56, 19.31it/s]Data 13220 already validated, skipping
+Data 13221 already validated, skipping
+Data 13222 already validated, skipping
+  9%|▉         | 597/6312 [00:31<04:50, 19.64it/s]Data 13223 already validated, skipping
+Data 13224 already validated, skipping
+  9%|▉         | 599/6312 [00:31<05:17, 17.98it/s]Data 13225 already validated, skipping
+Data 13226 already validated, skipping
+ 10%|▉         | 601/6312 [00:31<05:31, 17.22it/s]Data 13227 already validated, skipping
+Data 13228 already validated, skipping
+ 10%|▉         | 603/6312 [00:31<05:20, 17.82it/s]Data 13229 already validated, skipping
+Data 13230 already validated, skipping
+ 10%|▉         | 605/6312 [00:31<05:21, 17.77it/s]Data 13231 already validated, skipping
+Data 13232 already validated, skipping
+ 10%|▉         | 607/6312 [00:32<05:22, 17.69it/s]Data 13233 already validated, skipping
+Data 13234 already validated, skipping
+ 10%|▉         | 609/6312 [00:32<05:30, 17.23it/s]Data 13235 already validated, skipping
+Data 13236 already validated, skipping
+ 10%|▉         | 611/6312 [00:32<05:33, 17.11it/s]Data 13237 already validated, skipping
+Data 13238 already validated, skipping
+Data 13239 already validated, skipping
+ 10%|▉         | 614/6312 [00:32<04:53, 19.43it/s]Data 13240 already validated, skipping
+Data 13241 already validated, skipping
+Data 13242 already validated, skipping
+ 10%|▉         | 617/6312 [00:32<04:21, 21.74it/s]Data 13243 already validated, skipping
+Data 13244 already validated, skipping
+Data 13245 already validated, skipping
+ 10%|▉         | 620/6312 [00:32<04:26, 21.39it/s]Data 13246 already validated, skipping
+Data 13247 already validated, skipping
+Data 13248 already validated, skipping
+ 10%|▉         | 623/6312 [00:32<04:19, 21.94it/s]Data 13249 already validated, skipping
+Data 13250 already validated, skipping
+Data 13251 already validated, skipping
+ 10%|▉         | 626/6312 [00:32<04:12, 22.50it/s]Data 13252 already validated, skipping
+Data 13253 already validated, skipping
+Data 13254 already validated, skipping
+ 10%|▉         | 629/6312 [00:33<04:26, 21.35it/s]Data 13255 already validated, skipping
+Data 13256 already validated, skipping
+Data 13257 already validated, skipping
+ 10%|█         | 632/6312 [00:33<04:14, 22.36it/s]Data 13258 already validated, skipping
+Data 13259 already validated, skipping
+Data 13260 already validated, skipping
+ 10%|█         | 635/6312 [00:33<04:13, 22.41it/s]Data 13261 already validated, skipping
+Data 13262 already validated, skipping
+Data 13263 already validated, skipping
+ 10%|█         | 638/6312 [00:33<04:24, 21.48it/s]Data 13264 already validated, skipping
+Data 13265 already validated, skipping
+Data 13266 already validated, skipping
+ 10%|█         | 641/6312 [00:33<04:31, 20.86it/s]Data 13267 already validated, skipping
+Data 13268 already validated, skipping
+Data 13269 already validated, skipping
+ 10%|█         | 644/6312 [00:33<04:37, 20.41it/s]Data 13270 already validated, skipping
+Data 13271 already validated, skipping
+Data 13272 already validated, skipping
+ 10%|█         | 647/6312 [00:33<04:37, 20.38it/s]Data 13273 already validated, skipping
+Data 13274 already validated, skipping
+Data 13275 already validated, skipping
+ 10%|█         | 650/6312 [00:34<04:33, 20.70it/s]Data 13276 already validated, skipping
+Data 13277 already validated, skipping
+Data 13278 already validated, skipping
+ 10%|█         | 653/6312 [00:34<04:34, 20.60it/s]Data 13279 already validated, skipping
+Data 13280 already validated, skipping
+Data 13281 already validated, skipping
+ 10%|█         | 656/6312 [00:34<04:45, 19.79it/s]Data 13282 already validated, skipping
+Data 13283 already validated, skipping
+Data 13284 already validated, skipping
+ 10%|█         | 659/6312 [00:34<04:49, 19.55it/s]Data 13285 already validated, skipping
+Data 13286 already validated, skipping
+Data 13287 already validated, skipping
+ 10%|█         | 662/6312 [00:34<04:33, 20.68it/s]Data 13288 already validated, skipping
+Data 13289 already validated, skipping
+Data 13290 already validated, skipping
+ 11%|█         | 665/6312 [00:34<04:56, 19.03it/s]Data 13291 already validated, skipping
+Data 13292 already validated, skipping
+ 11%|█         | 667/6312 [00:34<04:58, 18.94it/s]Data 13293 already validated, skipping
+Data 13294 already validated, skipping
+ 11%|█         | 669/6312 [00:35<04:57, 18.99it/s]Data 13295 already validated, skipping
+Data 13296 already validated, skipping
+Data 13297 already validated, skipping
+ 11%|█         | 672/6312 [00:35<04:53, 19.19it/s]Data 13298 already validated, skipping
+Data 13299 already validated, skipping
+Data 13300 already validated, skipping
+ 11%|█         | 675/6312 [00:35<04:24, 21.29it/s]Data 13301 already validated, skipping
+Data 13302 already validated, skipping
+Data 13303 already validated, skipping
+ 11%|█         | 678/6312 [00:35<04:25, 21.25it/s]Data 13304 already validated, skipping
+Data 13305 already validated, skipping
+Data 13306 already validated, skipping
+ 11%|█         | 681/6312 [00:35<04:42, 19.96it/s]Data 13307 already validated, skipping
+Data 13308 already validated, skipping
+Data 13309 already validated, skipping
+ 11%|█         | 684/6312 [00:35<04:34, 20.47it/s]Data 13310 already validated, skipping
+Data 13311 already validated, skipping
+Data 13312 already validated, skipping
+ 11%|█         | 687/6312 [00:35<04:50, 19.35it/s]Data 13313 already validated, skipping
+Data 13314 already validated, skipping
+ 11%|█         | 689/6312 [00:36<05:09, 18.16it/s]Data 13315 already validated, skipping
+Data 13316 already validated, skipping
+ 11%|█         | 691/6312 [00:36<05:14, 17.87it/s]Data 13317 already validated, skipping
+Data 13318 already validated, skipping
+ 11%|█         | 693/6312 [00:36<05:32, 16.92it/s]Data 13319 already validated, skipping
+Data 13320 already validated, skipping
+Data 13321 already validated, skipping
+ 11%|█         | 696/6312 [00:36<05:18, 17.65it/s]Data 13322 already validated, skipping
+Data 13323 already validated, skipping
+Data 13324 already validated, skipping
+ 11%|█         | 699/6312 [00:36<05:06, 18.29it/s]Data 13325 already validated, skipping
+Data 13326 already validated, skipping
+Data 13327 already validated, skipping
+ 11%|█         | 702/6312 [00:36<04:54, 19.04it/s]Data 13328 already validated, skipping
+Data 13329 already validated, skipping
+Data 13330 already validated, skipping
+ 11%|█         | 705/6312 [00:36<04:49, 19.38it/s]Data 13331 already validated, skipping
+Data 13332 already validated, skipping
+Data 13333 already validated, skipping
+ 11%|█         | 708/6312 [00:37<04:22, 21.33it/s]Data 13334 already validated, skipping
+Data 13335 already validated, skipping
+Data 13336 already validated, skipping
+ 11%|█▏        | 711/6312 [00:37<04:14, 21.98it/s]Data 13337 already validated, skipping
+Data 13338 already validated, skipping
+Data 13339 already validated, skipping
+ 11%|█▏        | 714/6312 [00:37<04:38, 20.09it/s]Data 13340 already validated, skipping
+Data 13341 already validated, skipping
+Data 13342 already validated, skipping
+ 11%|█▏        | 717/6312 [00:37<04:31, 20.64it/s]Data 13343 already validated, skipping
+Data 13344 already validated, skipping
+Data 13345 already validated, skipping
+Data 13346 already validated, skipping
+ 11%|█▏        | 721/6312 [00:37<04:15, 21.87it/s]Data 13347 already validated, skipping
+Data 13348 already validated, skipping
+Data 13349 already validated, skipping
+ 11%|█▏        | 724/6312 [00:37<04:54, 18.99it/s]Data 13350 already validated, skipping
+Data 13351 already validated, skipping
+Data 13352 already validated, skipping
+ 12%|█▏        | 727/6312 [00:38<04:39, 19.99it/s]Data 13353 already validated, skipping
+Data 13354 already validated, skipping
+Data 13355 already validated, skipping
+ 12%|█▏        | 730/6312 [00:38<04:39, 19.98it/s]Data 13356 already validated, skipping
+Data 13357 already validated, skipping
+Data 13358 already validated, skipping
+ 12%|█▏        | 733/6312 [00:38<04:38, 20.02it/s]Data 13359 already validated, skipping
+Data 13360 already validated, skipping
+Data 13361 already validated, skipping
+ 12%|█▏        | 736/6312 [00:38<05:06, 18.20it/s]Data 13362 already validated, skipping
+Data 13363 already validated, skipping
+ 12%|█▏        | 738/6312 [00:38<05:09, 17.99it/s]Data 13364 already validated, skipping
+Data 13365 already validated, skipping
+ 12%|█▏        | 740/6312 [00:38<05:06, 18.17it/s]Data 13366 already validated, skipping
+Data 13367 already validated, skipping
+ 12%|█▏        | 742/6312 [00:38<05:09, 17.97it/s]Data 13368 already validated, skipping
+Data 13369 already validated, skipping
+ 12%|█▏        | 744/6312 [00:38<05:18, 17.49it/s]Data 13370 already validated, skipping
+Data 13371 already validated, skipping
+Data 13372 already validated, skipping
+ 12%|█▏        | 747/6312 [00:39<04:51, 19.08it/s]Data 13373 already validated, skipping
+Data 13374 already validated, skipping
+ 12%|█▏        | 749/6312 [00:39<04:50, 19.17it/s]Data 13375 already validated, skipping
+Data 13376 already validated, skipping
+ 12%|█▏        | 751/6312 [00:39<04:58, 18.62it/s]Data 13377 already validated, skipping
+Data 13378 already validated, skipping
+Data 13379 already validated, skipping
+ 12%|█▏        | 754/6312 [00:39<04:49, 19.18it/s]Data 13380 already validated, skipping
+Data 13381 already validated, skipping
+Data 13382 already validated, skipping
+ 12%|█▏        | 757/6312 [00:39<04:40, 19.81it/s]Data 13383 already validated, skipping
+Data 13384 already validated, skipping
+ 12%|█▏        | 759/6312 [00:39<05:00, 18.46it/s]Data 13385 already validated, skipping
+Data 13386 already validated, skipping
+Data 13387 already validated, skipping
+ 12%|█▏        | 762/6312 [00:39<04:53, 18.90it/s]Data 13388 already validated, skipping
+Data 13389 already validated, skipping
+ 12%|█▏        | 764/6312 [00:40<04:52, 18.98it/s]Data 13390 already validated, skipping
+Data 13391 already validated, skipping
+ 12%|█▏        | 766/6312 [00:40<04:49, 19.14it/s]Data 13392 already validated, skipping
+Data 13393 already validated, skipping
+ 12%|█▏        | 768/6312 [00:40<05:15, 17.57it/s]Data 13394 already validated, skipping
+Data 13395 already validated, skipping
+ 12%|█▏        | 770/6312 [00:40<05:22, 17.18it/s]Data 13396 already validated, skipping
+Data 13397 already validated, skipping
+Data 13398 already validated, skipping
+ 12%|█▏        | 773/6312 [00:40<05:08, 17.97it/s]Data 13399 already validated, skipping
+Data 13400 already validated, skipping
+Data 13401 already validated, skipping
+ 12%|█▏        | 776/6312 [00:40<04:52, 18.95it/s]Data 13402 already validated, skipping
+Data 13403 already validated, skipping
+ 12%|█▏        | 778/6312 [00:40<05:12, 17.72it/s]Data 13404 already validated, skipping
+Data 13405 already validated, skipping
+ 12%|█▏        | 780/6312 [00:40<05:18, 17.35it/s]Data 13406 already validated, skipping
+Data 13407 already validated, skipping
+Data 13408 already validated, skipping
+ 12%|█▏        | 783/6312 [00:41<04:46, 19.30it/s]Data 13409 already validated, skipping
+Data 13410 already validated, skipping
+ 12%|█▏        | 785/6312 [00:41<04:56, 18.61it/s]Data 13411 already validated, skipping
+Data 13412 already validated, skipping
+Data 13413 already validated, skipping
+ 12%|█▏        | 788/6312 [00:41<05:01, 18.31it/s]Data 13414 already validated, skipping
+Data 13415 already validated, skipping
+ 13%|█▎        | 790/6312 [00:41<05:08, 17.91it/s]Data 13416 already validated, skipping
+Data 13417 already validated, skipping
+ 13%|█▎        | 792/6312 [00:41<05:36, 16.41it/s]Data 13418 already validated, skipping
+Data 13419 already validated, skipping
+Data 13420 already validated, skipping
+ 13%|█▎        | 795/6312 [00:41<05:12, 17.65it/s]Data 13421 already validated, skipping
+Data 13422 already validated, skipping
+Data 13423 already validated, skipping
+ 13%|█▎        | 798/6312 [00:41<04:46, 19.26it/s]Data 13424 already validated, skipping
+Data 13425 already validated, skipping
+ 13%|█▎        | 800/6312 [00:42<05:04, 18.13it/s]Data 13426 already validated, skipping
+Data 13427 already validated, skipping
+Data 13428 already validated, skipping
+ 13%|█▎        | 803/6312 [00:42<05:02, 18.21it/s]Data 13429 already validated, skipping
+Data 13430 already validated, skipping
+ 13%|█▎        | 805/6312 [00:42<05:16, 17.43it/s]Data 13431 already validated, skipping
+Data 13432 already validated, skipping
+ 13%|█▎        | 807/6312 [00:42<05:24, 16.99it/s]Data 13433 already validated, skipping
+Data 13434 already validated, skipping
+ 13%|█▎        | 809/6312 [00:42<05:44, 15.97it/s]Data 13435 already validated, skipping
+Data 13436 already validated, skipping
+ 13%|█▎        | 811/6312 [00:42<05:54, 15.54it/s]Data 13437 already validated, skipping
+Data 13438 already validated, skipping
+Data 13439 already validated, skipping
+ 13%|█▎        | 814/6312 [00:42<05:18, 17.25it/s]Data 13440 already validated, skipping
+Data 13441 already validated, skipping
+ 13%|█▎        | 816/6312 [00:43<05:30, 16.61it/s]Data 13442 already validated, skipping
+Data 13443 already validated, skipping
+ 13%|█▎        | 818/6312 [00:43<05:32, 16.52it/s]Data 13444 already validated, skipping
+Data 13445 already validated, skipping
+ 13%|█▎        | 820/6312 [00:43<05:52, 15.59it/s]Data 13446 already validated, skipping
+Data 13447 already validated, skipping
+Data 13448 already validated, skipping
+Data 13449 already validated, skipping
+ 13%|█▎        | 824/6312 [00:43<04:47, 19.10it/s]Data 13450 already validated, skipping
+Data 13451 already validated, skipping
+ 13%|█▎        | 826/6312 [00:43<04:59, 18.34it/s]Data 13452 already validated, skipping
+Data 13453 already validated, skipping
+Data 13454 already validated, skipping
+ 13%|█▎        | 829/6312 [00:43<04:26, 20.58it/s]Data 13455 already validated, skipping
+Data 13456 already validated, skipping
+Data 13457 already validated, skipping
+ 13%|█▎        | 832/6312 [00:43<04:50, 18.87it/s]Data 13458 already validated, skipping
+Data 13459 already validated, skipping
+Data 13460 already validated, skipping
+ 13%|█▎        | 835/6312 [00:43<04:23, 20.81it/s]Data 13461 already validated, skipping
+Data 13462 already validated, skipping
+Data 13463 already validated, skipping
+ 13%|█▎        | 838/6312 [00:44<04:00, 22.74it/s]Data 13464 already validated, skipping
+Data 13465 already validated, skipping
+Data 13466 already validated, skipping
+ 13%|█▎        | 841/6312 [00:44<04:06, 22.24it/s]Data 13467 already validated, skipping
+Data 13468 already validated, skipping
+Data 13469 already validated, skipping
+ 13%|█▎        | 844/6312 [00:44<04:24, 20.68it/s]Data 13470 already validated, skipping
+Data 13471 already validated, skipping
+Data 13472 already validated, skipping
+ 13%|█▎        | 847/6312 [00:44<04:34, 19.90it/s]Data 13473 already validated, skipping
+Data 13474 already validated, skipping
+Data 13475 already validated, skipping
+ 13%|█▎        | 850/6312 [00:44<04:47, 19.02it/s]Data 13476 already validated, skipping
+Data 13477 already validated, skipping
+ 13%|█▎        | 852/6312 [00:44<05:04, 17.93it/s]Data 13478 already validated, skipping
+Data 13479 already validated, skipping
+ 14%|█▎        | 854/6312 [00:44<05:00, 18.18it/s]Data 13480 already validated, skipping
+Data 13481 already validated, skipping
+Data 13482 already validated, skipping
+ 14%|█▎        | 857/6312 [00:45<04:23, 20.68it/s]Data 13483 already validated, skipping
+Data 13484 already validated, skipping
+Data 13485 already validated, skipping
+ 14%|█▎        | 860/6312 [00:45<05:02, 18.03it/s]Data 13486 already validated, skipping
+Data 13487 already validated, skipping
+Data 13488 already validated, skipping
+ 14%|█▎        | 863/6312 [00:45<04:47, 18.95it/s]Data 13489 already validated, skipping
+Data 13490 already validated, skipping
+Data 13491 already validated, skipping
+ 14%|█▎        | 866/6312 [00:45<04:35, 19.77it/s]Data 13492 already validated, skipping
+Data 13493 already validated, skipping
+Data 13494 already validated, skipping
+ 14%|█▍        | 869/6312 [00:45<04:34, 19.83it/s]Data 13495 already validated, skipping
+Data 13496 already validated, skipping
+Data 13497 already validated, skipping
+ 14%|█▍        | 872/6312 [00:45<04:34, 19.80it/s]Data 13498 already validated, skipping
+Data 13499 already validated, skipping
+Data 13500 already validated, skipping
+ 14%|█▍        | 875/6312 [00:46<04:39, 19.45it/s]Data 13501 already validated, skipping
+Data 13502 already validated, skipping
+Data 13503 already validated, skipping
+ 14%|█▍        | 878/6312 [00:46<04:39, 19.42it/s]Data 13504 already validated, skipping
+Data 13505 already validated, skipping
+ 14%|█▍        | 880/6312 [00:46<04:59, 18.16it/s]Data 13506 already validated, skipping
+Data 13507 already validated, skipping
+ 14%|█▍        | 882/6312 [00:46<04:53, 18.52it/s]Data 13508 already validated, skipping
+Data 13509 already validated, skipping
+ 14%|█▍        | 884/6312 [00:46<05:02, 17.93it/s]Data 13510 already validated, skipping
+Data 13511 already validated, skipping
+Data 13512 already validated, skipping
+ 14%|█▍        | 887/6312 [00:46<04:39, 19.40it/s]Data 13513 already validated, skipping
+Data 13514 already validated, skipping
+ 14%|█▍        | 889/6312 [00:46<04:58, 18.19it/s]Data 13515 already validated, skipping
+Data 13516 already validated, skipping
+ 14%|█▍        | 891/6312 [00:46<04:53, 18.47it/s]Data 13517 already validated, skipping
+Data 13518 already validated, skipping
+ 14%|█▍        | 893/6312 [00:47<05:02, 17.92it/s]Data 13519 already validated, skipping
+Data 13520 already validated, skipping
+Data 13521 already validated, skipping
+ 14%|█▍        | 896/6312 [00:47<04:48, 18.76it/s]Data 13522 already validated, skipping
+Data 13523 already validated, skipping
+ 14%|█▍        | 898/6312 [00:47<04:57, 18.22it/s]Data 13524 already validated, skipping
+Data 13525 already validated, skipping
+Data 13526 already validated, skipping
+ 14%|█▍        | 901/6312 [00:47<04:39, 19.36it/s]Data 13527 already validated, skipping
+Data 13528 already validated, skipping
+Data 13529 already validated, skipping
+ 14%|█▍        | 904/6312 [00:47<04:33, 19.77it/s]Data 13530 already validated, skipping
+Data 13531 already validated, skipping
+ 14%|█▍        | 906/6312 [00:47<04:50, 18.59it/s]Data 13532 already validated, skipping
+Data 13533 already validated, skipping
+Data 13534 already validated, skipping
+ 14%|█▍        | 909/6312 [00:47<04:37, 19.48it/s]Data 13535 already validated, skipping
+Data 13536 already validated, skipping
+ 14%|█▍        | 911/6312 [00:47<04:44, 18.97it/s]Data 13537 already validated, skipping
+Data 13538 already validated, skipping
+ 14%|█▍        | 913/6312 [00:48<04:51, 18.52it/s]Data 13539 already validated, skipping
+Data 13540 already validated, skipping
+ 14%|█▍        | 915/6312 [00:48<04:49, 18.64it/s]Data 13541 already validated, skipping
+Data 13542 already validated, skipping
+Data 13543 already validated, skipping
+ 15%|█▍        | 918/6312 [00:48<04:19, 20.79it/s]Data 13544 already validated, skipping
+Data 13545 already validated, skipping
+Data 13546 already validated, skipping
+ 15%|█▍        | 921/6312 [00:48<04:40, 19.20it/s]Data 13547 already validated, skipping
+Data 13548 already validated, skipping
+ 15%|█▍        | 923/6312 [00:48<04:46, 18.79it/s]Data 13549 already validated, skipping
+Data 13550 already validated, skipping
+ 15%|█▍        | 925/6312 [00:48<05:13, 17.16it/s]Data 13551 already validated, skipping
+Data 13552 already validated, skipping
+ 15%|█▍        | 927/6312 [00:48<05:25, 16.54it/s]Data 13553 already validated, skipping
+Data 13554 already validated, skipping
+Data 13555 already validated, skipping
+ 15%|█▍        | 930/6312 [00:48<05:07, 17.53it/s]Data 13556 already validated, skipping
+Data 13557 already validated, skipping
+Data 13558 already validated, skipping
+ 15%|█▍        | 933/6312 [00:49<04:37, 19.35it/s]Data 13559 already validated, skipping
+Data 13560 already validated, skipping
+ 15%|█▍        | 935/6312 [00:49<04:51, 18.47it/s]Data 13561 already validated, skipping
+Data 13562 already validated, skipping
+ 15%|█▍        | 937/6312 [00:49<05:15, 17.04it/s]Data 13563 already validated, skipping
+Data 13564 already validated, skipping
+Data 13565 already validated, skipping
+ 15%|█▍        | 940/6312 [00:49<04:43, 18.98it/s]Data 13566 already validated, skipping
+Data 13567 already validated, skipping
+ 15%|█▍        | 942/6312 [00:49<04:47, 18.66it/s]Data 13568 already validated, skipping
+Data 13569 already validated, skipping
+Data 13570 already validated, skipping
+ 15%|█▍        | 945/6312 [00:49<04:16, 20.92it/s]Data 13571 already validated, skipping
+Data 13572 already validated, skipping
+Data 13573 already validated, skipping
+ 15%|█▌        | 948/6312 [00:49<04:48, 18.62it/s]Data 13574 already validated, skipping
+Data 13575 already validated, skipping
+Data 13576 already validated, skipping
+ 15%|█▌        | 951/6312 [00:50<04:19, 20.64it/s]Data 13577 already validated, skipping
+Data 13578 already validated, skipping
+Data 13579 already validated, skipping
+ 15%|█▌        | 954/6312 [00:50<04:39, 19.18it/s]Data 13580 already validated, skipping
+Data 13581 already validated, skipping
+Data 13582 already validated, skipping
+ 15%|█▌        | 957/6312 [00:50<04:57, 18.00it/s]Data 13583 already validated, skipping
+Data 13584 already validated, skipping
+Data 13585 already validated, skipping
+ 15%|█▌        | 960/6312 [00:50<04:48, 18.53it/s]Data 13586 already validated, skipping
+Data 13587 already validated, skipping
+ 15%|█▌        | 962/6312 [00:50<04:55, 18.09it/s]Data 13588 already validated, skipping
+Data 13589 already validated, skipping
+Data 13590 already validated, skipping
+ 15%|█▌        | 965/6312 [00:50<04:44, 18.77it/s]Data 13591 already validated, skipping
+Data 13592 already validated, skipping
+ 15%|█▌        | 967/6312 [00:50<05:04, 17.54it/s]Data 13593 already validated, skipping
+Data 13594 already validated, skipping
+Data 13595 already validated, skipping
+ 15%|█▌        | 970/6312 [00:51<04:56, 17.99it/s]Data 13596 already validated, skipping
+Data 13597 already validated, skipping
+ 15%|█▌        | 972/6312 [00:51<05:03, 17.57it/s]Data 13598 already validated, skipping
+Data 13599 already validated, skipping
+ 15%|█▌        | 974/6312 [00:51<05:20, 16.64it/s]Data 13600 already validated, skipping
+Data 13601 already validated, skipping
+Data 13602 already validated, skipping
+ 15%|█▌        | 977/6312 [00:51<05:02, 17.64it/s]Data 13603 already validated, skipping
+Data 13604 already validated, skipping
+ 16%|█▌        | 979/6312 [00:51<05:14, 16.94it/s]Data 13605 already validated, skipping
+Data 13606 already validated, skipping
+Data 13607 already validated, skipping
+ 16%|█▌        | 982/6312 [00:51<04:59, 17.77it/s]Data 13608 already validated, skipping
+Data 13609 already validated, skipping
+ 16%|█▌        | 984/6312 [00:51<05:21, 16.59it/s]Data 13610 already validated, skipping
+Data 13611 already validated, skipping
+Data 13612 already validated, skipping
+ 16%|█▌        | 987/6312 [00:52<05:03, 17.55it/s]Data 13613 already validated, skipping
+Data 13614 already validated, skipping
+ 16%|█▌        | 989/6312 [00:52<05:18, 16.71it/s]Data 13615 already validated, skipping
+Data 13616 already validated, skipping
+ 16%|█▌        | 991/6312 [00:52<05:38, 15.74it/s]Data 13617 already validated, skipping
+Data 13618 already validated, skipping
+ 16%|█▌        | 993/6312 [00:52<05:21, 16.57it/s]Data 13619 already validated, skipping
+Data 13620 already validated, skipping
+ 16%|█▌        | 995/6312 [00:52<05:09, 17.17it/s]Data 13621 already validated, skipping
+Data 13622 already validated, skipping
+Data 13623 already validated, skipping
+ 16%|█▌        | 998/6312 [00:52<04:54, 18.02it/s]Data 13624 already validated, skipping
+Data 13625 already validated, skipping
+ 16%|█▌        | 1000/6312 [00:52<04:48, 18.43it/s]Data 13626 already validated, skipping
+Data 13627 already validated, skipping
+ 16%|█▌        | 1002/6312 [00:52<04:52, 18.18it/s]Data 13628 already validated, skipping
+Data 13629 already validated, skipping
+ 16%|█▌        | 1004/6312 [00:53<05:09, 17.15it/s]Data 13630 already validated, skipping
+Data 13631 already validated, skipping
+Data 13632 already validated, skipping
+ 16%|█▌        | 1007/6312 [00:53<04:56, 17.90it/s]Data 13633 already validated, skipping
+Data 13634 already validated, skipping
+Data 13635 already validated, skipping
+ 16%|█▌        | 1010/6312 [00:53<04:50, 18.27it/s]Data 13636 already validated, skipping
+Data 13637 already validated, skipping
+ 16%|█▌        | 1012/6312 [00:53<04:55, 17.97it/s]Data 13638 already validated, skipping
+Data 13639 already validated, skipping
+ 16%|█▌        | 1014/6312 [00:53<04:56, 17.90it/s]Data 13640 already validated, skipping
+Data 13641 already validated, skipping
+ 16%|█▌        | 1016/6312 [00:53<04:56, 17.86it/s]Data 13642 already validated, skipping
+Data 13643 already validated, skipping
+ 16%|█▌        | 1018/6312 [00:53<04:58, 17.75it/s]Data 13644 already validated, skipping
+Data 13645 already validated, skipping
+ 16%|█▌        | 1020/6312 [00:54<05:17, 16.64it/s]Data 13646 already validated, skipping
+Data 13647 already validated, skipping
+ 16%|█▌        | 1022/6312 [00:54<05:24, 16.28it/s]Data 13648 already validated, skipping
+Data 13649 already validated, skipping
+ 16%|█▌        | 1024/6312 [00:54<05:16, 16.71it/s]Data 13650 already validated, skipping
+Data 13651 already validated, skipping
+Data 13652 already validated, skipping
+ 16%|█▋        | 1027/6312 [00:54<04:34, 19.24it/s]Data 13653 already validated, skipping
+Data 13654 already validated, skipping
+Data 13655 already validated, skipping
+ 16%|█▋        | 1030/6312 [00:54<04:26, 19.80it/s]Data 13656 already validated, skipping
+Data 13657 already validated, skipping
+Data 13658 already validated, skipping
+ 16%|█▋        | 1033/6312 [00:54<04:26, 19.83it/s]Data 13659 already validated, skipping
+Data 13660 already validated, skipping
+Data 13661 already validated, skipping
+ 16%|█▋        | 1036/6312 [00:54<04:32, 19.34it/s]Data 13662 already validated, skipping
+Data 13663 already validated, skipping
+Data 13664 already validated, skipping
+ 16%|█▋        | 1039/6312 [00:54<04:24, 19.95it/s]Data 13665 already validated, skipping
+Data 13666 already validated, skipping
+Data 13667 already validated, skipping
+ 17%|█▋        | 1042/6312 [00:55<04:10, 21.03it/s]Data 13668 already validated, skipping
+Data 13669 already validated, skipping
+Data 13670 already validated, skipping
+ 17%|█▋        | 1045/6312 [00:55<04:25, 19.86it/s]Data 13671 already validated, skipping
+Data 13672 already validated, skipping
+Data 13673 already validated, skipping
+ 17%|█▋        | 1048/6312 [00:55<04:54, 17.90it/s]Data 13674 already validated, skipping
+Data 13675 already validated, skipping
+ 17%|█▋        | 1050/6312 [00:55<04:59, 17.59it/s]Data 13676 already validated, skipping
+Data 13677 already validated, skipping
+Data 13678 already validated, skipping
+ 17%|█▋        | 1053/6312 [00:55<04:52, 17.98it/s]Data 13679 already validated, skipping
+Data 13680 already validated, skipping
+ 17%|█▋        | 1055/6312 [00:55<05:08, 17.06it/s]Data 13681 already validated, skipping
+Data 13682 already validated, skipping
+ 17%|█▋        | 1057/6312 [00:56<05:20, 16.39it/s]Data 13683 already validated, skipping
+Data 13684 already validated, skipping
+Data 13685 already validated, skipping
+ 17%|█▋        | 1060/6312 [00:56<05:03, 17.31it/s]Data 13686 already validated, skipping
+Data 13687 already validated, skipping
+ 17%|█▋        | 1062/6312 [00:56<05:23, 16.21it/s]Data 13688 already validated, skipping
+Data 13689 already validated, skipping
+Data 13690 already validated, skipping
+ 17%|█▋        | 1065/6312 [00:56<04:59, 17.53it/s]Data 13691 already validated, skipping
+Data 13692 already validated, skipping
+ 17%|█▋        | 1067/6312 [00:56<05:24, 16.17it/s]Data 13693 already validated, skipping
+Data 13694 already validated, skipping
+ 17%|█▋        | 1069/6312 [00:56<05:16, 16.55it/s]Data 13695 already validated, skipping
+Data 13696 already validated, skipping
+ 17%|█▋        | 1071/6312 [00:56<05:21, 16.29it/s]Data 13697 already validated, skipping
+Data 13698 already validated, skipping
+Data 13699 already validated, skipping
+ 17%|█▋        | 1074/6312 [00:57<04:53, 17.84it/s]Data 13700 already validated, skipping
+Data 13701 already validated, skipping
+ 17%|█▋        | 1076/6312 [00:57<04:49, 18.11it/s]Data 13702 already validated, skipping
+Data 13703 already validated, skipping
+Data 13704 already validated, skipping
+ 17%|█▋        | 1079/6312 [00:57<04:36, 18.91it/s]Data 13705 already validated, skipping
+Data 13706 already validated, skipping
+Data 13707 already validated, skipping
+ 17%|█▋        | 1082/6312 [00:57<04:35, 19.01it/s]Data 13708 already validated, skipping
+Data 13709 already validated, skipping
+Data 13710 already validated, skipping
+ 17%|█▋        | 1085/6312 [00:57<04:30, 19.29it/s]Data 13711 already validated, skipping
+Data 13712 already validated, skipping
+Data 13713 already validated, skipping
+ 17%|█▋        | 1088/6312 [00:57<04:26, 19.63it/s]Data 13714 already validated, skipping
+Data 13715 already validated, skipping
+Data 13716 already validated, skipping
+ 17%|█▋        | 1091/6312 [00:57<04:20, 20.05it/s]Data 13717 already validated, skipping
+Data 13718 already validated, skipping
+Data 13719 already validated, skipping
+ 17%|█▋        | 1094/6312 [00:58<04:19, 20.08it/s]Data 13720 already validated, skipping
+Data 13721 already validated, skipping
+Data 13722 already validated, skipping
+ 17%|█▋        | 1097/6312 [00:58<04:37, 18.82it/s]Data 13723 already validated, skipping
+Data 13724 already validated, skipping
+Data 13725 already validated, skipping
+ 17%|█▋        | 1100/6312 [00:58<04:31, 19.20it/s]Data 13726 already validated, skipping
+Data 13727 already validated, skipping
+ 17%|█▋        | 1102/6312 [00:58<04:45, 18.27it/s]Data 13728 already validated, skipping
+Data 13729 already validated, skipping
+ 17%|█▋        | 1104/6312 [00:58<04:54, 17.66it/s]Data 13730 already validated, skipping
+Data 13731 already validated, skipping
+Data 13732 already validated, skipping
+ 18%|█▊        | 1107/6312 [00:58<04:40, 18.59it/s]Data 13733 already validated, skipping
+Data 13734 already validated, skipping
+Data 13735 already validated, skipping
+ 18%|█▊        | 1110/6312 [00:58<04:34, 18.95it/s]Data 13736 already validated, skipping
+Data 13737 already validated, skipping
+ 18%|█▊        | 1112/6312 [00:59<04:55, 17.61it/s]Data 13738 already validated, skipping
+Data 13739 already validated, skipping
+Data 13740 already validated, skipping
+ 18%|█▊        | 1115/6312 [00:59<04:47, 18.09it/s]Data 13741 already validated, skipping
+Data 13742 already validated, skipping
+Data 13743 already validated, skipping
+ 18%|█▊        | 1118/6312 [00:59<04:18, 20.12it/s]Data 13744 already validated, skipping
+Data 13745 already validated, skipping
+Data 13746 already validated, skipping
+ 18%|█▊        | 1121/6312 [00:59<04:15, 20.28it/s]Data 13747 already validated, skipping
+Data 13748 already validated, skipping
+Data 13749 already validated, skipping
+ 18%|█▊        | 1124/6312 [00:59<04:19, 19.99it/s]Data 13750 already validated, skipping
+Data 13751 already validated, skipping
+Data 13752 already validated, skipping
+ 18%|█▊        | 1127/6312 [00:59<04:46, 18.12it/s]Data 13753 already validated, skipping
+Data 13754 already validated, skipping
+Data 13755 already validated, skipping
+ 18%|█▊        | 1130/6312 [00:59<04:42, 18.35it/s]Data 13756 already validated, skipping
+Data 13757 already validated, skipping
+ 18%|█▊        | 1132/6312 [01:00<04:38, 18.57it/s]Data 13758 already validated, skipping
+Data 13759 already validated, skipping
+ 18%|█▊        | 1134/6312 [01:00<04:55, 17.52it/s]Data 13760 already validated, skipping
+Data 13761 already validated, skipping
+Data 13762 already validated, skipping
+ 18%|█▊        | 1137/6312 [01:00<04:39, 18.51it/s]Data 13763 already validated, skipping
+Data 13764 already validated, skipping
+Data 13765 already validated, skipping
+ 18%|█▊        | 1140/6312 [01:00<04:29, 19.16it/s]Data 13766 already validated, skipping
+Data 13767 already validated, skipping
+ 18%|█▊        | 1142/6312 [01:00<04:39, 18.48it/s]Data 13768 already validated, skipping
+Data 13769 already validated, skipping
+Data 13770 already validated, skipping
+ 18%|█▊        | 1145/6312 [01:00<04:42, 18.29it/s]Data 13771 already validated, skipping
+Data 13772 already validated, skipping
+Data 13773 already validated, skipping
+ 18%|█▊        | 1148/6312 [01:00<04:33, 18.90it/s]Data 13774 already validated, skipping
+Data 13775 already validated, skipping
+ 18%|█▊        | 1150/6312 [01:01<05:02, 17.08it/s]Data 13776 already validated, skipping
+Data 13777 already validated, skipping
+ 18%|█▊        | 1152/6312 [01:01<05:04, 16.93it/s]Data 13778 already validated, skipping
+Data 13779 already validated, skipping
+ 18%|█▊        | 1154/6312 [01:01<05:15, 16.33it/s]Data 13780 already validated, skipping
+Data 13781 already validated, skipping
+Data 13782 already validated, skipping
+ 18%|█▊        | 1157/6312 [01:01<04:57, 17.34it/s]Data 13783 already validated, skipping
+Data 13784 already validated, skipping
+Data 13785 already validated, skipping
+ 18%|█▊        | 1160/6312 [01:01<04:46, 17.99it/s]Data 13786 already validated, skipping
+Data 13787 already validated, skipping
+ 18%|█▊        | 1162/6312 [01:01<04:54, 17.49it/s]Data 13788 already validated, skipping
+Data 13789 already validated, skipping
+ 18%|█▊        | 1164/6312 [01:01<04:51, 17.65it/s]Data 13790 already validated, skipping
+Data 13791 already validated, skipping
+Data 13792 already validated, skipping
+ 18%|█▊        | 1167/6312 [01:02<04:43, 18.18it/s]Data 13793 already validated, skipping
+Data 13794 already validated, skipping
+ 19%|█▊        | 1169/6312 [01:02<04:56, 17.33it/s]Data 13795 already validated, skipping
+Data 13796 already validated, skipping
+Data 13797 already validated, skipping
+ 19%|█▊        | 1172/6312 [01:02<04:52, 17.55it/s]Data 13798 already validated, skipping
+Data 13799 already validated, skipping
+Data 13800 already validated, skipping
+ 19%|█▊        | 1175/6312 [01:02<04:42, 18.19it/s]Data 13801 already validated, skipping
+Data 13802 already validated, skipping
+Data 13803 already validated, skipping
+ 19%|█▊        | 1178/6312 [01:02<04:36, 18.58it/s]Data 13804 already validated, skipping
+Data 13805 already validated, skipping
+ 19%|█▊        | 1180/6312 [01:02<04:46, 17.94it/s]Data 13806 already validated, skipping
+Data 13807 already validated, skipping
+Data 13808 already validated, skipping
+ 19%|█▊        | 1183/6312 [01:02<04:47, 17.81it/s]Data 13809 already validated, skipping
+Data 13810 already validated, skipping
+ 19%|█▉        | 1185/6312 [01:03<04:41, 18.22it/s]Data 13811 already validated, skipping
+Data 13812 already validated, skipping
+Data 13813 already validated, skipping
+Data 13814 already validated, skipping
+ 19%|█▉        | 1189/6312 [01:03<03:53, 21.94it/s]Data 13815 already validated, skipping
+Data 13816 already validated, skipping
+Data 13817 already validated, skipping
+ 19%|█▉        | 1192/6312 [01:03<03:49, 22.28it/s]Data 13818 already validated, skipping
+Data 13819 already validated, skipping
+Data 13820 already validated, skipping
+ 19%|█▉        | 1195/6312 [01:03<03:58, 21.48it/s]Data 13821 already validated, skipping
+Data 13822 already validated, skipping
+Data 13823 already validated, skipping
+ 19%|█▉        | 1198/6312 [01:03<04:22, 19.52it/s]Data 13824 already validated, skipping
+Data 13825 already validated, skipping
+Data 13826 already validated, skipping
+ 19%|█▉        | 1201/6312 [01:03<04:15, 19.97it/s]Data 13827 already validated, skipping
+Data 13828 already validated, skipping
+Data 13829 already validated, skipping
+ 19%|█▉        | 1204/6312 [01:03<04:34, 18.61it/s]Data 13830 already validated, skipping
+Data 13831 already validated, skipping
+ 19%|█▉        | 1206/6312 [01:04<04:45, 17.91it/s]Data 13832 already validated, skipping
+Data 13833 already validated, skipping
+Data 13834 already validated, skipping
+ 19%|█▉        | 1209/6312 [01:04<04:27, 19.11it/s]Data 13835 already validated, skipping
+Data 13836 already validated, skipping
+Data 13837 already validated, skipping
+ 19%|█▉        | 1212/6312 [01:04<04:16, 19.91it/s]Data 13838 already validated, skipping
+Data 13839 already validated, skipping
+Data 13840 already validated, skipping
+ 19%|█▉        | 1215/6312 [01:04<04:16, 19.84it/s]Data 13841 already validated, skipping
+Data 13842 already validated, skipping
+Data 13843 already validated, skipping
+ 19%|█▉        | 1218/6312 [01:04<04:20, 19.52it/s]Data 13844 already validated, skipping
+Data 13845 already validated, skipping
+ 19%|█▉        | 1220/6312 [01:04<04:39, 18.24it/s]Data 13846 already validated, skipping
+Data 13847 already validated, skipping
+Data 13848 already validated, skipping
+ 19%|█▉        | 1223/6312 [01:04<04:25, 19.18it/s]Data 13849 already validated, skipping
+Data 13850 already validated, skipping
+ 19%|█▉        | 1225/6312 [01:05<04:38, 18.29it/s]Data 13851 already validated, skipping
+Data 13852 already validated, skipping
+Data 13853 already validated, skipping
+ 19%|█▉        | 1228/6312 [01:05<04:27, 19.02it/s]Data 13854 already validated, skipping
+Data 13855 already validated, skipping
+Data 13856 already validated, skipping
+ 20%|█▉        | 1231/6312 [01:05<04:17, 19.75it/s]Data 13857 already validated, skipping
+Data 13858 already validated, skipping
+Data 13859 already validated, skipping
+ 20%|█▉        | 1234/6312 [01:05<04:04, 20.75it/s]Data 13860 already validated, skipping
+Data 13861 already validated, skipping
+Data 13862 already validated, skipping
+ 20%|█▉        | 1237/6312 [01:05<04:17, 19.68it/s]Data 13863 already validated, skipping
+Data 13864 already validated, skipping
+ 20%|█▉        | 1239/6312 [01:05<04:34, 18.51it/s]Data 13865 already validated, skipping
+Data 13866 already validated, skipping
+Data 13867 already validated, skipping
+ 20%|█▉        | 1242/6312 [01:05<04:14, 19.89it/s]Data 13868 already validated, skipping
+Data 13869 already validated, skipping
+ 20%|█▉        | 1244/6312 [01:06<04:14, 19.88it/s]Data 13870 already validated, skipping
+Data 13871 already validated, skipping
+ 20%|█▉        | 1246/6312 [01:06<04:22, 19.33it/s]Data 13872 already validated, skipping
+Data 13873 already validated, skipping
+ 20%|█▉        | 1248/6312 [01:06<04:40, 18.06it/s]Data 13874 already validated, skipping
+Data 13875 already validated, skipping
+Data 13876 already validated, skipping
+ 20%|█▉        | 1251/6312 [01:06<04:27, 18.95it/s]Data 13877 already validated, skipping
+Data 13878 already validated, skipping
+Data 13879 already validated, skipping
+ 20%|█▉        | 1254/6312 [01:06<04:27, 18.90it/s]Data 13880 already validated, skipping
+Data 13881 already validated, skipping
+Data 13882 already validated, skipping
+ 20%|█▉        | 1257/6312 [01:06<04:07, 20.42it/s]Data 13883 already validated, skipping
+Data 13884 already validated, skipping
+Data 13885 already validated, skipping
+ 20%|█▉        | 1260/6312 [01:06<04:34, 18.39it/s]Data 13886 already validated, skipping
+Data 13887 already validated, skipping
+ 20%|█▉        | 1262/6312 [01:07<04:52, 17.27it/s]Data 13888 already validated, skipping
+Data 13889 already validated, skipping
+Data 13890 already validated, skipping
+ 20%|██        | 1265/6312 [01:07<04:47, 17.57it/s]Data 13891 already validated, skipping
+Data 13892 already validated, skipping
+Data 13893 already validated, skipping
+ 20%|██        | 1268/6312 [01:07<04:27, 18.87it/s]Data 13894 already validated, skipping
+Data 13895 already validated, skipping
+ 20%|██        | 1270/6312 [01:07<04:45, 17.68it/s]Data 13896 already validated, skipping
+Data 13897 already validated, skipping
+ 20%|██        | 1272/6312 [01:07<04:55, 17.07it/s]Data 13898 already validated, skipping
+Data 13899 already validated, skipping
+Data 13900 already validated, skipping
+ 20%|██        | 1275/6312 [01:07<04:25, 19.00it/s]Data 13901 already validated, skipping
+Data 13902 already validated, skipping
+Data 13903 already validated, skipping
+ 20%|██        | 1278/6312 [01:07<04:05, 20.53it/s]Data 13904 already validated, skipping
+Data 13905 already validated, skipping
+Data 13906 already validated, skipping
+ 20%|██        | 1281/6312 [01:07<03:59, 20.99it/s]Data 13907 already validated, skipping
+Data 13908 already validated, skipping
+Data 13909 already validated, skipping
+ 20%|██        | 1284/6312 [01:08<04:04, 20.56it/s]Data 13910 already validated, skipping
+Data 13911 already validated, skipping
+Data 13912 already validated, skipping
+ 20%|██        | 1287/6312 [01:08<04:05, 20.43it/s]Data 13913 already validated, skipping
+Data 13914 already validated, skipping
+Data 13915 already validated, skipping
+ 20%|██        | 1290/6312 [01:08<04:06, 20.41it/s]Data 13916 already validated, skipping
+Data 13917 already validated, skipping
+Data 13918 already validated, skipping
+ 20%|██        | 1293/6312 [01:08<04:11, 19.94it/s]Data 13919 already validated, skipping
+Data 13920 already validated, skipping
+Data 13921 already validated, skipping
+ 21%|██        | 1296/6312 [01:08<04:21, 19.15it/s]Data 13922 already validated, skipping
+Data 13923 already validated, skipping
+Data 13924 already validated, skipping
+ 21%|██        | 1299/6312 [01:08<04:21, 19.18it/s]Data 13925 already validated, skipping
+Data 13926 already validated, skipping
+ 21%|██        | 1301/6312 [01:09<04:34, 18.23it/s]Data 13927 already validated, skipping
+Data 13928 already validated, skipping
+Data 13929 already validated, skipping
+ 21%|██        | 1304/6312 [01:09<04:29, 18.59it/s]Data 13930 already validated, skipping
+Data 13931 already validated, skipping
+Data 13932 already validated, skipping
+ 21%|██        | 1307/6312 [01:09<04:10, 20.00it/s]Data 13933 already validated, skipping
+Data 13934 already validated, skipping
+Data 13935 already validated, skipping
+ 21%|██        | 1310/6312 [01:09<04:00, 20.81it/s]Data 13936 already validated, skipping
+Data 13937 already validated, skipping
+Data 13938 already validated, skipping
+ 21%|██        | 1313/6312 [01:09<04:06, 20.29it/s]Data 13939 already validated, skipping
+Data 13940 already validated, skipping
+Data 13941 already validated, skipping
+ 21%|██        | 1316/6312 [01:09<04:06, 20.31it/s]Data 13942 already validated, skipping
+Data 13943 already validated, skipping
+Data 13944 already validated, skipping
+ 21%|██        | 1319/6312 [01:09<03:58, 20.96it/s]Data 13945 already validated, skipping
+Data 13946 already validated, skipping
+Data 13947 already validated, skipping
+ 21%|██        | 1322/6312 [01:10<04:21, 19.07it/s]Data 13948 already validated, skipping
+Data 13949 already validated, skipping
+ 21%|██        | 1324/6312 [01:10<04:47, 17.33it/s]Data 13950 already validated, skipping
+Data 13951 already validated, skipping
+Data 13952 already validated, skipping
+ 21%|██        | 1327/6312 [01:10<04:28, 18.54it/s]Data 13953 already validated, skipping
+Data 13954 already validated, skipping
+Data 13955 already validated, skipping
+ 21%|██        | 1330/6312 [01:10<04:20, 19.10it/s]Data 13956 already validated, skipping
+Data 13957 already validated, skipping
+Data 13958 already validated, skipping
+ 21%|██        | 1333/6312 [01:10<04:23, 18.89it/s]Data 13959 already validated, skipping
+Data 13960 already validated, skipping
+ 21%|██        | 1335/6312 [01:10<04:36, 18.01it/s]Data 13961 already validated, skipping
+Data 13962 already validated, skipping
+Data 13963 already validated, skipping
+ 21%|██        | 1338/6312 [01:10<04:30, 18.38it/s]Data 13964 already validated, skipping
+Data 13965 already validated, skipping
+ 21%|██        | 1340/6312 [01:11<04:47, 17.27it/s]Data 13966 already validated, skipping
+Data 13967 already validated, skipping
+Data 13968 already validated, skipping
+ 21%|██▏       | 1343/6312 [01:11<04:33, 18.14it/s]Data 13969 already validated, skipping
+Data 13970 already validated, skipping
+Data 13971 already validated, skipping
+ 21%|██▏       | 1346/6312 [01:11<04:18, 19.21it/s]Data 13972 already validated, skipping
+Data 13973 already validated, skipping
+ 21%|██▏       | 1348/6312 [01:11<04:19, 19.10it/s]Data 13974 already validated, skipping
+Data 13975 already validated, skipping
+Data 13976 already validated, skipping
+ 21%|██▏       | 1351/6312 [01:11<04:17, 19.27it/s]Data 13977 already validated, skipping
+Data 13978 already validated, skipping
+Data 13979 already validated, skipping
+ 21%|██▏       | 1354/6312 [01:11<04:10, 19.82it/s]Data 13980 already validated, skipping
+Data 13981 already validated, skipping
+ 21%|██▏       | 1356/6312 [01:11<04:26, 18.57it/s]Data 13982 already validated, skipping
+Data 13983 already validated, skipping
+Data 13984 already validated, skipping
+ 22%|██▏       | 1359/6312 [01:12<04:18, 19.13it/s]Data 13985 already validated, skipping
+Data 13986 already validated, skipping
+ 22%|██▏       | 1361/6312 [01:12<04:42, 17.55it/s]Data 13987 already validated, skipping
+Data 13988 already validated, skipping
+ 22%|██▏       | 1363/6312 [01:12<05:04, 16.24it/s]Data 13989 already validated, skipping
+Data 13990 already validated, skipping
+Data 13991 already validated, skipping
+ 22%|██▏       | 1366/6312 [01:12<04:22, 18.83it/s]Data 13992 already validated, skipping
+Data 13993 already validated, skipping
+Data 13994 already validated, skipping
+ 22%|██▏       | 1369/6312 [01:12<04:16, 19.24it/s]Data 13995 already validated, skipping
+Data 13996 already validated, skipping
+Data 13997 already validated, skipping
+ 22%|██▏       | 1372/6312 [01:12<04:15, 19.36it/s]Data 13998 already validated, skipping
+Data 13999 already validated, skipping
+ 22%|██▏       | 1374/6312 [01:12<04:14, 19.43it/s]Data 14000 already validated, skipping
+Data 14001 already validated, skipping
+ 22%|██▏       | 1376/6312 [01:12<04:19, 19.02it/s]Data 14002 already validated, skipping
+Data 14003 already validated, skipping
+Data 14004 already validated, skipping
+ 22%|██▏       | 1379/6312 [01:13<04:14, 19.41it/s]Data 14005 already validated, skipping
+Data 14006 already validated, skipping
+ 22%|██▏       | 1381/6312 [01:13<04:40, 17.56it/s]Data 14007 already validated, skipping
+Data 14008 already validated, skipping
+Data 14009 already validated, skipping
+ 22%|██▏       | 1384/6312 [01:13<04:23, 18.67it/s]Data 14010 already validated, skipping
+Data 14011 already validated, skipping
+ 22%|██▏       | 1386/6312 [01:13<04:33, 18.00it/s]Data 14012 already validated, skipping
+Data 14013 already validated, skipping
+ 22%|██▏       | 1388/6312 [01:13<04:31, 18.13it/s]Data 14014 already validated, skipping
+Data 14015 already validated, skipping
+ 22%|██▏       | 1390/6312 [01:13<04:33, 17.99it/s]Data 14016 already validated, skipping
+Data 14017 already validated, skipping
+Data 14018 already validated, skipping
+ 22%|██▏       | 1393/6312 [01:13<04:14, 19.36it/s]Data 14019 already validated, skipping
+Data 14020 already validated, skipping
+Data 14021 already validated, skipping
+ 22%|██▏       | 1396/6312 [01:14<04:09, 19.68it/s]Data 14022 already validated, skipping
+Data 14023 already validated, skipping
+ 22%|██▏       | 1398/6312 [01:14<04:29, 18.25it/s]Data 14024 already validated, skipping
+Data 14025 already validated, skipping
+Data 14026 already validated, skipping
+ 22%|██▏       | 1401/6312 [01:14<03:58, 20.61it/s]Data 14027 already validated, skipping
+Data 14028 already validated, skipping
+Data 14029 already validated, skipping
+ 22%|██▏       | 1404/6312 [01:14<04:04, 20.04it/s]Data 14030 already validated, skipping
+Data 14031 already validated, skipping
+Data 14032 already validated, skipping
+ 22%|██▏       | 1407/6312 [01:14<04:16, 19.09it/s]Data 14033 already validated, skipping
+Data 14034 already validated, skipping
+Data 14035 already validated, skipping
+ 22%|██▏       | 1410/6312 [01:14<03:55, 20.78it/s]Data 14036 already validated, skipping
+Data 14037 already validated, skipping
+Data 14038 already validated, skipping
+ 22%|██▏       | 1413/6312 [01:14<03:56, 20.69it/s]Data 14039 already validated, skipping
+Data 14040 already validated, skipping
+Data 14041 already validated, skipping
+ 22%|██▏       | 1416/6312 [01:15<03:59, 20.44it/s]Data 14042 already validated, skipping
+Data 14043 already validated, skipping
+Data 14044 already validated, skipping
+ 22%|██▏       | 1419/6312 [01:15<04:14, 19.20it/s]Data 14045 already validated, skipping
+Data 14046 already validated, skipping
+Data 14047 already validated, skipping
+ 23%|██▎       | 1422/6312 [01:15<04:01, 20.29it/s]Data 14048 already validated, skipping
+Data 14049 already validated, skipping
+Data 14050 already validated, skipping
+ 23%|██▎       | 1425/6312 [01:15<04:17, 18.99it/s]Data 14051 already validated, skipping
+Data 14052 already validated, skipping
+ 23%|██▎       | 1427/6312 [01:15<04:15, 19.08it/s]Data 14053 already validated, skipping
+Data 14054 already validated, skipping
+ 23%|██▎       | 1429/6312 [01:15<04:34, 17.76it/s]Data 14055 already validated, skipping
+Data 14056 already validated, skipping
+Data 14057 already validated, skipping
+ 23%|██▎       | 1432/6312 [01:15<04:20, 18.72it/s]Data 14058 already validated, skipping
+Data 14059 already validated, skipping
+ 23%|██▎       | 1434/6312 [01:16<04:36, 17.63it/s]Data 14060 already validated, skipping
+Data 14061 already validated, skipping
+Data 14062 already validated, skipping
+ 23%|██▎       | 1437/6312 [01:16<04:04, 19.93it/s]Data 14063 already validated, skipping
+Data 14064 already validated, skipping
+Data 14065 already validated, skipping
+ 23%|██▎       | 1440/6312 [01:16<04:02, 20.13it/s]Data 14066 already validated, skipping
+Data 14067 already validated, skipping
+Data 14068 already validated, skipping
+ 23%|██▎       | 1443/6312 [01:16<04:27, 18.20it/s]Data 14069 already validated, skipping
+Data 14070 already validated, skipping
+Data 14071 already validated, skipping
+ 23%|██▎       | 1446/6312 [01:16<04:10, 19.39it/s]Data 14072 already validated, skipping
+Data 14073 already validated, skipping
+Data 14074 already validated, skipping
+ 23%|██▎       | 1449/6312 [01:16<04:06, 19.76it/s]Data 14075 already validated, skipping
+Data 14076 already validated, skipping
+Data 14077 already validated, skipping
+ 23%|██▎       | 1452/6312 [01:16<03:48, 21.24it/s]Data 14078 already validated, skipping
+Data 14079 already validated, skipping
+Data 14080 already validated, skipping
+ 23%|██▎       | 1455/6312 [01:17<03:52, 20.90it/s]Data 14081 already validated, skipping
+Data 14082 already validated, skipping
+Data 14083 already validated, skipping
+ 23%|██▎       | 1458/6312 [01:17<04:10, 19.35it/s]Data 14084 already validated, skipping
+Data 14085 already validated, skipping
+Data 14086 already validated, skipping
+ 23%|██▎       | 1461/6312 [01:17<04:04, 19.83it/s]Data 14087 already validated, skipping
+Data 14088 already validated, skipping
+Data 14089 already validated, skipping
+ 23%|██▎       | 1464/6312 [01:17<04:01, 20.06it/s]Data 14090 already validated, skipping
+Data 14091 already validated, skipping
+Data 14092 already validated, skipping
+ 23%|██▎       | 1467/6312 [01:17<04:00, 20.11it/s]Data 14093 already validated, skipping
+Data 14094 already validated, skipping
+Data 14095 already validated, skipping
+ 23%|██▎       | 1470/6312 [01:17<04:03, 19.92it/s]Data 14096 already validated, skipping
+Data 14097 already validated, skipping
+Data 14098 already validated, skipping
+ 23%|██▎       | 1473/6312 [01:17<04:14, 19.01it/s]Data 14099 already validated, skipping
+Data 14100 already validated, skipping
+Data 14101 already validated, skipping
+ 23%|██▎       | 1476/6312 [01:18<03:55, 20.56it/s]Data 14102 already validated, skipping
+Data 14103 already validated, skipping
+Data 14104 already validated, skipping
+ 23%|██▎       | 1479/6312 [01:18<04:15, 18.93it/s]Data 14105 already validated, skipping
+Data 14106 already validated, skipping
+Data 14107 already validated, skipping
+ 23%|██▎       | 1482/6312 [01:18<04:12, 19.15it/s]Data 14108 already validated, skipping
+Data 14109 already validated, skipping
+ 24%|██▎       | 1484/6312 [01:18<04:18, 18.67it/s]Data 14110 already validated, skipping
+Data 14111 already validated, skipping
+ 24%|██▎       | 1486/6312 [01:18<04:30, 17.84it/s]Data 14112 already validated, skipping
+Data 14113 already validated, skipping
+Data 14114 already validated, skipping
+ 24%|██▎       | 1489/6312 [01:18<04:24, 18.26it/s]Data 14115 already validated, skipping
+Data 14116 already validated, skipping
+ 24%|██▎       | 1491/6312 [01:18<04:29, 17.91it/s]Data 14117 already validated, skipping
+Data 14118 already validated, skipping
+ 24%|██▎       | 1493/6312 [01:19<04:31, 17.75it/s]Data 14119 already validated, skipping
+Data 14120 already validated, skipping
+ 24%|██▎       | 1495/6312 [01:19<04:44, 16.91it/s]Data 14121 already validated, skipping
+Data 14122 already validated, skipping
+Data 14123 already validated, skipping
+ 24%|██▎       | 1498/6312 [01:19<04:07, 19.48it/s]Data 14124 already validated, skipping
+Data 14125 already validated, skipping
+Data 14126 already validated, skipping
+ 24%|██▍       | 1501/6312 [01:19<03:42, 21.60it/s]Data 14127 already validated, skipping
+Data 14128 already validated, skipping
+Data 14129 already validated, skipping
+ 24%|██▍       | 1504/6312 [01:19<04:14, 18.87it/s]Data 14130 already validated, skipping
+Data 14131 already validated, skipping
+Data 14132 already validated, skipping
+ 24%|██▍       | 1507/6312 [01:19<04:04, 19.68it/s]Data 14133 already validated, skipping
+Data 14134 already validated, skipping
+Data 14135 already validated, skipping
+ 24%|██▍       | 1510/6312 [01:19<04:04, 19.62it/s]Data 14136 already validated, skipping
+Data 14137 already validated, skipping
+Data 14138 already validated, skipping
+ 24%|██▍       | 1513/6312 [01:20<04:19, 18.50it/s]Data 14139 already validated, skipping
+Data 14140 already validated, skipping
+Data 14141 already validated, skipping
+ 24%|██▍       | 1516/6312 [01:20<03:55, 20.39it/s]Data 14142 already validated, skipping
+Data 14143 already validated, skipping
+Data 14144 already validated, skipping
+ 24%|██▍       | 1519/6312 [01:20<04:07, 19.37it/s]Data 14145 already validated, skipping
+Data 14146 already validated, skipping
+Data 14147 already validated, skipping
+ 24%|██▍       | 1522/6312 [01:20<03:54, 20.44it/s]Data 14148 already validated, skipping
+Data 14149 already validated, skipping
+Data 14150 already validated, skipping
+ 24%|██▍       | 1525/6312 [01:20<03:53, 20.48it/s]Data 14151 already validated, skipping
+Data 14152 already validated, skipping
+Data 14153 already validated, skipping
+ 24%|██▍       | 1528/6312 [01:20<03:36, 22.13it/s]Data 14154 already validated, skipping
+Data 14155 already validated, skipping
+Data 14156 already validated, skipping
+ 24%|██▍       | 1531/6312 [01:20<03:57, 20.13it/s]Data 14157 already validated, skipping
+Data 14158 already validated, skipping
+Data 14159 already validated, skipping
+ 24%|██▍       | 1534/6312 [01:21<03:57, 20.14it/s]Data 14160 already validated, skipping
+Data 14161 already validated, skipping
+Data 14162 already validated, skipping
+ 24%|██▍       | 1537/6312 [01:21<04:12, 18.88it/s]Data 14163 already validated, skipping
+Data 14164 already validated, skipping
+ 24%|██▍       | 1539/6312 [01:21<04:19, 18.40it/s]Data 14165 already validated, skipping
+Data 14166 already validated, skipping
+ 24%|██▍       | 1541/6312 [01:21<04:30, 17.66it/s]Data 14167 already validated, skipping
+Data 14168 already validated, skipping
+Data 14169 already validated, skipping
+ 24%|██▍       | 1544/6312 [01:21<04:18, 18.44it/s]Data 14170 already validated, skipping
+Data 14171 already validated, skipping
+Data 14172 already validated, skipping
+ 25%|██▍       | 1547/6312 [01:21<03:48, 20.88it/s]Data 14173 already validated, skipping
+Data 14174 already validated, skipping
+Data 14175 already validated, skipping
+ 25%|██▍       | 1550/6312 [01:21<03:41, 21.47it/s]Data 14176 already validated, skipping
+Data 14177 already validated, skipping
+Data 14178 already validated, skipping
+ 25%|██▍       | 1553/6312 [01:22<04:03, 19.51it/s]Data 14179 already validated, skipping
+Data 14180 already validated, skipping
+Data 14181 already validated, skipping
+ 25%|██▍       | 1556/6312 [01:22<04:07, 19.23it/s]Data 14182 already validated, skipping
+Data 14183 already validated, skipping
+Data 14184 already validated, skipping
+ 25%|██▍       | 1559/6312 [01:22<04:12, 18.79it/s]Data 14185 already validated, skipping
+Data 14186 already validated, skipping
+ 25%|██▍       | 1561/6312 [01:22<04:34, 17.32it/s]Data 14187 already validated, skipping
+Data 14188 already validated, skipping
+ 25%|██▍       | 1563/6312 [01:22<04:40, 16.96it/s]Data 14189 already validated, skipping
+Data 14190 already validated, skipping
+ 25%|██▍       | 1565/6312 [01:22<04:47, 16.49it/s]Data 14191 already validated, skipping
+Data 14192 already validated, skipping
+ 25%|██▍       | 1567/6312 [01:22<04:49, 16.36it/s]Data 14193 already validated, skipping
+Data 14194 already validated, skipping
+Data 14195 already validated, skipping
+ 25%|██▍       | 1570/6312 [01:23<04:35, 17.24it/s]Data 14196 already validated, skipping
+Data 14197 already validated, skipping
+Data 14198 already validated, skipping
+ 25%|██▍       | 1573/6312 [01:23<04:00, 19.72it/s]Data 14199 already validated, skipping
+Data 14200 already validated, skipping
+Data 14201 already validated, skipping
+ 25%|██▍       | 1576/6312 [01:23<03:51, 20.45it/s]Data 14202 already validated, skipping
+Data 14203 already validated, skipping
+Data 14204 already validated, skipping
+ 25%|██▌       | 1579/6312 [01:23<03:39, 21.57it/s]Data 14205 already validated, skipping
+Data 14206 already validated, skipping
+Data 14207 already validated, skipping
+ 25%|██▌       | 1582/6312 [01:23<03:41, 21.36it/s]Data 14208 already validated, skipping
+Data 14209 already validated, skipping
+Data 14210 already validated, skipping
+ 25%|██▌       | 1585/6312 [01:23<03:44, 21.02it/s]Data 14211 already validated, skipping
+Data 14212 already validated, skipping
+Data 14213 already validated, skipping
+ 25%|██▌       | 1588/6312 [01:23<03:56, 20.00it/s]Data 14214 already validated, skipping
+Data 14215 already validated, skipping
+Data 14216 already validated, skipping
+ 25%|██▌       | 1591/6312 [01:24<04:18, 18.27it/s]Data 14217 already validated, skipping
+Data 14218 already validated, skipping
+Data 14219 already validated, skipping
+ 25%|██▌       | 1594/6312 [01:24<04:00, 19.65it/s]Data 14220 already validated, skipping
+Data 14221 already validated, skipping
+Data 14222 already validated, skipping
+ 25%|██▌       | 1597/6312 [01:24<04:19, 18.19it/s]Data 14223 already validated, skipping
+Data 14224 already validated, skipping
+Data 14225 already validated, skipping
+ 25%|██▌       | 1600/6312 [01:24<04:05, 19.16it/s]Data 14226 already validated, skipping
+Data 14227 already validated, skipping
+ 25%|██▌       | 1602/6312 [01:24<04:21, 18.03it/s]Data 14228 already validated, skipping
+Data 14229 already validated, skipping
+Data 14230 already validated, skipping
+ 25%|██▌       | 1605/6312 [01:24<03:53, 20.16it/s]Data 14231 already validated, skipping
+Data 14232 already validated, skipping
+Data 14233 already validated, skipping
+ 25%|██▌       | 1608/6312 [01:24<03:51, 20.28it/s]Data 14234 already validated, skipping
+Data 14235 already validated, skipping
+Data 14236 already validated, skipping
+ 26%|██▌       | 1611/6312 [01:25<04:16, 18.35it/s]Data 14237 already validated, skipping
+Data 14238 already validated, skipping
+ 26%|██▌       | 1613/6312 [01:25<04:19, 18.12it/s]Data 14239 already validated, skipping
+Data 14240 already validated, skipping
+ 26%|██▌       | 1615/6312 [01:25<04:21, 17.97it/s]Data 14241 already validated, skipping
+Data 14242 already validated, skipping
+ 26%|██▌       | 1617/6312 [01:25<04:18, 18.15it/s]Data 14243 already validated, skipping
+Data 14244 already validated, skipping
+ 26%|██▌       | 1619/6312 [01:25<04:16, 18.32it/s]Data 14245 already validated, skipping
+Data 14246 already validated, skipping
+ 26%|██▌       | 1621/6312 [01:25<04:10, 18.70it/s]Data 14247 already validated, skipping
+Data 14248 already validated, skipping
+ 26%|██▌       | 1623/6312 [01:25<04:15, 18.32it/s]Data 14249 already validated, skipping
+Data 14250 already validated, skipping
+ 26%|██▌       | 1625/6312 [01:25<04:30, 17.34it/s]Data 14251 already validated, skipping
+Data 14252 already validated, skipping
+Data 14253 already validated, skipping
+ 26%|██▌       | 1628/6312 [01:26<04:23, 17.75it/s]Data 14254 already validated, skipping
+Data 14255 already validated, skipping
+ 26%|██▌       | 1630/6312 [01:26<04:21, 17.89it/s]Data 14256 already validated, skipping
+Data 14257 already validated, skipping
+ 26%|██▌       | 1632/6312 [01:26<04:37, 16.87it/s]Data 14258 already validated, skipping
+Data 14259 already validated, skipping
+Data 14260 already validated, skipping
+ 26%|██▌       | 1635/6312 [01:26<04:14, 18.35it/s]Data 14261 already validated, skipping
+Data 14262 already validated, skipping
+ 26%|██▌       | 1637/6312 [01:26<04:29, 17.35it/s]Data 14263 already validated, skipping
+Data 14264 already validated, skipping
+ 26%|██▌       | 1639/6312 [01:26<04:38, 16.80it/s]Data 14265 already validated, skipping
+Data 14266 already validated, skipping
+ 26%|██▌       | 1641/6312 [01:26<04:37, 16.81it/s]Data 14267 already validated, skipping
+Data 14268 already validated, skipping
+ 26%|██▌       | 1643/6312 [01:27<04:49, 16.12it/s]Data 14269 already validated, skipping
+Data 14270 already validated, skipping
+ 26%|██▌       | 1645/6312 [01:27<05:09, 15.06it/s]Data 14271 already validated, skipping
+Data 14272 already validated, skipping
+ 26%|██▌       | 1647/6312 [01:27<05:06, 15.23it/s]Data 14273 already validated, skipping
+Data 14274 already validated, skipping
+ 26%|██▌       | 1649/6312 [01:27<04:58, 15.60it/s]Data 14275 already validated, skipping
+Data 14276 already validated, skipping
+ 26%|██▌       | 1651/6312 [01:27<05:03, 15.35it/s]Data 14277 already validated, skipping
+Data 14278 already validated, skipping
+Data 14279 already validated, skipping
+ 26%|██▌       | 1654/6312 [01:27<04:18, 17.99it/s]Data 14280 already validated, skipping
+Data 14281 already validated, skipping
+ 26%|██▌       | 1656/6312 [01:27<04:13, 18.38it/s]Data 14282 already validated, skipping
+Data 14283 already validated, skipping
+Data 14284 already validated, skipping
+ 26%|██▋       | 1659/6312 [01:27<03:50, 20.17it/s]Data 14285 already validated, skipping
+Data 14286 already validated, skipping
+Data 14287 already validated, skipping
+ 26%|██▋       | 1662/6312 [01:28<04:21, 17.77it/s]Data 14288 already validated, skipping
+Data 14289 already validated, skipping
+ 26%|██▋       | 1664/6312 [01:28<04:18, 17.98it/s]Data 14290 already validated, skipping
+Data 14291 already validated, skipping
+ 26%|██▋       | 1666/6312 [01:28<04:35, 16.88it/s]Data 14292 already validated, skipping
+Data 14293 already validated, skipping
+ 26%|██▋       | 1668/6312 [01:28<04:41, 16.50it/s]Data 14294 already validated, skipping
+Data 14295 already validated, skipping
+ 26%|██▋       | 1670/6312 [01:28<04:32, 17.01it/s]Data 14296 already validated, skipping
+Data 14297 already validated, skipping
+Data 14298 already validated, skipping
+ 27%|██▋       | 1673/6312 [01:28<04:16, 18.09it/s]Data 14299 already validated, skipping
+Data 14300 already validated, skipping
+ 27%|██▋       | 1675/6312 [01:28<04:27, 17.31it/s]Data 14301 already validated, skipping
+Data 14302 already validated, skipping
+Data 14303 already validated, skipping
+ 27%|██▋       | 1678/6312 [01:29<04:00, 19.26it/s]Data 14304 already validated, skipping
+Data 14305 already validated, skipping
+Data 14306 already validated, skipping
+ 27%|██▋       | 1681/6312 [01:29<03:59, 19.37it/s]Data 14307 already validated, skipping
+Data 14308 already validated, skipping
+Data 14309 already validated, skipping
+ 27%|██▋       | 1684/6312 [01:29<03:57, 19.50it/s]Data 14310 already validated, skipping
+Data 14311 already validated, skipping
+ 27%|██▋       | 1686/6312 [01:29<03:57, 19.46it/s]Data 14312 already validated, skipping
+Data 14313 already validated, skipping
+ 27%|██▋       | 1688/6312 [01:29<04:10, 18.49it/s]Data 14314 already validated, skipping
+Data 14315 already validated, skipping
+Data 14316 already validated, skipping
+ 27%|██▋       | 1691/6312 [01:29<03:36, 21.34it/s]Data 14317 already validated, skipping
+Data 14318 already validated, skipping
+Data 14319 already validated, skipping
+ 27%|██▋       | 1694/6312 [01:29<03:55, 19.59it/s]Data 14320 already validated, skipping
+Data 14321 already validated, skipping
+Data 14322 already validated, skipping
+ 27%|██▋       | 1697/6312 [01:29<03:59, 19.30it/s]Data 14323 already validated, skipping
+Data 14324 already validated, skipping
+ 27%|██▋       | 1699/6312 [01:30<04:12, 18.24it/s]Data 14325 already validated, skipping
+Data 14326 already validated, skipping
+Data 14327 already validated, skipping
+ 27%|██▋       | 1702/6312 [01:30<04:09, 18.45it/s]Data 14328 already validated, skipping
+Data 14329 already validated, skipping
+ 27%|██▋       | 1704/6312 [01:30<04:14, 18.09it/s]Data 14330 already validated, skipping
+Data 14331 already validated, skipping
+ 27%|██▋       | 1706/6312 [01:30<04:20, 17.67it/s]Data 14332 already validated, skipping
+Data 14333 already validated, skipping
+ 27%|██▋       | 1708/6312 [01:30<04:16, 17.96it/s]Data 14334 already validated, skipping
+Data 14335 already validated, skipping
+ 27%|██▋       | 1710/6312 [01:30<04:13, 18.13it/s]Data 14336 already validated, skipping
+Data 14337 already validated, skipping
+ 27%|██▋       | 1712/6312 [01:30<04:15, 18.02it/s]Data 14338 already validated, skipping
+Data 14339 already validated, skipping
+ 27%|██▋       | 1714/6312 [01:30<04:19, 17.74it/s]Data 14340 already validated, skipping
+Data 14341 already validated, skipping
+ 27%|██▋       | 1716/6312 [01:31<04:26, 17.23it/s]Data 14342 already validated, skipping
+Data 14343 already validated, skipping
+Data 14344 already validated, skipping
+Data 14345 already validated, skipping
+ 27%|██▋       | 1720/6312 [01:31<03:41, 20.72it/s]Data 14346 already validated, skipping
+Data 14347 already validated, skipping
+Data 14348 already validated, skipping
+ 27%|██▋       | 1723/6312 [01:31<03:41, 20.68it/s]Data 14349 already validated, skipping
+Data 14350 already validated, skipping
+Data 14351 already validated, skipping
+ 27%|██▋       | 1726/6312 [01:31<03:52, 19.73it/s]Data 14352 already validated, skipping
+Data 14353 already validated, skipping
+ 27%|██▋       | 1728/6312 [01:31<04:05, 18.69it/s]Data 14354 already validated, skipping
+Data 14355 already validated, skipping
+ 27%|██▋       | 1730/6312 [01:31<04:11, 18.20it/s]Data 14356 already validated, skipping
+Data 14357 already validated, skipping
+ 27%|██▋       | 1732/6312 [01:31<04:22, 17.48it/s]Data 14358 already validated, skipping
+Data 14359 already validated, skipping
+ 27%|██▋       | 1734/6312 [01:32<04:26, 17.20it/s]Data 14360 already validated, skipping
+Data 14361 already validated, skipping
+ 28%|██▊       | 1736/6312 [01:32<04:21, 17.52it/s]Data 14362 already validated, skipping
+Data 14363 already validated, skipping
+ 28%|██▊       | 1738/6312 [01:32<04:34, 16.65it/s]Data 14364 already validated, skipping
+Data 14365 already validated, skipping
+ 28%|██▊       | 1740/6312 [01:32<04:50, 15.75it/s]Data 14366 already validated, skipping
+Data 14367 already validated, skipping
+Data 14368 already validated, skipping
+ 28%|██▊       | 1743/6312 [01:32<04:37, 16.46it/s]Data 14369 already validated, skipping
+Data 14370 already validated, skipping
+Data 14371 already validated, skipping
+ 28%|██▊       | 1746/6312 [01:32<04:03, 18.79it/s]Data 14372 already validated, skipping
+Data 14373 already validated, skipping
+ 28%|██▊       | 1748/6312 [01:32<04:05, 18.62it/s]Data 14374 already validated, skipping
+Data 14375 already validated, skipping
+Data 14376 already validated, skipping
+ 28%|██▊       | 1751/6312 [01:32<03:56, 19.27it/s]Data 14377 already validated, skipping
+Data 14378 already validated, skipping
+Data 14379 already validated, skipping
+ 28%|██▊       | 1754/6312 [01:33<03:52, 19.57it/s]Data 14380 already validated, skipping
+Data 14381 already validated, skipping
+Data 14382 already validated, skipping
+ 28%|██▊       | 1757/6312 [01:33<03:55, 19.33it/s]Data 14383 already validated, skipping
+Data 14384 already validated, skipping
+ 28%|██▊       | 1759/6312 [01:33<03:56, 19.27it/s]Data 14385 already validated, skipping
+Data 14386 already validated, skipping
+ 28%|██▊       | 1761/6312 [01:33<04:18, 17.63it/s]Data 14387 already validated, skipping
+Data 14388 already validated, skipping
+Data 14389 already validated, skipping
+ 28%|██▊       | 1764/6312 [01:33<04:08, 18.27it/s]Data 14390 already validated, skipping
+Data 14391 already validated, skipping
+ 28%|██▊       | 1766/6312 [01:33<04:13, 17.97it/s]Data 14392 already validated, skipping
+Data 14393 already validated, skipping
+ 28%|██▊       | 1768/6312 [01:33<04:20, 17.43it/s]Data 14394 already validated, skipping
+Data 14395 already validated, skipping
+ 28%|██▊       | 1770/6312 [01:34<04:34, 16.53it/s]Data 14396 already validated, skipping
+Data 14397 already validated, skipping
+Data 14398 already validated, skipping
+ 28%|██▊       | 1773/6312 [01:34<03:52, 19.50it/s]Data 14399 already validated, skipping
+Data 14400 already validated, skipping
+Data 14401 already validated, skipping
+ 28%|██▊       | 1776/6312 [01:34<04:17, 17.59it/s]Data 14402 already validated, skipping
+Data 14403 already validated, skipping
+ 28%|██▊       | 1778/6312 [01:34<04:36, 16.41it/s]Data 14404 already validated, skipping
+Data 14405 already validated, skipping
+Data 14406 already validated, skipping
+ 28%|██▊       | 1781/6312 [01:34<04:23, 17.19it/s]Data 14407 already validated, skipping
+Data 14408 already validated, skipping
+Data 14409 already validated, skipping
+ 28%|██▊       | 1784/6312 [01:34<03:51, 19.55it/s]Data 14410 already validated, skipping
+Data 14411 already validated, skipping
+Data 14412 already validated, skipping
+ 28%|██▊       | 1787/6312 [01:34<03:40, 20.56it/s]Data 14413 already validated, skipping
+Data 14414 already validated, skipping
+Data 14415 already validated, skipping
+ 28%|██▊       | 1790/6312 [01:35<03:38, 20.66it/s]Data 14416 already validated, skipping
+Data 14417 already validated, skipping
+Data 14418 already validated, skipping
+ 28%|██▊       | 1793/6312 [01:35<03:45, 20.03it/s]Data 14419 already validated, skipping
+Data 14420 already validated, skipping
+Data 14421 already validated, skipping
+ 28%|██▊       | 1796/6312 [01:35<03:43, 20.17it/s]Data 14422 already validated, skipping
+Data 14423 already validated, skipping
+Data 14424 already validated, skipping
+ 29%|██▊       | 1799/6312 [01:35<03:46, 19.89it/s]Data 14425 already validated, skipping
+Data 14426 already validated, skipping
+Data 14427 already validated, skipping
+ 29%|██▊       | 1802/6312 [01:35<03:38, 20.61it/s]Data 14428 already validated, skipping
+Data 14429 already validated, skipping
+Data 14430 already validated, skipping
+ 29%|██▊       | 1805/6312 [01:35<03:48, 19.75it/s]Data 14431 already validated, skipping
+Data 14432 already validated, skipping
+Data 14433 already validated, skipping
+ 29%|██▊       | 1808/6312 [01:35<03:46, 19.84it/s]Data 14434 already validated, skipping
+Data 14435 already validated, skipping
+Data 14436 already validated, skipping
+ 29%|██▊       | 1811/6312 [01:36<03:44, 20.08it/s]Data 14437 already validated, skipping
+Data 14438 already validated, skipping
+Data 14439 already validated, skipping
+ 29%|██▊       | 1814/6312 [01:36<03:48, 19.67it/s]Data 14440 already validated, skipping
+Data 14441 already validated, skipping
+ 29%|██▉       | 1816/6312 [01:36<03:52, 19.35it/s]Data 14442 already validated, skipping
+Data 14443 already validated, skipping
+ 29%|██▉       | 1818/6312 [01:36<04:01, 18.62it/s]Data 14444 already validated, skipping
+Data 14445 already validated, skipping
+ 29%|██▉       | 1820/6312 [01:36<04:23, 17.04it/s]Data 14446 already validated, skipping
+Data 14447 already validated, skipping
+ 29%|██▉       | 1822/6312 [01:36<04:24, 16.98it/s]Data 14448 already validated, skipping
+Data 14449 already validated, skipping
+Data 14450 already validated, skipping
+ 29%|██▉       | 1825/6312 [01:36<04:15, 17.53it/s]Data 14451 already validated, skipping
+Data 14452 already validated, skipping
+ 29%|██▉       | 1827/6312 [01:37<04:21, 17.18it/s]Data 14453 already validated, skipping
+Data 14454 already validated, skipping
+Data 14455 already validated, skipping
+ 29%|██▉       | 1830/6312 [01:37<04:13, 17.71it/s]Data 14456 already validated, skipping
+Data 14457 already validated, skipping
+ 29%|██▉       | 1832/6312 [01:37<04:28, 16.70it/s]Data 14458 already validated, skipping
+Data 14459 already validated, skipping
+ 29%|██▉       | 1834/6312 [01:37<04:45, 15.71it/s]Data 14460 already validated, skipping
+Data 14461 already validated, skipping
+Data 14462 already validated, skipping
+ 29%|██▉       | 1837/6312 [01:37<04:21, 17.12it/s]Data 14463 already validated, skipping
+Data 14464 already validated, skipping
+ 29%|██▉       | 1839/6312 [01:37<04:25, 16.86it/s]Data 14465 already validated, skipping
+Data 14466 already validated, skipping
+Data 14467 already validated, skipping
+ 29%|██▉       | 1842/6312 [01:37<03:58, 18.73it/s]Data 14468 already validated, skipping
+Data 14469 already validated, skipping
+Data 14470 already validated, skipping
+ 29%|██▉       | 1845/6312 [01:38<03:38, 20.46it/s]Data 14471 already validated, skipping
+Data 14472 already validated, skipping
+Data 14473 already validated, skipping
+ 29%|██▉       | 1848/6312 [01:38<03:34, 20.76it/s]Data 14474 already validated, skipping
+Data 14475 already validated, skipping
+Data 14476 already validated, skipping
+ 29%|██▉       | 1851/6312 [01:38<03:37, 20.53it/s]Data 14477 already validated, skipping
+Data 14478 already validated, skipping
+Data 14479 already validated, skipping
+ 29%|██▉       | 1854/6312 [01:38<03:36, 20.56it/s]Data 14480 already validated, skipping
+Data 14481 already validated, skipping
+Data 14482 already validated, skipping
+ 29%|██▉       | 1857/6312 [01:38<03:38, 20.42it/s]Data 14483 already validated, skipping
+Data 14484 already validated, skipping
+Data 14485 already validated, skipping
+ 29%|██▉       | 1860/6312 [01:38<03:49, 19.43it/s]Data 14486 already validated, skipping
+Data 14487 already validated, skipping
+Data 14488 already validated, skipping
+ 30%|██▉       | 1863/6312 [01:38<03:27, 21.48it/s]Data 14489 already validated, skipping
+Data 14490 already validated, skipping
+Data 14491 already validated, skipping
+ 30%|██▉       | 1866/6312 [01:39<03:28, 21.30it/s]Data 14492 already validated, skipping
+Data 14493 already validated, skipping
+Data 14494 already validated, skipping
+ 30%|██▉       | 1869/6312 [01:39<03:43, 19.85it/s]Data 14495 already validated, skipping
+Data 14496 already validated, skipping
+Data 14497 already validated, skipping
+ 30%|██▉       | 1872/6312 [01:39<03:56, 18.76it/s]Data 14498 already validated, skipping
+Data 14499 already validated, skipping
+Data 14500 already validated, skipping
+ 30%|██▉       | 1875/6312 [01:39<03:57, 18.67it/s]Data 14501 already validated, skipping
+Data 14502 already validated, skipping
+ 30%|██▉       | 1877/6312 [01:39<03:59, 18.53it/s]Data 14503 already validated, skipping
+Data 14504 already validated, skipping
+Data 14505 already validated, skipping
+Data 14506 already validated, skipping
+ 30%|██▉       | 1881/6312 [01:39<03:30, 21.05it/s]Data 14507 already validated, skipping
+Data 14508 already validated, skipping
+Data 14509 already validated, skipping
+ 30%|██▉       | 1884/6312 [01:39<03:27, 21.29it/s]Data 14510 already validated, skipping
+Data 14511 already validated, skipping
+Data 14512 already validated, skipping
+ 30%|██▉       | 1887/6312 [01:40<03:55, 18.76it/s]Data 14513 already validated, skipping
+Data 14514 already validated, skipping
+Data 14515 already validated, skipping
+ 30%|██▉       | 1890/6312 [01:40<03:51, 19.12it/s]Data 14516 already validated, skipping
+Data 14517 already validated, skipping
+Data 14518 already validated, skipping
+ 30%|██▉       | 1893/6312 [01:40<03:37, 20.34it/s]Data 14519 already validated, skipping
+Data 14520 already validated, skipping
+Data 14521 already validated, skipping
+ 30%|███       | 1896/6312 [01:40<03:50, 19.13it/s]Data 14522 already validated, skipping
+Data 14523 already validated, skipping
+ 30%|███       | 1898/6312 [01:40<03:57, 18.56it/s]Data 14524 already validated, skipping
+Data 14525 already validated, skipping
+Data 14526 already validated, skipping
+ 30%|███       | 1901/6312 [01:40<03:53, 18.87it/s]Data 14527 already validated, skipping
+Data 14528 already validated, skipping
+Data 14529 already validated, skipping
+ 30%|███       | 1904/6312 [01:40<03:29, 21.02it/s]Data 14530 already validated, skipping
+Data 14531 already validated, skipping
+Data 14532 already validated, skipping
+ 30%|███       | 1907/6312 [01:41<03:21, 21.84it/s]Data 14533 already validated, skipping
+Data 14534 already validated, skipping
+Data 14535 already validated, skipping
+ 30%|███       | 1910/6312 [01:41<03:22, 21.78it/s]Data 14536 already validated, skipping
+Data 14537 already validated, skipping
+Data 14538 already validated, skipping
+ 30%|███       | 1913/6312 [01:41<03:30, 20.85it/s]Data 14539 already validated, skipping
+Data 14540 already validated, skipping
+Data 14541 already validated, skipping
+ 30%|███       | 1916/6312 [01:41<03:50, 19.07it/s]Data 14542 already validated, skipping
+Data 14543 already validated, skipping
+Data 14544 already validated, skipping
+ 30%|███       | 1919/6312 [01:41<03:49, 19.10it/s]Data 14545 already validated, skipping
+Data 14546 already validated, skipping
+Data 14547 already validated, skipping
+ 30%|███       | 1922/6312 [01:41<03:50, 19.08it/s]Data 14548 already validated, skipping
+Data 14549 already validated, skipping
+ 30%|███       | 1924/6312 [01:42<04:01, 18.18it/s]Data 14550 already validated, skipping
+Data 14551 already validated, skipping
+Data 14552 already validated, skipping
+ 31%|███       | 1927/6312 [01:42<03:41, 19.75it/s]Data 14553 already validated, skipping
+Data 14554 already validated, skipping
+Data 14555 already validated, skipping
+ 31%|███       | 1930/6312 [01:42<03:30, 20.77it/s]Data 14556 already validated, skipping
+Data 14557 already validated, skipping
+Data 14558 already validated, skipping
+ 31%|███       | 1933/6312 [01:42<03:50, 18.97it/s]Data 14559 already validated, skipping
+Data 14560 already validated, skipping
+ 31%|███       | 1935/6312 [01:42<03:58, 18.36it/s]Data 14561 already validated, skipping
+Data 14562 already validated, skipping
+Data 14563 already validated, skipping
+ 31%|███       | 1938/6312 [01:42<03:35, 20.34it/s]Data 14564 already validated, skipping
+Data 14565 already validated, skipping
+Data 14566 already validated, skipping
+ 31%|███       | 1941/6312 [01:42<03:57, 18.44it/s]Data 14567 already validated, skipping
+Data 14568 already validated, skipping
+Data 14569 already validated, skipping
+ 31%|███       | 1944/6312 [01:43<03:49, 19.04it/s]Data 14570 already validated, skipping
+Data 14571 already validated, skipping
+ 31%|███       | 1946/6312 [01:43<04:01, 18.07it/s]Data 14572 already validated, skipping
+Data 14573 already validated, skipping
+ 31%|███       | 1948/6312 [01:43<04:20, 16.73it/s]Data 14574 already validated, skipping
+Data 14575 already validated, skipping
+ 31%|███       | 1950/6312 [01:43<04:30, 16.11it/s]Data 14576 already validated, skipping
+Data 14577 already validated, skipping
+ 31%|███       | 1952/6312 [01:43<04:19, 16.80it/s]Data 14578 already validated, skipping
+Data 14579 already validated, skipping
+ 31%|███       | 1954/6312 [01:43<04:21, 16.65it/s]Data 14580 already validated, skipping
+Data 14581 already validated, skipping
+Data 14582 already validated, skipping
+ 31%|███       | 1957/6312 [01:43<04:04, 17.85it/s]Data 14583 already validated, skipping
+Data 14584 already validated, skipping
+ 31%|███       | 1959/6312 [01:43<04:13, 17.15it/s]Data 14585 already validated, skipping
+Data 14586 already validated, skipping
+ 31%|███       | 1961/6312 [01:44<04:07, 17.59it/s]Data 14587 already validated, skipping
+Data 14588 already validated, skipping
+ 31%|███       | 1963/6312 [01:44<04:18, 16.79it/s]Data 14589 already validated, skipping
+Data 14590 already validated, skipping
+Data 14591 already validated, skipping
+ 31%|███       | 1966/6312 [01:44<03:44, 19.35it/s]Data 14592 already validated, skipping
+Data 14593 already validated, skipping
+ 31%|███       | 1968/6312 [01:44<03:44, 19.36it/s]Data 14594 already validated, skipping
+Data 14595 already validated, skipping
+ 31%|███       | 1970/6312 [01:44<03:50, 18.84it/s]Data 14596 already validated, skipping
+Data 14597 already validated, skipping
+Data 14598 already validated, skipping
+ 31%|███▏      | 1973/6312 [01:44<03:56, 18.34it/s]Data 14599 already validated, skipping
+Data 14600 already validated, skipping
+ 31%|███▏      | 1975/6312 [01:44<04:05, 17.65it/s]Data 14601 already validated, skipping
+Data 14602 already validated, skipping
+Data 14603 already validated, skipping
+ 31%|███▏      | 1978/6312 [01:44<03:54, 18.49it/s]Data 14604 already validated, skipping
+Data 14605 already validated, skipping
+ 31%|███▏      | 1980/6312 [01:45<03:56, 18.35it/s]Data 14606 already validated, skipping
+Data 14607 already validated, skipping
+ 31%|███▏      | 1982/6312 [01:45<03:52, 18.62it/s]Data 14608 already validated, skipping
+Data 14609 already validated, skipping
+Data 14610 already validated, skipping
+ 31%|███▏      | 1985/6312 [01:45<03:29, 20.67it/s]Data 14611 already validated, skipping
+Data 14612 already validated, skipping
+Data 14613 already validated, skipping
+ 31%|███▏      | 1988/6312 [01:45<03:38, 19.78it/s]Data 14614 already validated, skipping
+Data 14615 already validated, skipping
+ 32%|███▏      | 1990/6312 [01:45<03:54, 18.44it/s]Data 14616 already validated, skipping
+Data 14617 already validated, skipping
+Data 14618 already validated, skipping
+ 32%|███▏      | 1993/6312 [01:45<03:32, 20.33it/s]Data 14619 already validated, skipping
+Data 14620 already validated, skipping
+Data 14621 already validated, skipping
+ 32%|███▏      | 1996/6312 [01:45<03:25, 21.04it/s]Data 14622 already validated, skipping
+Data 14623 already validated, skipping
+Data 14624 already validated, skipping
+ 32%|███▏      | 1999/6312 [01:46<03:31, 20.42it/s]Data 14625 already validated, skipping
+Data 14626 already validated, skipping
+Data 14627 already validated, skipping
+ 32%|███▏      | 2002/6312 [01:46<03:46, 19.07it/s]Data 14628 already validated, skipping
+Data 14629 already validated, skipping
+ 32%|███▏      | 2004/6312 [01:46<03:45, 19.14it/s]Data 14630 already validated, skipping
+Data 14631 already validated, skipping
+Data 14632 already validated, skipping
+ 32%|███▏      | 2007/6312 [01:46<03:39, 19.65it/s]Data 14633 already validated, skipping
+Data 14634 already validated, skipping
+ 32%|███▏      | 2009/6312 [01:46<03:44, 19.16it/s]Data 14635 already validated, skipping
+Data 14636 already validated, skipping
+Data 14637 already validated, skipping
+ 32%|███▏      | 2012/6312 [01:46<03:24, 20.99it/s]Data 14638 already validated, skipping
+Data 14639 already validated, skipping
+Data 14640 already validated, skipping
+ 32%|███▏      | 2015/6312 [01:46<03:52, 18.47it/s]Data 14641 already validated, skipping
+Data 14642 already validated, skipping
+ 32%|███▏      | 2017/6312 [01:47<04:01, 17.82it/s]Data 14643 already validated, skipping
+Data 14644 already validated, skipping
+ 32%|███▏      | 2019/6312 [01:47<04:12, 17.00it/s]Data 14645 already validated, skipping
+Data 14646 already validated, skipping
+Data 14647 already validated, skipping
+ 32%|███▏      | 2022/6312 [01:47<03:55, 18.25it/s]Data 14648 already validated, skipping
+Data 14649 already validated, skipping
+Data 14650 already validated, skipping
+ 32%|███▏      | 2025/6312 [01:47<03:45, 18.99it/s]Data 14651 already validated, skipping
+Data 14652 already validated, skipping
+ 32%|███▏      | 2027/6312 [01:47<03:58, 17.94it/s]Data 14653 already validated, skipping
+Data 14654 already validated, skipping
+Data 14655 already validated, skipping
+ 32%|███▏      | 2030/6312 [01:47<03:44, 19.07it/s]Data 14656 already validated, skipping
+Data 14657 already validated, skipping
+ 32%|███▏      | 2032/6312 [01:47<04:01, 17.72it/s]Data 14658 already validated, skipping
+Data 14659 already validated, skipping
+ 32%|███▏      | 2034/6312 [01:47<04:06, 17.36it/s]Data 14660 already validated, skipping
+Data 14661 already validated, skipping
+Data 14662 already validated, skipping
+ 32%|███▏      | 2037/6312 [01:48<04:03, 17.59it/s]Data 14663 already validated, skipping
+Data 14664 already validated, skipping
+ 32%|███▏      | 2039/6312 [01:48<04:13, 16.85it/s]Data 14665 already validated, skipping
+Data 14666 already validated, skipping
+Data 14667 already validated, skipping
+Data 14668 already validated, skipping
+ 32%|███▏      | 2043/6312 [01:48<03:38, 19.58it/s]Data 14669 already validated, skipping
+Data 14670 already validated, skipping
+ 32%|███▏      | 2045/6312 [01:48<03:45, 18.89it/s]Data 14671 already validated, skipping
+Data 14672 already validated, skipping
+Data 14673 already validated, skipping
+ 32%|███▏      | 2048/6312 [01:48<03:32, 20.03it/s]Data 14674 already validated, skipping
+Data 14675 already validated, skipping
+Data 14676 already validated, skipping
+ 32%|███▏      | 2051/6312 [01:48<03:37, 19.63it/s]Data 14677 already validated, skipping
+Data 14678 already validated, skipping
+ 33%|███▎      | 2053/6312 [01:48<03:54, 18.18it/s]Data 14679 already validated, skipping
+Data 14680 already validated, skipping
+ 33%|███▎      | 2055/6312 [01:49<03:51, 18.41it/s]Data 14681 already validated, skipping
+Data 14682 already validated, skipping
+Data 14683 already validated, skipping
+ 33%|███▎      | 2058/6312 [01:49<03:43, 19.06it/s]Data 14684 already validated, skipping
+Data 14685 already validated, skipping
+ 33%|███▎      | 2060/6312 [01:49<03:59, 17.77it/s]Data 14686 already validated, skipping
+Data 14687 already validated, skipping
+Data 14688 already validated, skipping
+ 33%|███▎      | 2063/6312 [01:49<03:51, 18.39it/s]Data 14689 already validated, skipping
+Data 14690 already validated, skipping
+ 33%|███▎      | 2065/6312 [01:49<04:02, 17.49it/s]Data 14691 already validated, skipping
+Data 14692 already validated, skipping
+Data 14693 already validated, skipping
+Data 14694 already validated, skipping
+ 33%|███▎      | 2069/6312 [01:49<03:17, 21.53it/s]Data 14695 already validated, skipping
+Data 14696 already validated, skipping
+Data 14697 already validated, skipping
+ 33%|███▎      | 2072/6312 [01:49<03:24, 20.77it/s]Data 14698 already validated, skipping
+Data 14699 already validated, skipping
+Data 14700 already validated, skipping
+ 33%|███▎      | 2075/6312 [01:50<03:43, 18.95it/s]Data 14701 already validated, skipping
+Data 14702 already validated, skipping
+ 33%|███▎      | 2077/6312 [01:50<03:53, 18.13it/s]Data 14703 already validated, skipping
+Data 14704 already validated, skipping
+Data 14705 already validated, skipping
+ 33%|███▎      | 2080/6312 [01:50<03:25, 20.64it/s]Data 14706 already validated, skipping
+Data 14707 already validated, skipping
+Data 14708 already validated, skipping
+ 33%|███▎      | 2083/6312 [01:50<03:37, 19.42it/s]Data 14709 already validated, skipping
+Data 14710 already validated, skipping
+Data 14711 already validated, skipping
+ 33%|███▎      | 2086/6312 [01:50<03:32, 19.90it/s]Data 14712 already validated, skipping
+Data 14713 already validated, skipping
+Data 14714 already validated, skipping
+ 33%|███▎      | 2089/6312 [01:50<03:22, 20.89it/s]Data 14715 already validated, skipping
+Data 14716 already validated, skipping
+Data 14717 already validated, skipping
+ 33%|███▎      | 2092/6312 [01:50<03:19, 21.19it/s]Data 14718 already validated, skipping
+Data 14719 already validated, skipping
+Data 14720 already validated, skipping
+ 33%|███▎      | 2095/6312 [01:51<03:14, 21.64it/s]Data 14721 already validated, skipping
+Data 14722 already validated, skipping
+Data 14723 already validated, skipping
+ 33%|███▎      | 2098/6312 [01:51<03:14, 21.66it/s]Data 14724 already validated, skipping
+Data 14725 already validated, skipping
+Data 14726 already validated, skipping
+ 33%|███▎      | 2101/6312 [01:51<03:39, 19.16it/s]Data 14727 already validated, skipping
+Data 14728 already validated, skipping
+ 33%|███▎      | 2103/6312 [01:51<03:55, 17.89it/s]Data 14729 already validated, skipping
+Data 14730 already validated, skipping
+ 33%|███▎      | 2105/6312 [01:51<04:07, 16.97it/s]Data 14731 already validated, skipping
+Data 14732 already validated, skipping
+ 33%|███▎      | 2107/6312 [01:51<04:19, 16.23it/s]Data 14733 already validated, skipping
+Data 14734 already validated, skipping
+ 33%|███▎      | 2109/6312 [01:51<04:12, 16.63it/s]Data 14735 already validated, skipping
+Data 14736 already validated, skipping
+ 33%|███▎      | 2111/6312 [01:52<04:16, 16.36it/s]Data 14737 already validated, skipping
+Data 14738 already validated, skipping
+ 33%|███▎      | 2113/6312 [01:52<04:20, 16.11it/s]Data 14739 already validated, skipping
+Data 14740 already validated, skipping
+Data 14741 already validated, skipping
+ 34%|███▎      | 2116/6312 [01:52<04:08, 16.92it/s]Data 14742 already validated, skipping
+Data 14743 already validated, skipping
+ 34%|███▎      | 2118/6312 [01:52<03:58, 17.57it/s]Data 14744 already validated, skipping
+Data 14745 already validated, skipping
+ 34%|███▎      | 2120/6312 [01:52<04:01, 17.38it/s]Data 14746 already validated, skipping
+Data 14747 already validated, skipping
+Data 14748 already validated, skipping
+ 34%|███▎      | 2123/6312 [01:52<03:50, 18.16it/s]Data 14749 already validated, skipping
+Data 14750 already validated, skipping
+Data 14751 already validated, skipping
+ 34%|███▎      | 2126/6312 [01:52<03:48, 18.29it/s]Data 14752 already validated, skipping
+Data 14753 already validated, skipping
+ 34%|███▎      | 2128/6312 [01:52<04:00, 17.39it/s]Data 14754 already validated, skipping
+Data 14755 already validated, skipping
+ 34%|███▎      | 2130/6312 [01:53<04:12, 16.58it/s]Data 14756 already validated, skipping
+Data 14757 already validated, skipping
+Data 14758 already validated, skipping
+ 34%|███▍      | 2133/6312 [01:53<04:00, 17.40it/s]Data 14759 already validated, skipping
+Data 14760 already validated, skipping
+Data 14761 already validated, skipping
+ 34%|███▍      | 2136/6312 [01:53<03:45, 18.49it/s]Data 14762 already validated, skipping
+Data 14763 already validated, skipping
+ 34%|███▍      | 2138/6312 [01:53<04:04, 17.07it/s]Data 14764 already validated, skipping
+Data 14765 already validated, skipping
+ 34%|███▍      | 2140/6312 [01:53<04:10, 16.66it/s]Data 14766 already validated, skipping
+Data 14767 already validated, skipping
+Data 14768 already validated, skipping
+ 34%|███▍      | 2143/6312 [01:53<03:56, 17.65it/s]Data 14769 already validated, skipping
+Data 14770 already validated, skipping
+ 34%|███▍      | 2145/6312 [01:53<04:04, 17.06it/s]Data 14771 already validated, skipping
+Data 14772 already validated, skipping
+ 34%|███▍      | 2147/6312 [01:54<04:12, 16.48it/s]Data 14773 already validated, skipping
+Data 14774 already validated, skipping
+ 34%|███▍      | 2149/6312 [01:54<04:00, 17.30it/s]Data 14775 already validated, skipping
+Data 14776 already validated, skipping
+ 34%|███▍      | 2151/6312 [01:54<04:06, 16.87it/s]Data 14777 already validated, skipping
+Data 14778 already validated, skipping
+ 34%|███▍      | 2153/6312 [01:54<04:07, 16.83it/s]Data 14779 already validated, skipping
+Data 14780 already validated, skipping
+Data 14781 already validated, skipping
+ 34%|███▍      | 2156/6312 [01:54<03:47, 18.25it/s]Data 14782 already validated, skipping
+Data 14783 already validated, skipping
+ 34%|███▍      | 2158/6312 [01:54<03:43, 18.62it/s]Data 14784 already validated, skipping
+Data 14785 already validated, skipping
+ 34%|███▍      | 2160/6312 [01:54<03:48, 18.14it/s]Data 14786 already validated, skipping
+Data 14787 already validated, skipping
+Data 14788 already validated, skipping
+ 34%|███▍      | 2163/6312 [01:54<03:26, 20.09it/s]Data 14789 already validated, skipping
+Data 14790 already validated, skipping
+Data 14791 already validated, skipping
+ 34%|███▍      | 2166/6312 [01:55<03:43, 18.54it/s]Data 14792 already validated, skipping
+Data 14793 already validated, skipping
+ 34%|███▍      | 2168/6312 [01:55<04:04, 16.96it/s]Data 14794 already validated, skipping
+Data 14795 already validated, skipping
+Data 14796 already validated, skipping
+ 34%|███▍      | 2171/6312 [01:55<03:56, 17.52it/s]Data 14797 already validated, skipping
+Data 14798 already validated, skipping
+ 34%|███▍      | 2173/6312 [01:55<03:57, 17.43it/s]Data 14799 already validated, skipping
+Data 14800 already validated, skipping
+ 34%|███▍      | 2175/6312 [01:55<03:54, 17.68it/s]Data 14801 already validated, skipping
+Data 14802 already validated, skipping
+ 34%|███▍      | 2177/6312 [01:55<03:57, 17.41it/s]Data 14803 already validated, skipping
+Data 14804 already validated, skipping
+Data 14805 already validated, skipping
+ 35%|███▍      | 2180/6312 [01:55<03:32, 19.42it/s]Data 14806 already validated, skipping
+Data 14807 already validated, skipping
+ 35%|███▍      | 2182/6312 [01:56<03:48, 18.11it/s]Data 14808 already validated, skipping
+Data 14809 already validated, skipping
+ 35%|███▍      | 2184/6312 [01:56<03:55, 17.51it/s]Data 14810 already validated, skipping
+Data 14811 already validated, skipping
+Data 14812 already validated, skipping
+ 35%|███▍      | 2187/6312 [01:56<03:53, 17.70it/s]Data 14813 already validated, skipping
+Data 14814 already validated, skipping
+ 35%|███▍      | 2189/6312 [01:56<04:03, 16.95it/s]Data 14815 already validated, skipping
+Data 14816 already validated, skipping
+Data 14817 already validated, skipping
+ 35%|███▍      | 2192/6312 [01:56<03:50, 17.89it/s]Data 14818 already validated, skipping
+Data 14819 already validated, skipping
+ 35%|███▍      | 2194/6312 [01:56<04:03, 16.90it/s]Data 14820 already validated, skipping
+Data 14821 already validated, skipping
+ 35%|███▍      | 2196/6312 [01:56<04:16, 16.04it/s]Data 14822 already validated, skipping
+Data 14823 already validated, skipping
+Data 14824 already validated, skipping
+ 35%|███▍      | 2199/6312 [01:57<03:38, 18.84it/s]Data 14825 already validated, skipping
+Data 14826 already validated, skipping
+Data 14827 already validated, skipping
+ 35%|███▍      | 2202/6312 [01:57<03:11, 21.41it/s]Data 14828 already validated, skipping
+Data 14829 already validated, skipping
+Data 14830 already validated, skipping
+Data 14831 already validated, skipping
+ 35%|███▍      | 2206/6312 [01:57<02:44, 24.90it/s]Data 14832 already validated, skipping
+Data 14833 already validated, skipping
+Data 14834 already validated, skipping
+ 35%|███▍      | 2209/6312 [01:57<02:39, 25.66it/s]Data 14835 already validated, skipping
+Data 14836 already validated, skipping
+Data 14837 already validated, skipping
+ 35%|███▌      | 2212/6312 [01:57<02:38, 25.92it/s]Data 14838 already validated, skipping
+Data 14839 already validated, skipping
+Data 14840 already validated, skipping
+Data 14841 already validated, skipping
+ 35%|███▌      | 2216/6312 [01:57<02:25, 28.10it/s]Data 14842 already validated, skipping
+Data 14843 already validated, skipping
+Data 14844 already validated, skipping
+Data 14845 already validated, skipping
+ 35%|███▌      | 2220/6312 [01:57<02:16, 29.94it/s]Data 14846 already validated, skipping
+Data 14847 already validated, skipping
+Data 14848 already validated, skipping
+Data 14849 already validated, skipping
+Data 14850 already validated, skipping
+ 35%|███▌      | 2225/6312 [01:57<01:58, 34.57it/s]Data 14851 already validated, skipping
+Data 14852 already validated, skipping
+Data 14853 already validated, skipping
+Data 14854 already validated, skipping
+ 35%|███▌      | 2229/6312 [01:57<01:55, 35.22it/s]Data 14855 already validated, skipping
+Data 14856 already validated, skipping
+Data 14857 already validated, skipping
+Data 14858 already validated, skipping
+Data 14859 already validated, skipping
+ 35%|███▌      | 2234/6312 [01:58<01:44, 39.06it/s]Data 14860 already validated, skipping
+Data 14861 already validated, skipping
+Data 14862 already validated, skipping
+Data 14863 already validated, skipping
+Data 14864 already validated, skipping
+ 35%|███▌      | 2239/6312 [01:58<01:37, 41.85it/s]Data 14865 already validated, skipping
+Data 14866 already validated, skipping
+Data 14867 already validated, skipping
+Data 14868 already validated, skipping
+Data 14869 already validated, skipping
+ 36%|███▌      | 2244/6312 [01:58<01:32, 43.79it/s]Data 14870 already validated, skipping
+Data 14871 already validated, skipping
+Data 14872 already validated, skipping
+Data 14873 already validated, skipping
+Data 14874 already validated, skipping
+ 36%|███▌      | 2249/6312 [01:58<01:47, 37.63it/s]Data 14875 already validated, skipping
+Data 14876 already validated, skipping
+Data 14877 already validated, skipping
+Data 14878 already validated, skipping
+ 36%|███▌      | 2253/6312 [01:58<01:52, 36.13it/s]Data 14879 already validated, skipping
+Data 14880 already validated, skipping
+Data 14881 already validated, skipping
+Data 14882 already validated, skipping
+ 36%|███▌      | 2257/6312 [01:58<02:26, 27.62it/s]Data 14883 already validated, skipping
+Data 14884 already validated, skipping
+Data 14885 already validated, skipping
+Data 14886 already validated, skipping
+ 36%|███▌      | 2261/6312 [01:58<02:18, 29.23it/s]Data 14887 already validated, skipping
+Data 14888 already validated, skipping
+Data 14889 already validated, skipping
+Data 14890 already validated, skipping
+ 36%|███▌      | 2265/6312 [01:58<02:19, 28.94it/s]Data 14891 already validated, skipping
+Data 14892 already validated, skipping
+Data 14893 already validated, skipping
+Data 14894 already validated, skipping
+ 36%|███▌      | 2269/6312 [01:59<02:24, 27.89it/s]Data 14895 already validated, skipping
+Data 14896 already validated, skipping
+Data 14897 already validated, skipping
+ 36%|███▌      | 2272/6312 [01:59<02:30, 26.88it/s]Data 14898 already validated, skipping
+Data 14899 already validated, skipping
+Data 14900 already validated, skipping
+Data 14901 already validated, skipping
+ 36%|███▌      | 2276/6312 [01:59<02:20, 28.68it/s]Data 14902 already validated, skipping
+Data 14903 already validated, skipping
+Data 14904 already validated, skipping
+Data 14905 already validated, skipping
+ 36%|███▌      | 2280/6312 [01:59<02:16, 29.57it/s]Data 14906 already validated, skipping
+Data 14907 already validated, skipping
+Data 14908 already validated, skipping
+Data 14909 already validated, skipping
+ 36%|███▌      | 2284/6312 [01:59<02:13, 30.17it/s]Data 14910 already validated, skipping
+Data 14911 already validated, skipping
+Data 14912 already validated, skipping
+Data 14913 already validated, skipping
+ 36%|███▌      | 2288/6312 [01:59<02:04, 32.40it/s]Data 14914 already validated, skipping
+Data 14915 already validated, skipping
+Data 14916 already validated, skipping
+Data 14917 already validated, skipping
+Data 14918 already validated, skipping
+ 36%|███▋      | 2293/6312 [01:59<01:53, 35.56it/s]Data 14919 already validated, skipping
+Data 14920 already validated, skipping
+Data 14921 already validated, skipping
+Data 14922 already validated, skipping
+ 36%|███▋      | 2297/6312 [01:59<01:56, 34.32it/s]Data 14923 already validated, skipping
+Data 14924 already validated, skipping
+Data 14925 already validated, skipping
+Data 14926 already validated, skipping
+ 36%|███▋      | 2301/6312 [02:00<02:03, 32.47it/s]Data 14927 already validated, skipping
+Data 14928 already validated, skipping
+Data 14929 already validated, skipping
+Data 14930 already validated, skipping
+ 37%|███▋      | 2305/6312 [02:00<02:05, 31.98it/s]Data 14931 already validated, skipping
+Data 14932 already validated, skipping
+Data 14933 already validated, skipping
+Data 14934 already validated, skipping
+ 37%|███▋      | 2309/6312 [02:00<02:06, 31.54it/s]Data 14935 already validated, skipping
+Data 14936 already validated, skipping
+Data 14937 already validated, skipping
+Data 14938 already validated, skipping
+ 37%|███▋      | 2313/6312 [02:00<01:59, 33.45it/s]Data 14939 already validated, skipping
+Data 14940 already validated, skipping
+Data 14941 already validated, skipping
+Data 14942 already validated, skipping
+ 37%|███▋      | 2317/6312 [02:00<01:59, 33.46it/s]Data 14943 already validated, skipping
+Data 14944 already validated, skipping
+Data 14945 already validated, skipping
+Data 14946 already validated, skipping
+ 37%|███▋      | 2321/6312 [02:00<01:59, 33.36it/s]Data 14947 already validated, skipping
+Data 14948 already validated, skipping
+Data 14949 already validated, skipping
+Data 14950 already validated, skipping
+Data 14951 already validated, skipping
+ 37%|███▋      | 2326/6312 [02:00<01:45, 37.63it/s]Data 14952 already validated, skipping
+Data 14953 already validated, skipping
+Data 14954 already validated, skipping
+Data 14955 already validated, skipping
+ 37%|███▋      | 2330/6312 [02:01<02:02, 32.59it/s]Data 14956 already validated, skipping
+Data 14957 already validated, skipping
+Data 14958 already validated, skipping
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:397: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `None` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 37%|███▋      | 2334/6312 [02:02<09:42,  6.82it/s]The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 37%|███▋      | 2337/6312 [02:04<16:51,  3.93it/s]The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 37%|███▋      | 2339/6312 [02:06<23:27,  2.82it/s]The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.

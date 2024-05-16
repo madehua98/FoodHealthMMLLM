@@ -1,0 +1,592 @@
+nohup: 忽略输入
+[2024-03-19 19:25:12,662] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:16,930] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-19 19:25:16,930] [INFO] [runner.py:555:main] cmd = /home/data_llm/anaconda3/envs/moellava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNiwgNywgOCwgOV19 --master_addr=127.0.0.1 --master_port=2222 --enable_each_rank_log=None moellava/train/train_xformers.py --deepspeed ./scripts/zero2.json --model_name_or_path /media/LLM_data/model/Qwen-1_8B --version qwen --data_path /mnt/data_llm/json_file/101_train_prompt1.json /mnt/data_llm/json_file/train_ingredient_QA.json /mnt/data_llm/json_file/train_recipe_QA.json /mnt/data_llm/json_file/train_title_QA.json /mnt/data_llm/json_file/2k_train_prompt1.json /mnt/data_llm/json_file/172_train_prompt1.json /mnt/data_llm/json_file/172_ingredient_train_prompt1.json /mnt/data_llm/json_file/nutrition5k_train.json --image_folder /media/LLM_data/food_recognition_dataset --image_tower /media/LLM_data/model/openai/clip-vit-large-patch14-336 --image_projector_type mlp2x_gelu --pretrain_mm_mlp_adapter /media/LLM_data/model/moellava/checkpoints/llavaqwen1.8B_mm_projector.bin --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --image_aspect_ratio pad --group_by_modality_length True --bf16 True --check_point_file_name /media/LLM_data/model/moellava/checkpoints/checkpoints-v2.json --output_dir /media/LLM_data/model/moellava/checkpoints/checkpoints-v2 --num_train_epochs 1 --per_device_train_batch_size 16 --per_device_eval_batch_size 4 --gradient_accumulation_steps 2 --evaluation_strategy no --save_strategy steps --save_steps 5000 --save_total_limit 5 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 False --model_max_length 512 --gradient_checkpointing True --dataloader_num_workers 16 --lazy_preprocess True --report_to tensorboard --cache_dir /media/fast_data/huggingface/hub/
+[2024-03-19 19:25:18,265] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:20,579] [INFO] [launch.py:138:main] 0 NCCL_P2P_DISABLE=1
+[2024-03-19 19:25:20,579] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 6, 7, 8, 9]}
+[2024-03-19 19:25:20,579] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=9, node_rank=0
+[2024-03-19 19:25:20,579] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7, 8]})
+[2024-03-19 19:25:20,579] [INFO] [launch.py:163:main] dist_world_size=9
+[2024-03-19 19:25:20,579] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,6,7,8,9
+[2024-03-19 19:25:24,753] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,781] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,800] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,823] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,852] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,903] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,954] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:24,976] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-19 19:25:25,041] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+ERROR:root:xformers not found! Please install it before trying to use it.
+[2024-03-19 19:25:25,680] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,681] [INFO] [comm.py:594:init_distributed] cdb=None
+ERROR:root:xformers not found! Please install it before trying to use it.
+ERROR:root:xformers not found! Please install it before trying to use it.
+ERROR:root:xformers not found! Please install it before trying to use it.
+ERROR:root:xformers not found! Please install it before trying to use it.
+[2024-03-19 19:25:25,743] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,743] [INFO] [comm.py:594:init_distributed] cdb=None
+ERROR:root:xformers not found! Please install it before trying to use it.
+[2024-03-19 19:25:25,760] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,760] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-19 19:25:25,784] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,784] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-19 19:25:25,793] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,793] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-19 19:25:25,812] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,812] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-19 19:25:25,812] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+ERROR:root:xformers not found! Please install it before trying to use it.
+ERROR:root:xformers not found! Please install it before trying to use it.
+[2024-03-19 19:25:25,994] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,994] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-19 19:25:25,994] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:25,994] [INFO] [comm.py:594:init_distributed] cdb=None
+ERROR:root:xformers not found! Please install it before trying to use it.
+[2024-03-19 19:25:26,070] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-19 19:25:26,070] [INFO] [comm.py:594:init_distributed] cdb=None
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+WARNING:moellava.model.language_model.qwen.modeling_qwen:The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+WARNING:moellava.model.language_model.qwen.modeling_qwen:Try importing flash-attention for faster inference...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.22s/it]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.93s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.29s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.65s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.93s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.99s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.21s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.83s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.45s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.38s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.42s/it]
+LLM init. firstly
+ LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151936, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+  )
+  (lm_head): Linear(in_features=2048, out_features=151936, bias=False)
+)
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.74s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.40s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.48s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.47s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.80s/it]
+Vision encoder and proj init.
+ LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151851, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+    (image_tower): CLIPVisionTower(
+      (image_tower): CLIPVisionModel(
+        (vision_model): CLIPVisionTransformer(
+          (embeddings): CLIPVisionEmbeddings(
+            (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14), bias=False)
+            (position_embedding): Embedding(577, 1024)
+          )
+          (pre_layrnorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder): CLIPEncoder(
+            (layers): ModuleList(
+              (0-23): 24 x CLIPEncoderLayer(
+                (self_attn): CLIPAttention(
+                  (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                )
+                (layer_norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+                (mlp): CLIPMLP(
+                  (activation_fn): QuickGELUActivation()
+                  (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+                  (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+                )
+                (layer_norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+              )
+            )
+          )
+          (post_layernorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (mm_projector): build_projector(
+      (image_spatial_proj): Sequential(
+        (0): Linear(in_features=1024, out_features=2048, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=2048, out_features=2048, bias=True)
+      )
+      (video_patch_proj): Identity()
+      (video_spatial_proj): Identity()
+      (video_temproal_proj): Identity()
+      (video_global_proj): Identity()
+    )
+  )
+  (lm_head): Linear(in_features=2048, out_features=151851, bias=False)
+)
+transformer.wte.weight
+transformer.h.0.ln_1.weight
+transformer.h.0.attn.c_attn.weight
+transformer.h.0.attn.c_attn.bias
+transformer.h.0.attn.c_proj.weight
+transformer.h.0.ln_2.weight
+transformer.h.0.mlp.w1.weight
+transformer.h.0.mlp.w2.weight
+transformer.h.0.mlp.c_proj.weight
+transformer.h.1.ln_1.weight
+transformer.h.1.attn.c_attn.weight
+transformer.h.1.attn.c_attn.bias
+transformer.h.1.attn.c_proj.weight
+transformer.h.1.ln_2.weight
+transformer.h.1.mlp.w1.weight
+transformer.h.1.mlp.w2.weight
+transformer.h.1.mlp.c_proj.weight
+transformer.h.2.ln_1.weight
+transformer.h.2.attn.c_attn.weight
+transformer.h.2.attn.c_attn.bias
+transformer.h.2.attn.c_proj.weight
+transformer.h.2.ln_2.weight
+transformer.h.2.mlp.w1.weight
+transformer.h.2.mlp.w2.weight
+transformer.h.2.mlp.c_proj.weight
+transformer.h.3.ln_1.weight
+transformer.h.3.attn.c_attn.weight
+transformer.h.3.attn.c_attn.bias
+transformer.h.3.attn.c_proj.weight
+transformer.h.3.ln_2.weight
+transformer.h.3.mlp.w1.weight
+transformer.h.3.mlp.w2.weight
+transformer.h.3.mlp.c_proj.weight
+transformer.h.4.ln_1.weight
+transformer.h.4.attn.c_attn.weight
+transformer.h.4.attn.c_attn.bias
+transformer.h.4.attn.c_proj.weight
+transformer.h.4.ln_2.weight
+transformer.h.4.mlp.w1.weight
+transformer.h.4.mlp.w2.weight
+transformer.h.4.mlp.c_proj.weight
+transformer.h.5.ln_1.weight
+transformer.h.5.attn.c_attn.weight
+transformer.h.5.attn.c_attn.bias
+transformer.h.5.attn.c_proj.weight
+transformer.h.5.ln_2.weight
+transformer.h.5.mlp.w1.weight
+transformer.h.5.mlp.w2.weight
+transformer.h.5.mlp.c_proj.weight
+transformer.h.6.ln_1.weight
+transformer.h.6.attn.c_attn.weight
+transformer.h.6.attn.c_attn.bias
+transformer.h.6.attn.c_proj.weight
+transformer.h.6.ln_2.weight
+transformer.h.6.mlp.w1.weight
+transformer.h.6.mlp.w2.weight
+transformer.h.6.mlp.c_proj.weight
+transformer.h.7.ln_1.weight
+transformer.h.7.attn.c_attn.weight
+transformer.h.7.attn.c_attn.bias
+transformer.h.7.attn.c_proj.weight
+transformer.h.7.ln_2.weight
+transformer.h.7.mlp.w1.weight
+transformer.h.7.mlp.w2.weight
+transformer.h.7.mlp.c_proj.weight
+transformer.h.8.ln_1.weight
+transformer.h.8.attn.c_attn.weight
+transformer.h.8.attn.c_attn.bias
+transformer.h.8.attn.c_proj.weight
+transformer.h.8.ln_2.weight
+transformer.h.8.mlp.w1.weight
+transformer.h.8.mlp.w2.weight
+transformer.h.8.mlp.c_proj.weight
+transformer.h.9.ln_1.weight
+transformer.h.9.attn.c_attn.weight
+transformer.h.9.attn.c_attn.bias
+transformer.h.9.attn.c_proj.weight
+transformer.h.9.ln_2.weight
+transformer.h.9.mlp.w1.weight
+transformer.h.9.mlp.w2.weight
+transformer.h.9.mlp.c_proj.weight
+transformer.h.10.ln_1.weight
+transformer.h.10.attn.c_attn.weight
+transformer.h.10.attn.c_attn.bias
+transformer.h.10.attn.c_proj.weight
+transformer.h.10.ln_2.weight
+transformer.h.10.mlp.w1.weight
+transformer.h.10.mlp.w2.weight
+transformer.h.10.mlp.c_proj.weight
+transformer.h.11.ln_1.weight
+transformer.h.11.attn.c_attn.weight
+transformer.h.11.attn.c_attn.bias
+transformer.h.11.attn.c_proj.weight
+transformer.h.11.ln_2.weight
+transformer.h.11.mlp.w1.weight
+transformer.h.11.mlp.w2.weight
+transformer.h.11.mlp.c_proj.weight
+transformer.h.12.ln_1.weight
+transformer.h.12.attn.c_attn.weight
+transformer.h.12.attn.c_attn.bias
+transformer.h.12.attn.c_proj.weight
+transformer.h.12.ln_2.weight
+transformer.h.12.mlp.w1.weight
+transformer.h.12.mlp.w2.weight
+transformer.h.12.mlp.c_proj.weight
+transformer.h.13.ln_1.weight
+transformer.h.13.attn.c_attn.weight
+transformer.h.13.attn.c_attn.bias
+transformer.h.13.attn.c_proj.weight
+transformer.h.13.ln_2.weight
+transformer.h.13.mlp.w1.weight
+transformer.h.13.mlp.w2.weight
+transformer.h.13.mlp.c_proj.weight
+transformer.h.14.ln_1.weight
+transformer.h.14.attn.c_attn.weight
+transformer.h.14.attn.c_attn.bias
+transformer.h.14.attn.c_proj.weight
+transformer.h.14.ln_2.weight
+transformer.h.14.mlp.w1.weight
+transformer.h.14.mlp.w2.weight
+transformer.h.14.mlp.c_proj.weight
+transformer.h.15.ln_1.weight
+transformer.h.15.attn.c_attn.weight
+transformer.h.15.attn.c_attn.bias
+transformer.h.15.attn.c_proj.weight
+transformer.h.15.ln_2.weight
+transformer.h.15.mlp.w1.weight
+transformer.h.15.mlp.w2.weight
+transformer.h.15.mlp.c_proj.weight
+transformer.h.16.ln_1.weight
+transformer.h.16.attn.c_attn.weight
+transformer.h.16.attn.c_attn.bias
+transformer.h.16.attn.c_proj.weight
+transformer.h.16.ln_2.weight
+transformer.h.16.mlp.w1.weight
+transformer.h.16.mlp.w2.weight
+transformer.h.16.mlp.c_proj.weight
+transformer.h.17.ln_1.weight
+transformer.h.17.attn.c_attn.weight
+transformer.h.17.attn.c_attn.bias
+transformer.h.17.attn.c_proj.weight
+transformer.h.17.ln_2.weight
+transformer.h.17.mlp.w1.weight
+transformer.h.17.mlp.w2.weight
+transformer.h.17.mlp.c_proj.weight
+transformer.h.18.ln_1.weight
+transformer.h.18.attn.c_attn.weight
+transformer.h.18.attn.c_attn.bias
+transformer.h.18.attn.c_proj.weight
+transformer.h.18.ln_2.weight
+transformer.h.18.mlp.w1.weight
+transformer.h.18.mlp.w2.weight
+transformer.h.18.mlp.c_proj.weight
+transformer.h.19.ln_1.weight
+transformer.h.19.attn.c_attn.weight
+transformer.h.19.attn.c_attn.bias
+transformer.h.19.attn.c_proj.weight
+transformer.h.19.ln_2.weight
+transformer.h.19.mlp.w1.weight
+transformer.h.19.mlp.w2.weight
+transformer.h.19.mlp.c_proj.weight
+transformer.h.20.ln_1.weight
+transformer.h.20.attn.c_attn.weight
+transformer.h.20.attn.c_attn.bias
+transformer.h.20.attn.c_proj.weight
+transformer.h.20.ln_2.weight
+transformer.h.20.mlp.w1.weight
+transformer.h.20.mlp.w2.weight
+transformer.h.20.mlp.c_proj.weight
+transformer.h.21.ln_1.weight
+transformer.h.21.attn.c_attn.weight
+transformer.h.21.attn.c_attn.bias
+transformer.h.21.attn.c_proj.weight
+transformer.h.21.ln_2.weight
+transformer.h.21.mlp.w1.weight
+transformer.h.21.mlp.w2.weight
+transformer.h.21.mlp.c_proj.weight
+transformer.h.22.ln_1.weight
+transformer.h.22.attn.c_attn.weight
+transformer.h.22.attn.c_attn.bias
+transformer.h.22.attn.c_proj.weight
+transformer.h.22.ln_2.weight
+transformer.h.22.mlp.w1.weight
+transformer.h.22.mlp.w2.weight
+transformer.h.22.mlp.c_proj.weight
+transformer.h.23.ln_1.weight
+transformer.h.23.attn.c_attn.weight
+transformer.h.23.attn.c_attn.bias
+transformer.h.23.attn.c_proj.weight
+transformer.h.23.ln_2.weight
+transformer.h.23.mlp.w1.weight
+transformer.h.23.mlp.w2.weight
+transformer.h.23.mlp.c_proj.weight
+transformer.ln_f.weight
+transformer.mm_projector.image_spatial_proj.0.weight
+transformer.mm_projector.image_spatial_proj.0.bias
+transformer.mm_projector.image_spatial_proj.2.weight
+transformer.mm_projector.image_spatial_proj.2.bias
+lm_head.weight
+LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151851, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+    (image_tower): CLIPVisionTower(
+      (image_tower): CLIPVisionModel(
+        (vision_model): CLIPVisionTransformer(
+          (embeddings): CLIPVisionEmbeddings(
+            (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14), bias=False)
+            (position_embedding): Embedding(577, 1024)
+          )
+          (pre_layrnorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder): CLIPEncoder(
+            (layers): ModuleList(
+              (0-23): 24 x CLIPEncoderLayer(
+                (self_attn): CLIPAttention(
+                  (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                )
+                (layer_norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+                (mlp): CLIPMLP(
+                  (activation_fn): QuickGELUActivation()
+                  (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+                  (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+                )
+                (layer_norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+              )
+            )
+          )
+          (post_layernorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (mm_projector): build_projector(
+      (image_spatial_proj): Sequential(
+        (0): Linear(in_features=1024, out_features=2048, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=2048, out_features=2048, bias=True)
+      )
+      (video_patch_proj): Identity()
+      (video_spatial_proj): Identity()
+      (video_temproal_proj): Identity()
+      (video_global_proj): Identity()
+    )
+  )
+  (lm_head): Linear(in_features=2048, out_features=151851, bias=False)
+)
+****************************************************************************************************
+****************************************************************************************************
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+Formatting inputs...Skip in lazy mode
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+Rank: 0 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 3 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 5 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 8 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 7 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 1 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 6 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 4 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+Rank: 2 partition count [9, 9] and sizes[(204736058, False), (16840, False)] 
+  0%|          | 0/21959 [00:00<?, ?it/s]Token indices sequence length is longer than the specified maximum sequence length for this model (770 > 512). Running this sequence through the model will result in indexing errors
+Token indices sequence length is longer than the specified maximum sequence length for this model (1308 > 512). Running this sequence through the model will result in indexing errors
+Token indices sequence length is longer than the specified maximum sequence length for this model (732 > 512). Running this sequence through the model will result in indexing errors
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/autograd/__init__.py:266: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1828: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025845206/work/torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+ 46%|████▌     | 10001/21959 [00:19<00:23, 504.61it/s]                                                      {'loss': 0.9301, 'learning_rate': 1.1917258694632769e-05, 'epoch': 0.46}
+ 46%|████▌     | 10001/21959 [00:19<00:23, 504.61it/s]Token indices sequence length is longer than the specified maximum sequence length for this model (518 > 512). Running this sequence through the model will result in indexing errors
+                                                      {'loss': 0.9254, 'learning_rate': 1.1915811109722888e-05, 'epoch': 0.46}
+ 46%|████▌     | 10002/21959 [00:27<00:23, 504.61it/s]                                                      {'loss': 0.9504, 'learning_rate': 1.1914363483136315e-05, 'epoch': 0.46}
+ 46%|████▌     | 10003/21959 [00:34<00:23, 504.61it/s] 46%|████▌     | 10003/21959 [00:36<00:23, 504.61it/s] 46%|████▌     | 10004/21959 [00:42<01:01, 193.34it/s]                                                      {'loss': 0.8892, 'learning_rate': 1.1912915814904542e-05, 'epoch': 0.46}
+ 46%|████▌     | 10004/21959 [00:42<01:01, 193.34it/s] 46%|████▌     | 10005/21959 [00:50<01:21, 146.01it/s]                                                      {'loss': 0.8914, 'learning_rate': 1.1911468105059067e-05, 'epoch': 0.46}
+ 46%|████▌     | 10005/21959 [00:50<01:21, 146.01it/s] 46%|████▌     | 10006/21959 [00:57<01:46, 112.16it/s]                                                      {'loss': 0.8509, 'learning_rate': 1.1910020353631377e-05, 'epoch': 0.46}
+ 46%|████▌     | 10006/21959 [00:57<01:46, 112.16it/s] 46%|████▌     | 10007/21959 [01:05<02:26, 81.49it/s]                                                      {'loss': 1.0259, 'learning_rate': 1.190857256065297e-05, 'epoch': 0.46}
+ 46%|████▌     | 10007/21959 [01:05<02:26, 81.49it/s] 46%|████▌     | 10008/21959 [01:12<03:17, 60.43it/s]                                                     {'loss': 0.9814, 'learning_rate': 1.1907124726155337e-05, 'epoch': 0.46}
+ 46%|████▌     | 10008/21959 [01:12<03:17, 60.43it/s] 46%|████▌     | 10009/21959 [01:20<04:36, 43.19it/s]                                                     {'loss': 1.119, 'learning_rate': 1.190567685016998e-05, 'epoch': 0.46}
+ 46%|████▌     | 10009/21959 [01:20<04:36, 43.19it/s]Token indices sequence length is longer than the specified maximum sequence length for this model (576 > 512). Running this sequence through the model will result in indexing errors
+ 46%|████▌     | 10010/21959 [01:27<06:20, 31.40it/s]                                                     {'loss': 0.9967, 'learning_rate': 1.1904228932728392e-05, 'epoch': 0.46}
+ 46%|████▌     | 10010/21959 [01:27<06:20, 31.40it/s] 46%|████▌     | 10011/21959 [01:35<09:05, 21.91it/s]                                                     {'loss': 1.1394, 'learning_rate': 1.1902780973862078e-05, 'epoch': 0.46}
+ 46%|████▌     | 10011/21959 [01:35<09:05, 21.91it/s] 46%|████▌     | 10012/21959 [01:43<12:39, 15.73it/s]                                                     {'loss': 0.9151, 'learning_rate': 1.190133297360253e-05, 'epoch': 0.46}
+ 46%|████▌     | 10012/21959 [01:43<12:39, 15.73it/s] 46%|████▌     | 10013/21959 [01:50<17:59, 11.07it/s]                                                     {'loss': 0.9921, 'learning_rate': 1.1899884931981249e-05, 'epoch': 0.46}
+ 46%|████▌     | 10013/21959 [01:50<17:59, 11.07it/s] 46%|████▌     | 10014/21959 [01:57<24:54,  7.99it/s]                                                     {'loss': 0.8487, 'learning_rate': 1.1898436849029736e-05, 'epoch': 0.46}
+ 46%|████▌     | 10014/21959 [01:57<24:54,  7.99it/s] 46%|████▌     | 10015/21959 [02:05<35:09,  5.66it/s]                                                     {'loss': 1.0489, 'learning_rate': 1.1896988724779493e-05, 'epoch': 0.46}
+ 46%|████▌     | 10015/21959 [02:05<35:09,  5.66it/s] 46%|████▌     | 10016/21959 [02:12<49:02,  4.06it/s]                                                     {'loss': 1.0256, 'learning_rate': 1.1895540559262024e-05, 'epoch': 0.46}
+ 46%|████▌     | 10016/21959 [02:12<49:02,  4.06it/s] 46%|████▌     | 10017/21959 [02:20<1:09:29,  2.86it/s]                                                       {'loss': 0.986, 'learning_rate': 1.1894092352508831e-05, 'epoch': 0.46}
+ 46%|████▌     | 10017/21959 [02:20<1:09:29,  2.86it/s] 46%|████▌     | 10018/21959 [02:27<1:36:22,  2.07it/s]                                                       {'loss': 1.0208, 'learning_rate': 1.1892644104551419e-05, 'epoch': 0.46}
+ 46%|████▌     | 10018/21959 [02:27<1:36:22,  2.07it/s] 46%|████▌     | 10019/21959 [02:36<2:20:51,  1.41it/s]                                                       {'loss': 1.0683, 'learning_rate': 1.1891195815421293e-05, 'epoch': 0.46}
+ 46%|████▌     | 10019/21959 [02:36<2:20:51,  1.41it/s] 46%|████▌     | 10020/21959 [02:43<3:10:03,  1.05it/s]                                                       {'loss': 0.9913, 'learning_rate': 1.1889747485149961e-05, 'epoch': 0.46}
+ 46%|████▌     | 10020/21959 [02:43<3:10:03,  1.05it/s] 46%|████▌     | 10021/21959 [02:50<4:17:57,  1.30s/it]                                                       {'loss': 1.248, 'learning_rate': 1.1888299113768927e-05, 'epoch': 0.46}
+ 46%|████▌     | 10021/21959 [02:50<4:17:57,  1.30s/it] 46%|████▌     | 10022/21959 [02:58<5:37:32,  1.70s/it]                                                       {'loss': 0.8815, 'learning_rate': 1.1886850701309698e-05, 'epoch': 0.46}
+ 46%|████▌     | 10022/21959 [02:58<5:37:32,  1.70s/it] 46%|████▌     | 10023/21959 [03:05<7:24:29,  2.23s/it]                                                       {'loss': 1.1243, 'learning_rate': 1.1885402247803788e-05, 'epoch': 0.46}
+ 46%|████▌     | 10023/21959 [03:05<7:24:29,  2.23s/it] 46%|████▌     | 10024/21959 [03:13<9:21:11,  2.82s/it]                                                       {'loss': 0.9355, 'learning_rate': 1.1883953753282702e-05, 'epoch': 0.46}
+ 46%|████▌     | 10024/21959 [03:13<9:21:11,  2.82s/it] 46%|████▌     | 10025/21959 [03:21<11:37:14,  3.51s/it]                                                        {'loss': 1.1019, 'learning_rate': 1.1882505217777955e-05, 'epoch': 0.46}
+ 46%|████▌     | 10025/21959 [03:21<11:37:14,  3.51s/it] 46%|████▌     | 10026/21959 [03:28<13:38:48,  4.12s/it]                                                        {'loss': 0.9887, 'learning_rate': 1.1881056641321055e-05, 'epoch': 0.46}
+ 46%|████▌     | 10026/21959 [03:28<13:38:48,  4.12s/it] 46%|████▌     | 10027/21959 [03:36<15:53:44,  4.80s/it]                                                        {'loss': 1.2044, 'learning_rate': 1.1879608023943516e-05, 'epoch': 0.46}
+ 46%|████▌     | 10027/21959 [03:36<15:53:44,  4.80s/it]Token indices sequence length is longer than the specified maximum sequence length for this model (612 > 512). Running this sequence through the model will result in indexing errors
+ 46%|████▌     | 10028/21959 [03:43<17:41:33,  5.34s/it]                                                        {'loss': 1.0556, 'learning_rate': 1.1878159365676851e-05, 'epoch': 0.46}
+ 46%|████▌     | 10028/21959 [03:43<17:41:33,  5.34s/it] 46%|████▌     | 10029/21959 [03:51<19:34:18,  5.91s/it]                                                        {'loss': 0.9433, 'learning_rate': 1.1876710666552578e-05, 'epoch': 0.46}
+ 46%|████▌     | 10029/21959 [03:51<19:34:18,  5.91s/it] 46%|████▌     | 10030/21959 [03:58<20:43:39,  6.26s/it]                                                        {'loss': 0.8458, 'learning_rate': 1.1875261926602204e-05, 'epoch': 0.46}
+ 46%|████▌     | 10030/21959 [03:58<20:43:39,  6.26s/it] 46%|████▌     | 10031/21959 [04:06<22:01:50,  6.65s/it]                                                        {'loss': 0.8515, 'learning_rate': 1.187381314585725e-05, 'epoch': 0.46}
+ 46%|████▌     | 10031/21959 [04:06<22:01:50,  6.65s/it] 46%|████▌     | 10032/21959 [04:13<23:03:26,  6.96s/it]                                                        {'loss': 1.2409, 'learning_rate': 1.187236432434923e-05, 'epoch': 0.46}
+ 46%|████▌     | 10032/21959 [04:13<23:03:26,  6.96s/it] 46%|████▌     | 10033/21959 [04:21<23:59:18,  7.24s/it]                                                        {'loss': 1.1309, 'learning_rate': 1.1870915462109664e-05, 'epoch': 0.46}
+ 46%|████▌     | 10033/21959 [04:21<23:59:18,  7.24s/it] 46%|████▌     | 10034/21959 [04:29<24:10:36,  7.30s/it]                                                        {'loss': 1.0717, 'learning_rate': 1.1869466559170073e-05, 'epoch': 0.46}
+ 46%|████▌     | 10034/21959 [04:32<24:10:36,  7.30s/it] 46%|████▌     | 10035/21959 [04:41<28:31:32,  8.61s/it]                                                        {'loss': 0.7814, 'learning_rate': 1.1868017615561976e-05, 'epoch': 0.46}
+ 46%|████▌     | 10035/21959 [04:41<28:31:32,  8.61s/it] 46%|████▌     | 10036/21959 [04:48<27:07:17,  8.19s/it]                                                        {'loss': 1.0368, 'learning_rate': 1.1866568631316888e-05, 'epoch': 0.46}
+ 46%|████▌     | 10036/21959 [04:48<27:07:17,  8.19s/it] 46%|████▌     | 10037/21959 [04:57<28:24:19,  8.58s/it]                                                        {'loss': 1.0027, 'learning_rate': 1.1865119606466333e-05, 'epoch': 0.46}
+ 46%|████▌     | 10037/21959 [04:57<28:24:19,  8.58s/it] 46%|████▌     | 10038/21959 [05:06<28:25:52,  8.59s/it]                                                        {'loss': 0.9888, 'learning_rate': 1.1863670541041837e-05, 'epoch': 0.46}
+ 46%|████▌     | 10038/21959 [05:06<28:25:52,  8.59s/it] 46%|████▌     | 10039/21959 [05:15<28:31:35,  8.62s/it]                                                        {'loss': 1.0397, 'learning_rate': 1.1862221435074918e-05, 'epoch': 0.46}
+ 46%|████▌     | 10039/21959 [05:15<28:31:35,  8.62s/it] 46%|████▌     | 10040/21959 [05:22<27:06:02,  8.19s/it]                                                        {'loss': 0.9511, 'learning_rate': 1.1860772288597102e-05, 'epoch': 0.46}
+ 46%|████▌     | 10040/21959 [05:22<27:06:02,  8.19s/it] 46%|████▌     | 10041/21959 [05:31<28:10:16,  8.51s/it]                                                        {'loss': 1.0575, 'learning_rate': 1.1859323101639915e-05, 'epoch': 0.46}
+ 46%|████▌     | 10041/21959 [05:31<28:10:16,  8.51s/it] 46%|████▌     | 10042/21959 [05:39<27:32:11,  8.32s/it]                                                        {'loss': 1.1149, 'learning_rate': 1.1857873874234883e-05, 'epoch': 0.46}
+ 46%|████▌     | 10042/21959 [05:39<27:32:11,  8.32s/it] 46%|████▌     | 10043/21959 [05:47<26:53:03,  8.12s/it]                                                        {'loss': 1.2167, 'learning_rate': 1.1856424606413531e-05, 'epoch': 0.46}
+ 46%|████▌     | 10043/21959 [05:47<26:53:03,  8.12s/it] 46%|████▌     | 10044/21959 [05:54<25:59:44,  7.85s/it]                                                        {'loss': 1.0164, 'learning_rate': 1.1854975298207388e-05, 'epoch': 0.46}
+ 46%|████▌     | 10044/21959 [05:54<25:59:44,  7.85s/it] 46%|████▌     | 10045/21959 [06:02<26:35:59,  8.04s/it]                                                        {'loss': 0.9999, 'learning_rate': 1.1853525949647978e-05, 'epoch': 0.46}
+ 46%|████▌     | 10045/21959 [06:02<26:35:59,  8.04s/it]Token indices sequence length is longer than the specified maximum sequence length for this model (577 > 512). Running this sequence through the model will result in indexing errors
+ 46%|████▌     | 10046/21959 [06:11<26:55:23,  8.14s/it]                                                        {'loss': 0.9652, 'learning_rate': 1.1852076560766832e-05, 'epoch': 0.46}
+ 46%|████▌     | 10046/21959 [06:11<26:55:23,  8.14s/it] 46%|████▌     | 10047/21959 [06:18<26:30:51,  8.01s/it]                                                        {'loss': 1.0578, 'learning_rate': 1.1850627131595483e-05, 'epoch': 0.46}
+ 46%|████▌     | 10047/21959 [06:18<26:30:51,  8.01s/it] 46%|████▌     | 10048/21959 [06:26<25:35:50,  7.74s/it]                                                        {'loss': 0.8377, 'learning_rate': 1.1849177662165459e-05, 'epoch': 0.46}
+ 46%|████▌     | 10048/21959 [06:26<25:35:50,  7.74s/it] 46%|████▌     | 10049/21959 [06:33<25:38:03,  7.75s/it]                                                        {'loss': 1.1206, 'learning_rate': 1.1847728152508294e-05, 'epoch': 0.46}
+ 46%|████▌     | 10049/21959 [06:33<25:38:03,  7.75s/it][2024-03-19 19:34:17,654] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326364
+[2024-03-19 19:34:19,298] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326365
+[2024-03-19 19:34:20,750] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326366
+[2024-03-19 19:34:21,899] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326367
+[2024-03-19 19:34:23,201] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326368
+[2024-03-19 19:34:24,641] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326369
+[2024-03-19 19:34:26,369] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326370
+[2024-03-19 19:34:27,377] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326371
+[2024-03-19 19:34:28,588] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 326372
+[2024-03-19 19:34:28,588] [ERROR] [launch.py:321:sigkill_handler] ['/home/data_llm/anaconda3/envs/moellava/bin/python', '-u', 'moellava/train/train_xformers.py', '--local_rank=8', '--deepspeed', './scripts/zero2.json', '--model_name_or_path', '/media/LLM_data/model/Qwen-1_8B', '--version', 'qwen', '--data_path', '/mnt/data_llm/json_file/101_train_prompt1.json', '/mnt/data_llm/json_file/train_ingredient_QA.json', '/mnt/data_llm/json_file/train_recipe_QA.json', '/mnt/data_llm/json_file/train_title_QA.json', '/mnt/data_llm/json_file/2k_train_prompt1.json', '/mnt/data_llm/json_file/172_train_prompt1.json', '/mnt/data_llm/json_file/172_ingredient_train_prompt1.json', '/mnt/data_llm/json_file/nutrition5k_train.json', '--image_folder', '/media/LLM_data/food_recognition_dataset', '--image_tower', '/media/LLM_data/model/openai/clip-vit-large-patch14-336', '--image_projector_type', 'mlp2x_gelu', '--pretrain_mm_mlp_adapter', '/media/LLM_data/model/moellava/checkpoints/llavaqwen1.8B_mm_projector.bin', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--image_aspect_ratio', 'pad', '--group_by_modality_length', 'True', '--bf16', 'True', '--check_point_file_name', '/media/LLM_data/model/moellava/checkpoints/checkpoints-v2.json', '--output_dir', '/media/LLM_data/model/moellava/checkpoints/checkpoints-v2', '--num_train_epochs', '1', '--per_device_train_batch_size', '16', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '2', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '5000', '--save_total_limit', '5', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'False', '--model_max_length', '512', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '16', '--lazy_preprocess', 'True', '--report_to', 'tensorboard', '--cache_dir', '/media/fast_data/huggingface/hub/'] exits with return code = -15

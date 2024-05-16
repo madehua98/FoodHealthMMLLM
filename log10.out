@@ -1,0 +1,30 @@
+INFO 04-23 14:23:34 api_server.py:149] vLLM API server version 0.4.0.post1
+INFO 04-23 14:23:34 api_server.py:150] args: Namespace(host=None, port=8009, uvicorn_log_level='info', allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, served_model_name=None, lora_modules=None, chat_template=None, response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_cert_reqs=0, root_path=None, middleware=[], model='Qwen/Qwen1.5-7B-Chat', tokenizer=None, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, download_dir=None, load_format='auto', dtype='half', kv_cache_dtype='auto', max_model_len=1024, worker_use_ray=False, pipeline_parallel_size=1, tensor_parallel_size=1, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=16, enable_prefix_caching=False, use_v2_block_manager=False, num_lookahead_slots=0, seed=0, swap_space=4, gpu_memory_utilization=0.9, forced_num_gpu_blocks=None, max_num_batched_tokens=None, max_num_seqs=256, max_logprobs=5, disable_log_stats=False, quantization=None, enforce_eager=False, max_context_len_to_capture=8192, disable_custom_all_reduce=False, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, enable_lora=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', max_cpu_loras=None, device='auto', image_input_type=None, image_token_id=None, image_input_shape=None, image_feature_size=None, scheduler_delay_factor=0.0, enable_chunked_prefill=False, engine_use_ray=False, disable_log_requests=False, max_log_len=None)
+WARNING 04-23 14:23:34 config.py:767] Casting torch.bfloat16 to torch.float16.
+INFO 04-23 14:23:34 llm_engine.py:74] Initializing an LLM engine (v0.4.0.post1) with config: model='Qwen/Qwen1.5-7B-Chat', tokenizer='Qwen/Qwen1.5-7B-Chat', tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, seed=0)
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 04-23 14:23:36 selector.py:51] Cannot use FlashAttention because the package is not found. Please install it for better performance.
+INFO 04-23 14:23:36 selector.py:25] Using XFormers backend.
+INFO 04-23 14:23:38 weight_utils.py:177] Using model weights format ['*.safetensors']
+INFO 04-23 14:23:46 model_runner.py:104] Loading model weights took 14.3919 GB
+INFO 04-23 14:23:46 gpu_executor.py:94] # GPU blocks: 702, # CPU blocks: 512
+INFO 04-23 14:23:48 model_runner.py:791] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 04-23 14:23:48 model_runner.py:795] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 04-23 14:23:53 model_runner.py:867] Graph capturing finished in 4 secs.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 04-23 14:23:53 serving_chat.py:331] Using default chat template:
+INFO 04-23 14:23:53 serving_chat.py:331] {% for message in messages %}{% if loop.first and messages[0]['role'] != 'system' %}{{ '<|im_start|>system
+INFO 04-23 14:23:53 serving_chat.py:331] You are a helpful assistant<|im_end|>
+INFO 04-23 14:23:53 serving_chat.py:331] ' }}{% endif %}{{'<|im_start|>' + message['role'] + '
+INFO 04-23 14:23:53 serving_chat.py:331] ' + message['content'] + '<|im_end|>' + '
+INFO 04-23 14:23:53 serving_chat.py:331] '}}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant
+INFO 04-23 14:23:53 serving_chat.py:331] ' }}{% endif %}
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:     Started server process [1489926]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1489926]

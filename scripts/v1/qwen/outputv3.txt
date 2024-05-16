@@ -1,0 +1,584 @@
+nohup: 忽略输入
+[2024-03-21 00:01:11,902] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:14,441] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-21 00:01:14,441] [INFO] [runner.py:555:main] cmd = /home/data_llm/anaconda3/envs/moellava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgOCwgOV19 --master_addr=127.0.0.1 --master_port=2222 --enable_each_rank_log=None moellava/train/train_xformers.py --deepspeed ./scripts/zero2.json --model_name_or_path /media/LLM_data/model/Qwen-1_8B --version qwen --data_path /mnt/data_llm/json_file/101_train_prompt1.json /mnt/data_llm/json_file/train_ingredient_QA.json /mnt/data_llm/json_file/train_recipe_QA.json /mnt/data_llm/json_file/train_title_QA.json /mnt/data_llm/json_file/2k_train_prompt1.json /mnt/data_llm/json_file/172_train_prompt1.json /mnt/data_llm/json_file/172_ingredient_train_prompt1.json /mnt/data_llm/json_file/nutrition5k_train.json /mnt/data_llm/json_file/mix_food.json --image_folder /media/LLM_data/food_recognition_dataset --image_tower /media/LLM_data/model/openai/clip-vit-large-patch14-336 --image_projector_type mlp2x_gelu --pretrain_mm_mlp_adapter /media/LLM_data/model/moellava/checkpoints/llavaqwen1.8B_mm_projector.bin --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --image_aspect_ratio pad --group_by_modality_length True --bf16 True --check_point_file_name /media/LLM_data/model/moellava/checkpoints/checkpoints-v2.json --output_dir /media/LLM_data/model/moellava/checkpoints/checkpoints-v2 --num_train_epochs 1 --per_device_train_batch_size 8 --per_device_eval_batch_size 4 --gradient_accumulation_steps 2 --evaluation_strategy no --save_strategy steps --save_steps 5000 --save_total_limit 5 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 False --model_max_length 1024 --gradient_checkpointing True --dataloader_num_workers 64 --lazy_preprocess True --report_to tensorboard --cache_dir /media/fast_data/huggingface/hub/
+[2024-03-21 00:01:15,752] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:18,059] [INFO] [launch.py:138:main] 0 NCCL_P2P_DISABLE=1
+[2024-03-21 00:01:18,059] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 8, 9]}
+[2024-03-21 00:01:18,059] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=7, node_rank=0
+[2024-03-21 00:01:18,059] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6]})
+[2024-03-21 00:01:18,059] [INFO] [launch.py:163:main] dist_world_size=7
+[2024-03-21 00:01:18,059] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,8,9
+[2024-03-21 00:01:21,486] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,558] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,591] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,615] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,683] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,693] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:21,706] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-21 00:01:22,480] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,480] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,527] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,527] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,540] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,540] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,612] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,612] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,672] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,673] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,723] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,724] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,728] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-21 00:01:22,728] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-21 00:01:22,728] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+You are using a model of type qwen to instantiate a model of type llava_qwen. This is not supported for all configurations of models and can yield errors.
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Try importing flash-attention for faster inference...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.89s/it]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.70s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.98s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.43s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.49s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.55s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.20s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.39s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.96s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.43s/it]
+LLM init. firstly
+ LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151936, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+  )
+  (lm_head): Linear(in_features=2048, out_features=151936, bias=False)
+)
+Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.58s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.45s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.61s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.50s/it]
+Vision encoder and proj init.
+ LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151851, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+    (image_tower): CLIPVisionTower(
+      (image_tower): CLIPVisionModel(
+        (vision_model): CLIPVisionTransformer(
+          (embeddings): CLIPVisionEmbeddings(
+            (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14), bias=False)
+            (position_embedding): Embedding(577, 1024)
+          )
+          (pre_layrnorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder): CLIPEncoder(
+            (layers): ModuleList(
+              (0-23): 24 x CLIPEncoderLayer(
+                (self_attn): CLIPAttention(
+                  (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                )
+                (layer_norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+                (mlp): CLIPMLP(
+                  (activation_fn): QuickGELUActivation()
+                  (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+                  (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+                )
+                (layer_norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+              )
+            )
+          )
+          (post_layernorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (mm_projector): build_projector(
+      (image_spatial_proj): Sequential(
+        (0): Linear(in_features=1024, out_features=2048, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=2048, out_features=2048, bias=True)
+      )
+      (video_patch_proj): Identity()
+      (video_spatial_proj): Identity()
+      (video_temproal_proj): Identity()
+      (video_global_proj): Identity()
+    )
+  )
+  (lm_head): Linear(in_features=2048, out_features=151851, bias=False)
+)
+transformer.wte.weight
+transformer.h.0.ln_1.weight
+transformer.h.0.attn.c_attn.weight
+transformer.h.0.attn.c_attn.bias
+transformer.h.0.attn.c_proj.weight
+transformer.h.0.ln_2.weight
+transformer.h.0.mlp.w1.weight
+transformer.h.0.mlp.w2.weight
+transformer.h.0.mlp.c_proj.weight
+transformer.h.1.ln_1.weight
+transformer.h.1.attn.c_attn.weight
+transformer.h.1.attn.c_attn.bias
+transformer.h.1.attn.c_proj.weight
+transformer.h.1.ln_2.weight
+transformer.h.1.mlp.w1.weight
+transformer.h.1.mlp.w2.weight
+transformer.h.1.mlp.c_proj.weight
+transformer.h.2.ln_1.weight
+transformer.h.2.attn.c_attn.weight
+transformer.h.2.attn.c_attn.bias
+transformer.h.2.attn.c_proj.weight
+transformer.h.2.ln_2.weight
+transformer.h.2.mlp.w1.weight
+transformer.h.2.mlp.w2.weight
+transformer.h.2.mlp.c_proj.weight
+transformer.h.3.ln_1.weight
+transformer.h.3.attn.c_attn.weight
+transformer.h.3.attn.c_attn.bias
+transformer.h.3.attn.c_proj.weight
+transformer.h.3.ln_2.weight
+transformer.h.3.mlp.w1.weight
+transformer.h.3.mlp.w2.weight
+transformer.h.3.mlp.c_proj.weight
+transformer.h.4.ln_1.weight
+transformer.h.4.attn.c_attn.weight
+transformer.h.4.attn.c_attn.bias
+transformer.h.4.attn.c_proj.weight
+transformer.h.4.ln_2.weight
+transformer.h.4.mlp.w1.weight
+transformer.h.4.mlp.w2.weight
+transformer.h.4.mlp.c_proj.weight
+transformer.h.5.ln_1.weight
+transformer.h.5.attn.c_attn.weight
+transformer.h.5.attn.c_attn.bias
+transformer.h.5.attn.c_proj.weight
+transformer.h.5.ln_2.weight
+transformer.h.5.mlp.w1.weight
+transformer.h.5.mlp.w2.weight
+transformer.h.5.mlp.c_proj.weight
+transformer.h.6.ln_1.weight
+transformer.h.6.attn.c_attn.weight
+transformer.h.6.attn.c_attn.bias
+transformer.h.6.attn.c_proj.weight
+transformer.h.6.ln_2.weight
+transformer.h.6.mlp.w1.weight
+transformer.h.6.mlp.w2.weight
+transformer.h.6.mlp.c_proj.weight
+transformer.h.7.ln_1.weight
+transformer.h.7.attn.c_attn.weight
+transformer.h.7.attn.c_attn.bias
+transformer.h.7.attn.c_proj.weight
+transformer.h.7.ln_2.weight
+transformer.h.7.mlp.w1.weight
+transformer.h.7.mlp.w2.weight
+transformer.h.7.mlp.c_proj.weight
+transformer.h.8.ln_1.weight
+transformer.h.8.attn.c_attn.weight
+transformer.h.8.attn.c_attn.bias
+transformer.h.8.attn.c_proj.weight
+transformer.h.8.ln_2.weight
+transformer.h.8.mlp.w1.weight
+transformer.h.8.mlp.w2.weight
+transformer.h.8.mlp.c_proj.weight
+transformer.h.9.ln_1.weight
+transformer.h.9.attn.c_attn.weight
+transformer.h.9.attn.c_attn.bias
+transformer.h.9.attn.c_proj.weight
+transformer.h.9.ln_2.weight
+transformer.h.9.mlp.w1.weight
+transformer.h.9.mlp.w2.weight
+transformer.h.9.mlp.c_proj.weight
+transformer.h.10.ln_1.weight
+transformer.h.10.attn.c_attn.weight
+transformer.h.10.attn.c_attn.bias
+transformer.h.10.attn.c_proj.weight
+transformer.h.10.ln_2.weight
+transformer.h.10.mlp.w1.weight
+transformer.h.10.mlp.w2.weight
+transformer.h.10.mlp.c_proj.weight
+transformer.h.11.ln_1.weight
+transformer.h.11.attn.c_attn.weight
+transformer.h.11.attn.c_attn.bias
+transformer.h.11.attn.c_proj.weight
+transformer.h.11.ln_2.weight
+transformer.h.11.mlp.w1.weight
+transformer.h.11.mlp.w2.weight
+transformer.h.11.mlp.c_proj.weight
+transformer.h.12.ln_1.weight
+transformer.h.12.attn.c_attn.weight
+transformer.h.12.attn.c_attn.bias
+transformer.h.12.attn.c_proj.weight
+transformer.h.12.ln_2.weight
+transformer.h.12.mlp.w1.weight
+transformer.h.12.mlp.w2.weight
+transformer.h.12.mlp.c_proj.weight
+transformer.h.13.ln_1.weight
+transformer.h.13.attn.c_attn.weight
+transformer.h.13.attn.c_attn.bias
+transformer.h.13.attn.c_proj.weight
+transformer.h.13.ln_2.weight
+transformer.h.13.mlp.w1.weight
+transformer.h.13.mlp.w2.weight
+transformer.h.13.mlp.c_proj.weight
+transformer.h.14.ln_1.weight
+transformer.h.14.attn.c_attn.weight
+transformer.h.14.attn.c_attn.bias
+transformer.h.14.attn.c_proj.weight
+transformer.h.14.ln_2.weight
+transformer.h.14.mlp.w1.weight
+transformer.h.14.mlp.w2.weight
+transformer.h.14.mlp.c_proj.weight
+transformer.h.15.ln_1.weight
+transformer.h.15.attn.c_attn.weight
+transformer.h.15.attn.c_attn.bias
+transformer.h.15.attn.c_proj.weight
+transformer.h.15.ln_2.weight
+transformer.h.15.mlp.w1.weight
+transformer.h.15.mlp.w2.weight
+transformer.h.15.mlp.c_proj.weight
+transformer.h.16.ln_1.weight
+transformer.h.16.attn.c_attn.weight
+transformer.h.16.attn.c_attn.bias
+transformer.h.16.attn.c_proj.weight
+transformer.h.16.ln_2.weight
+transformer.h.16.mlp.w1.weight
+transformer.h.16.mlp.w2.weight
+transformer.h.16.mlp.c_proj.weight
+transformer.h.17.ln_1.weight
+transformer.h.17.attn.c_attn.weight
+transformer.h.17.attn.c_attn.bias
+transformer.h.17.attn.c_proj.weight
+transformer.h.17.ln_2.weight
+transformer.h.17.mlp.w1.weight
+transformer.h.17.mlp.w2.weight
+transformer.h.17.mlp.c_proj.weight
+transformer.h.18.ln_1.weight
+transformer.h.18.attn.c_attn.weight
+transformer.h.18.attn.c_attn.bias
+transformer.h.18.attn.c_proj.weight
+transformer.h.18.ln_2.weight
+transformer.h.18.mlp.w1.weight
+transformer.h.18.mlp.w2.weight
+transformer.h.18.mlp.c_proj.weight
+transformer.h.19.ln_1.weight
+transformer.h.19.attn.c_attn.weight
+transformer.h.19.attn.c_attn.bias
+transformer.h.19.attn.c_proj.weight
+transformer.h.19.ln_2.weight
+transformer.h.19.mlp.w1.weight
+transformer.h.19.mlp.w2.weight
+transformer.h.19.mlp.c_proj.weight
+transformer.h.20.ln_1.weight
+transformer.h.20.attn.c_attn.weight
+transformer.h.20.attn.c_attn.bias
+transformer.h.20.attn.c_proj.weight
+transformer.h.20.ln_2.weight
+transformer.h.20.mlp.w1.weight
+transformer.h.20.mlp.w2.weight
+transformer.h.20.mlp.c_proj.weight
+transformer.h.21.ln_1.weight
+transformer.h.21.attn.c_attn.weight
+transformer.h.21.attn.c_attn.bias
+transformer.h.21.attn.c_proj.weight
+transformer.h.21.ln_2.weight
+transformer.h.21.mlp.w1.weight
+transformer.h.21.mlp.w2.weight
+transformer.h.21.mlp.c_proj.weight
+transformer.h.22.ln_1.weight
+transformer.h.22.attn.c_attn.weight
+transformer.h.22.attn.c_attn.bias
+transformer.h.22.attn.c_proj.weight
+transformer.h.22.ln_2.weight
+transformer.h.22.mlp.w1.weight
+transformer.h.22.mlp.w2.weight
+transformer.h.22.mlp.c_proj.weight
+transformer.h.23.ln_1.weight
+transformer.h.23.attn.c_attn.weight
+transformer.h.23.attn.c_attn.bias
+transformer.h.23.attn.c_proj.weight
+transformer.h.23.ln_2.weight
+transformer.h.23.mlp.w1.weight
+transformer.h.23.mlp.w2.weight
+transformer.h.23.mlp.c_proj.weight
+transformer.ln_f.weight
+transformer.mm_projector.image_spatial_proj.0.weight
+transformer.mm_projector.image_spatial_proj.0.bias
+transformer.mm_projector.image_spatial_proj.2.weight
+transformer.mm_projector.image_spatial_proj.2.bias
+lm_head.weight
+LlavaQWenForCausalLM(
+  (transformer): LlavaQWenModel(
+    (wte): Embedding(151851, 2048)
+    (drop): Dropout(p=0.0, inplace=False)
+    (rotary_emb): RotaryEmbedding()
+    (h): ModuleList(
+      (0-23): 24 x QWenBlock(
+        (ln_1): RMSNorm()
+        (attn): QWenAttention(
+          (c_attn): Linear(in_features=2048, out_features=6144, bias=True)
+          (c_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (attn_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): RMSNorm()
+        (mlp): QWenMLP(
+          (w1): Linear(in_features=2048, out_features=5504, bias=False)
+          (w2): Linear(in_features=2048, out_features=5504, bias=False)
+          (c_proj): Linear(in_features=5504, out_features=2048, bias=False)
+        )
+      )
+    )
+    (ln_f): RMSNorm()
+    (image_tower): CLIPVisionTower(
+      (image_tower): CLIPVisionModel(
+        (vision_model): CLIPVisionTransformer(
+          (embeddings): CLIPVisionEmbeddings(
+            (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14), bias=False)
+            (position_embedding): Embedding(577, 1024)
+          )
+          (pre_layrnorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder): CLIPEncoder(
+            (layers): ModuleList(
+              (0-23): 24 x CLIPEncoderLayer(
+                (self_attn): CLIPAttention(
+                  (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                  (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+                )
+                (layer_norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+                (mlp): CLIPMLP(
+                  (activation_fn): QuickGELUActivation()
+                  (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+                  (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+                )
+                (layer_norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+              )
+            )
+          )
+          (post_layernorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (mm_projector): build_projector(
+      (image_spatial_proj): Sequential(
+        (0): Linear(in_features=1024, out_features=2048, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=2048, out_features=2048, bias=True)
+      )
+      (video_patch_proj): Identity()
+      (video_spatial_proj): Identity()
+      (video_temproal_proj): Identity()
+      (video_global_proj): Identity()
+    )
+  )
+  (lm_head): Linear(in_features=2048, out_features=151851, bias=False)
+)
+****************************************************************************************************
+Formatting inputs...Skip in lazy mode
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+You are using an old version of the checkpointing format that is deprecated (We will also silently ignore `gradient_checkpointing_kwargs` in case you passed it).Please update to the new format on your modeling file. To use the new format, you need to completely remove the definition of the method `_set_gradient_checkpointing` in your model.
+Rank: 2 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 4 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 5 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 3 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 0 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 6 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Rank: 1 partition count [7, 7] and sizes[(263232074, False), (21652, False)] 
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 13, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1549, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/trainer.py", line 1708, in _inner_training_loop
+    deepspeed_load_checkpoint(self.model_wrapped, resume_from_checkpoint)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 402, in deepspeed_load_checkpoint
+    load_path, _ = deepspeed_engine.load_checkpoint(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2614, in load_checkpoint
+    success = self._load_zero_checkpoint(load_dir, tag, load_optimizer_states=load_optimizer_states)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2756, in _load_zero_checkpoint
+    raise ZeRORuntimeException("The checkpoint being loaded used a DP " \
+deepspeed.runtime.zero.utils.ZeRORuntimeException: The checkpoint being loaded used a DP world size of 9 but the current world size is 7. Automatic adjustment of ZeRO's optimizer state partitioning with a new world size is not currently supported.
+[2024-03-21 00:09:04,125] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680264
+[2024-03-21 00:09:04,156] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680265
+[2024-03-21 00:09:04,635] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680266
+[2024-03-21 00:09:04,635] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680267
+[2024-03-21 00:09:05,278] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680268
+[2024-03-21 00:09:05,880] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680269
+[2024-03-21 00:09:05,909] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 680270
+[2024-03-21 00:09:05,929] [ERROR] [launch.py:321:sigkill_handler] ['/home/data_llm/anaconda3/envs/moellava/bin/python', '-u', 'moellava/train/train_xformers.py', '--local_rank=6', '--deepspeed', './scripts/zero2.json', '--model_name_or_path', '/media/LLM_data/model/Qwen-1_8B', '--version', 'qwen', '--data_path', '/mnt/data_llm/json_file/101_train_prompt1.json', '/mnt/data_llm/json_file/train_ingredient_QA.json', '/mnt/data_llm/json_file/train_recipe_QA.json', '/mnt/data_llm/json_file/train_title_QA.json', '/mnt/data_llm/json_file/2k_train_prompt1.json', '/mnt/data_llm/json_file/172_train_prompt1.json', '/mnt/data_llm/json_file/172_ingredient_train_prompt1.json', '/mnt/data_llm/json_file/nutrition5k_train.json', '/mnt/data_llm/json_file/mix_food.json', '--image_folder', '/media/LLM_data/food_recognition_dataset', '--image_tower', '/media/LLM_data/model/openai/clip-vit-large-patch14-336', '--image_projector_type', 'mlp2x_gelu', '--pretrain_mm_mlp_adapter', '/media/LLM_data/model/moellava/checkpoints/llavaqwen1.8B_mm_projector.bin', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--image_aspect_ratio', 'pad', '--group_by_modality_length', 'True', '--bf16', 'True', '--check_point_file_name', '/media/LLM_data/model/moellava/checkpoints/checkpoints-v2.json', '--output_dir', '/media/LLM_data/model/moellava/checkpoints/checkpoints-v2', '--num_train_epochs', '1', '--per_device_train_batch_size', '8', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '2', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '5000', '--save_total_limit', '5', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'False', '--model_max_length', '1024', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '64', '--lazy_preprocess', 'True', '--report_to', 'tensorboard', '--cache_dir', '/media/fast_data/huggingface/hub/'] exits with return code = 1

@@ -1,0 +1,329 @@
+nohup: 忽略输入
+1,2,3,4,7,8,9
+[2024-04-29 22:30:50,528] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:30:53,099] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-04-29 22:30:53,100] [INFO] [runner.py:555:main] cmd = /home/data_llm/anaconda3/envs/moellava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMSwgMiwgMywgNCwgNywgOCwgOV19 --master_addr=127.0.0.1 --master_port=2225 --enable_each_rank_log=None /home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py --moe_enable True --num_experts 4 --top_k_experts 2 --capacity_factor 1.5 --moe_mode sparse --use_residual False --router_aux_loss_coef 0.01 --train_modules fc1 fc2 wg --deepspeed ../../zero2_offload.json --model_name_or_path /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-v0426 --version phi --data_path /mnt/data_llm/json_file/2k_train_prompt10.json --image_folder /media/LLM_data/food_recognition_dataset --image_tower /openai/clip-vit-large-patch14-336 --image_projector_type mlp2x_gelu --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --image_aspect_ratio pad --group_by_modality_length True --bf16 True --check_point_file_name /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v0429.json --output_dir /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v0429 --num_train_epochs 4 --per_device_train_batch_size 4 --per_device_eval_batch_size 4 --gradient_accumulation_steps 4 --evaluation_strategy no --save_strategy epoch --save_total_limit 30 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 10 --tf32 False --model_max_length 1200 --gradient_checkpointing True --dataloader_num_workers 64 --lazy_preprocess True --report_to tensorboard --cache_dir /media/fast_data/huggingface/hub/
+[2024-04-29 22:30:54,537] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:30:56,992] [INFO] [launch.py:138:main] 0 NCCL_P2P_DISABLE=1
+[2024-04-29 22:30:56,992] [INFO] [launch.py:138:main] 0 NCCL_IB_TIMEOUT=22
+[2024-04-29 22:30:56,992] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1, 2, 3, 4, 7, 8, 9]}
+[2024-04-29 22:30:56,992] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=7, node_rank=0
+[2024-04-29 22:30:56,992] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6]})
+[2024-04-29 22:30:56,993] [INFO] [launch.py:163:main] dist_world_size=7
+[2024-04-29 22:30:56,993] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1,2,3,4,7,8,9
+[2024-04-29 22:31:00,678] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,694] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,700] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,730] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,769] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,789] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:00,890] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-29 22:31:01,763] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,763] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,789] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,790] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,801] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,801] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,813] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,813] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,824] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,825] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,825] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-04-29 22:31:01,884] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,884] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-29 22:31:01,913] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-29 22:31:01,913] [INFO] [comm.py:594:init_distributed] cdb=None
+You are using a model of type llava_phi to instantiate a model of type moe_llava_phi. This is not supported for all configurations of models and can yield errors.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1483, in __post_init__
+    and (self.device.type != "cuda")
+         ^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1921, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/generic.py", line 54, in __get__
+    cached = self.fget(obj)
+             ^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1853, in _setup_devices
+    self.distributed_state = PartialState(timeout=timedelta(seconds=self.ddp_timeout))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/state.py", line 183, in __init__
+    torch.cuda.set_device(self.device)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/cuda/__init__.py", line 408, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 385, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/openai/clip-vit-large-patch14-336'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1264, in train
+    model = MoELLaVAPhiForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3596, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 301, in __init__
+    self.model = MoELLaVAPhiModel(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 87, in __init__
+    super(MoELLaVAPhiModel, self).__init__(config)
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/llava_arch.py", line 34, in __init__
+    self.image_tower = build_image_tower(config, delay_load=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/builder.py", line 21, in build_image_tower
+    return CLIPVisionTower(image_tower, args=image_tower_cfg, cache_dir='./cache_dir', **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/clip_encoder.py", line 22, in __init__
+    self.cfg_only = CLIPVisionConfig.from_pretrained(self.image_tower_name, cache_dir=self.cache_dir)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py", line 251, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 634, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 689, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 450, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/openai/clip-vit-large-patch14-336'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+You are using a model of type llava_phi to instantiate a model of type moe_llava_phi. This is not supported for all configurations of models and can yield errors.
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 385, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/openai/clip-vit-large-patch14-336'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1264, in train
+    model = MoELLaVAPhiForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3596, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 301, in __init__
+    self.model = MoELLaVAPhiModel(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 87, in __init__
+    super(MoELLaVAPhiModel, self).__init__(config)
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/llava_arch.py", line 34, in __init__
+    self.image_tower = build_image_tower(config, delay_load=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/builder.py", line 21, in build_image_tower
+    return CLIPVisionTower(image_tower, args=image_tower_cfg, cache_dir='./cache_dir', **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/clip_encoder.py", line 22, in __init__
+    self.cfg_only = CLIPVisionConfig.from_pretrained(self.image_tower_name, cache_dir=self.cache_dir)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py", line 251, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 634, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 689, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 450, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/openai/clip-vit-large-patch14-336'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+You are using a model of type llava_phi to instantiate a model of type moe_llava_phi. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava_phi to instantiate a model of type moe_llava_phi. This is not supported for all configurations of models and can yield errors.
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1483, in __post_init__
+    and (self.device.type != "cuda")
+         ^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1921, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/generic.py", line 54, in __get__
+    cached = self.fget(obj)
+             ^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1853, in _setup_devices
+    self.distributed_state = PartialState(timeout=timedelta(seconds=self.ddp_timeout))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/state.py", line 183, in __init__
+    torch.cuda.set_device(self.device)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/cuda/__init__.py", line 408, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 385, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/openai/clip-vit-large-patch14-336'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1264, in train
+    model = MoELLaVAPhiForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3596, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 301, in __init__
+    self.model = MoELLaVAPhiModel(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 87, in __init__
+    super(MoELLaVAPhiModel, self).__init__(config)
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/llava_arch.py", line 34, in __init__
+    self.image_tower = build_image_tower(config, delay_load=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/builder.py", line 21, in build_image_tower
+    return CLIPVisionTower(image_tower, args=image_tower_cfg, cache_dir='./cache_dir', **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/clip_encoder.py", line 22, in __init__
+    self.cfg_only = CLIPVisionConfig.from_pretrained(self.image_tower_name, cache_dir=self.cache_dir)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py", line 251, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 634, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^Traceback (most recent call last):
+^^^^^  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 689, in _get_config_dict
+    train()
+    resolved_config_file = cached_file(
+       File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+                      ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 450, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/openai/clip-vit-large-patch14-336'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1483, in __post_init__
+    and (self.device.type != "cuda")
+         ^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1921, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/generic.py", line 54, in __get__
+    cached = self.fget(obj)
+             ^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1853, in _setup_devices
+    self.distributed_state = PartialState(timeout=timedelta(seconds=self.ddp_timeout))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/state.py", line 183, in __init__
+    torch.cuda.set_device(self.device)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/torch/cuda/__init__.py", line 408, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 385, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/openai/clip-vit-large-patch14-336'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1264, in train
+    model = MoELLaVAPhiForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3596, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 301, in __init__
+    self.model = MoELLaVAPhiModel(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/language_model/llava_phi_moe.py", line 87, in __init__
+    super(MoELLaVAPhiModel, self).__init__(config)
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/llava_arch.py", line 34, in __init__
+    self.image_tower = build_image_tower(config, delay_load=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/builder.py", line 21, in build_image_tower
+    return CLIPVisionTower(image_tower, args=image_tower_cfg, cache_dir='./cache_dir', **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/FoodHealthMMLLM/moellava/model/multimodal_encoder/clip_encoder.py", line 22, in __init__
+    self.cfg_only = CLIPVisionConfig.from_pretrained(self.image_tower_name, cache_dir=self.cache_dir)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py", line 251, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 634, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/configuration_utils.py", line 689, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/utils/hub.py", line 450, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/openai/clip-vit-large-patch14-336'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+[2024-04-29 22:31:03,998] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196215
+[2024-04-29 22:31:04,098] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196216
+[2024-04-29 22:31:04,150] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196217
+[2024-04-29 22:31:04,198] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196218
+[2024-04-29 22:31:04,339] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196219
+[2024-04-29 22:31:04,425] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196220
+[2024-04-29 22:31:04,426] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 196221
+[2024-04-29 22:31:04,462] [ERROR] [launch.py:321:sigkill_handler] ['/home/data_llm/anaconda3/envs/moellava/bin/python', '-u', '/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py', '--local_rank=6', '--moe_enable', 'True', '--num_experts', '4', '--top_k_experts', '2', '--capacity_factor', '1.5', '--moe_mode', 'sparse', '--use_residual', 'False', '--router_aux_loss_coef', '0.01', '--train_modules', 'fc1', 'fc2', 'wg', '--deepspeed', '../../zero2_offload.json', '--model_name_or_path', '/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-v0426', '--version', 'phi', '--data_path', '/mnt/data_llm/json_file/2k_train_prompt10.json', '--image_folder', '/media/LLM_data/food_recognition_dataset', '--image_tower', '/openai/clip-vit-large-patch14-336', '--image_projector_type', 'mlp2x_gelu', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--image_aspect_ratio', 'pad', '--group_by_modality_length', 'True', '--bf16', 'True', '--check_point_file_name', '/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v0429.json', '--output_dir', '/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v0429', '--num_train_epochs', '4', '--per_device_train_batch_size', '4', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '4', '--evaluation_strategy', 'no', '--save_strategy', 'epoch', '--save_total_limit', '30', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '10', '--tf32', 'False', '--model_max_length', '1200', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '64', '--lazy_preprocess', 'True', '--report_to', 'tensorboard', '--cache_dir', '/media/fast_data/huggingface/hub/'] exits with return code = 1
+food_finetune_stage3_0429.sh: 64: R}: not found

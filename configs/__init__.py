@@ -1,0 +1,2 @@
+import configs.cls_finetune_hasFood
+import configs.reg_finetune_foodWeight

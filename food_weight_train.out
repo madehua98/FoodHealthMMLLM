@@ -1,0 +1,286 @@
+[2024-04-15 19:06:24,862] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:27,351] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-04-15 19:06:27,352] [INFO] [runner.py:555:main] cmd = /home/data_llm/anaconda3/envs/moellava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgOCwgOV19 --master_addr=127.0.0.1 --master_port=2224 --enable_each_rank_log=None /home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py --deepspeed ../../zero2.json --model_name_or_path microsoft/phi-2 --version phi --data_path /mnt/data_llm/json_file/weight_dataset_train2.json /mnt/data_llm/json_file/train_nutrition_QA.json /mnt/data_llm/json_file/nutrition5k_train.json /mnt/data_llm/json_file/mix_food.json --image_folder /media/LLM_data/food_recognition_dataset --image_tower /media/LLM_data/model/openai/clip-vit-large-patch14-336 --image_projector_type mlp2x_gelu --pretrain_mm_mlp_adapter /media/fast_data/huggingface/hub/models--LanguageBind--MoE-LLaVA-Phi2-Pretrain/snapshots/87dd7b7b768fbfbef94cec9dfd0bd04d2af4ca9d/mm_projector.bin --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --image_aspect_ratio pad --group_by_modality_length True --bf16 True --check_point_file_name /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-nutv1.json --output_dir /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-nutv1 --num_train_epochs 1 --per_device_train_batch_size 1 --per_device_eval_batch_size 2 --gradient_accumulation_steps 2 --evaluation_strategy no --save_strategy steps --save_steps 3000 --save_total_limit 50 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 10 --tf32 False --model_max_length 512 --gradient_checkpointing True --dataloader_num_workers 64 --lazy_preprocess True --cache_dir /media/fast_data/huggingface/hub/
+[2024-04-15 19:06:28,661] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:30,908] [INFO] [launch.py:138:main] 0 NCCL_P2P_DISABLE=1
+[2024-04-15 19:06:30,908] [INFO] [launch.py:138:main] 0 NCCL_IB_TIMEOUT=22
+[2024-04-15 19:06:30,909] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 8, 9]}
+[2024-04-15 19:06:30,909] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=7, node_rank=0
+[2024-04-15 19:06:30,909] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6]})
+[2024-04-15 19:06:30,909] [INFO] [launch.py:163:main] dist_world_size=7
+[2024-04-15 19:06:30,909] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,8,9
+[2024-04-15 19:06:34,348] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,381] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,410] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,493] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,527] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,527] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:34,533] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-15 19:06:35,332] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,332] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,335] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,335] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,362] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,362] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,479] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,479] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,479] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-04-15 19:06:35,520] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,520] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,537] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,537] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-04-15 19:06:35,542] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-04-15 19:06:35,542] [INFO] [comm.py:594:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Traceback (most recent call last):
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 52, in __init__
+    config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 134, in urlsafe_b64decode
+    return b64decode(s)
+           ^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/base64.py", line 88, in b64decode
+    return binascii.a2b_base64(s, strict_mode=validate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+binascii.Error: Incorrect padding
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py", line 14, in <module>
+    train()
+  File "/home/data_llm/FoodHealthMMLLM/moellava/train/train.py", line 1154, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)
+          ^^^^^^^^^^^^^^^
+  File "<string>", line 137, in __init__
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/training_args.py", line 1720, in __post_init__
+    self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 88, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 78, in __init__
+    super().__init__(config_file_or_dict)
+  File "/home/data_llm/anaconda3/envs/moellava/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: ../../zero2.json
+[2024-04-15 19:06:36,913] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10548
+[2024-04-15 19:06:36,992] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10549
+[2024-04-15 19:06:37,110] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10550
+[2024-04-15 19:06:37,135] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10551
+[2024-04-15 19:06:37,246] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10552
+[2024-04-15 19:06:37,363] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10553
+[2024-04-15 19:06:37,363] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 10554
+[2024-04-15 19:06:37,386] [ERROR] [launch.py:321:sigkill_handler] ['/home/data_llm/anaconda3/envs/moellava/bin/python', '-u', '/home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py', '--local_rank=6', '--deepspeed', '../../zero2.json', '--model_name_or_path', 'microsoft/phi-2', '--version', 'phi', '--data_path', '/mnt/data_llm/json_file/weight_dataset_train2.json', '/mnt/data_llm/json_file/train_nutrition_QA.json', '/mnt/data_llm/json_file/nutrition5k_train.json', '/mnt/data_llm/json_file/mix_food.json', '--image_folder', '/media/LLM_data/food_recognition_dataset', '--image_tower', '/media/LLM_data/model/openai/clip-vit-large-patch14-336', '--image_projector_type', 'mlp2x_gelu', '--pretrain_mm_mlp_adapter', '/media/fast_data/huggingface/hub/models--LanguageBind--MoE-LLaVA-Phi2-Pretrain/snapshots/87dd7b7b768fbfbef94cec9dfd0bd04d2af4ca9d/mm_projector.bin', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--image_aspect_ratio', 'pad', '--group_by_modality_length', 'True', '--bf16', 'True', '--check_point_file_name', '/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-nutv1.json', '--output_dir', '/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-nutv1', '--num_train_epochs', '1', '--per_device_train_batch_size', '1', '--per_device_eval_batch_size', '2', '--gradient_accumulation_steps', '2', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '3000', '--save_total_limit', '50', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '10', '--tf32', 'False', '--model_max_length', '512', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '64', '--lazy_preprocess', 'True', '--cache_dir', '/media/fast_data/huggingface/hub/'] exits with return code = 1
