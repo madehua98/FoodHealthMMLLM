@@ -2,7 +2,7 @@
 Author: Zhenbo Xu
 Licensed under the CC BY-NC 4.0 license (https://creativecommons.org/licenses/by-nc/4.0/)
 """
-from datasets import get_dataset
+from datasets_own import get_dataset
 from models import get_model
 from configs import *
 from utils.file_utils import *

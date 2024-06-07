@@ -1387,7 +1387,7 @@ class PGNet(nn.Module):
         return pred1
 
 
-from plot_utils import compute_bbox_from_mask
+# from plot_utils import compute_bbox_from_mask
 class Test(object):
     def __init__(self, Network, paths, model):
         ## dataset

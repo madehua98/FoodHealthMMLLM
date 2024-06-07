@@ -31,29 +31,37 @@ from utils.file_utils import *
 
 
 # split json files
+from collections import Counter
 src_file = "/media/fast_data/mid_json/all.json"
 dst_file = "/media/fast_data/mid_json/%d.json"
 split_count = 9
 info = load_json(src_file)
-gap = len(info) // split_count
-for i in range(split_count):
-    dst_file_ = dst_file % i
-    print(i, dst_file_)
-    save_json(dst_file_, info[i*gap:i*gap+gap])
+print(len(info))
+res = []
+for el in info:
+    res.append(el["ref"])
+print(Counter(res))
+info = load_json("/media/fast_data/mid_json/food_final.json")
+print(len(info))
+# gap = len(info) // split_count
+# for i in range(split_count):
+#     dst_file_ = dst_file % i
+#     print(i, dst_file_)
+#     save_json(dst_file_, info[i*gap:i*gap+gap])
 '''
-/media/fast_data/huggingface/hub/datasets--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Instruct-VFLAN-4V.json
+/media/fast_data/huggingface/hub/datasets_own--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Instruct-VFLAN-4V.json
 {'id': 'allava_vflan_inst_0', 'image': 'allava_vflan/images/images_191task_1k/VQA_counting_COCO_train2014_000000076081.jpg', 'conversations': [{'from': 'human', 'value': '<image>\nWhat could be the occasion for this gathering, based on the attire of the individuals and the setting?'}, {'from': 'gpt', 'value': 'The gathering appears to be a casual, social outing. The attire of the individuals is relaxed and not formal, suggesting that they are likely there to enjoy a meal together in a casual setting, possibly as friends or family. The presence of a young child and the broad smiles indicate a light-hearted, non-formal occasion.'}]}
-/media/fast_data/huggingface/hub/datasets--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Caption-VFLAN-4V.json
+/media/fast_data/huggingface/hub/datasets_own--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Caption-VFLAN-4V.json
 {'id': 'allava_vflan_cap_0', 'image': 'allava_vflan/images/images_191task_1k/VQA_counting_COCO_train2014_000000076081.jpg', 'conversations': [{'from': 'human', 'value': '<image>\nElaborate on the details of the image provided.'}, {'from': 'gpt', 'value': "The image captures a group of four people seated at a table in a well-lit restaurant with large windows that offer a view of a landscaped area with lush greenery. On the left, a woman with blonde hair smiles at the camera, holding a stemmed glass with a dark red beverage, possibly wine. Next to her, a man is seated looking towards a woman across the table, neither directly facing the camera. The man has short-cropped hair and a light beard, wearing a casual buttoned shirt. Across the table, there's a woman with glasses, reddish hair, and a bright pink shirt, engaging in conversation with the man. On the right, a young girl with blonde hair smiles broadly at the camera, wearing an orange sleeveless top. She's holding a menu. On the table, there are four glasses with varying levels of water, another glass with a red beverage, and a small plate with a strawberry on the rim, possibly belonging to a dessert or a cocktail. Personal items, such as a black handbag and a pair of sunglasses, are also on the table."}]}
-/media/fast_data/huggingface/hub/datasets--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/Evol-Instruct-GPT4-Turbo-143K.json
+/media/fast_data/huggingface/hub/datasets_own--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/Evol-Instruct-GPT4-Turbo-143K.json
 {'idx': 'heR0vZB', 'conversations': [{'from': 'human', 'value': 'As an online platform teacher named Aimee, you possess impeccable credentials which include a Bachelor of Science degree in Industrial and Labor Relations from Cornell University, expertise in the English language, and intermediate proficiency in both Chinese and Spanish. Additionally, your professional experience as a STEAM teacher at UN Women in Singapore has honed your skills in teaching children from the ages of 6-11 and working with students from all levels of education. Your exceptional teaching abilities in spoken English and pronunciation paired with your personal strengths of being informed, patient, and engaging make you an ideal teacher for students seeking to improve their English language skills. Can you provide a short, concise, and unique English self-introduction in bullet point form that would attract students to enroll in your course?'}, {'from': 'gpt', 'value': "Sure, here are some bullet points for your English self-introduction:\n\n- Hi there! My name is Aimee and I'm thrilled to be your online English teacher!\n- With a Bachelor's degree from Cornell University and experience teaching STEAM at UN Women in Singapore, I know how to help students learn effectively.\n- I'm passionate about language and have intermediate proficiency in both Chinese and Spanish, so I understand the challenges of learning a new language.\n- In my classes, I focus on improving spoken English and pronunciation, as well as building vocabulary and grammar skills.\n- But learning English doesn't have to be boring! I'm an engaging and patient teacher who loves to have fun and make learning enjoyable.\n- So, whether you're a beginner or an advanced student, I'm confident that I can help you improve your English skills and achieve your goals. Let's get started!"}]}
-/media/fast_data/huggingface/hub/datasets--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Instruct-LAION-4V.json
+/media/fast_data/huggingface/hub/datasets_own--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Instruct-LAION-4V.json
 {'id': 'allava_laion_inst_0', 'conversations': [{'from': 'human', 'value': '<image>\nConsidering the items the figurine is holding, what scene or event from its source material might it be representing?'}, {'from': 'gpt', 'value': 'Based on the items the figurine is holding, which are a rifle and an iron, it likely represents a scene from the source material where the character is setting up traps to protect his home. These items are indicative of the resourceful and inventive methods the character uses in the movie "Home Alone" to create humorous but effective traps for intruders.'}], 'original_caption': 'Фигурка Funko POP! Vinyl: Home Alone: Kevin 21778', 'url': 'https://i3.stat01.com/2/490/104897720/075a3e/fun676-jpg.jpg'}
-/media/fast_data/huggingface/hub/datasets--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Caption-LAION-4V.json
+/media/fast_data/huggingface/hub/datasets_own--FreedomIntelligence--ALLaVA-4V/snapshots/a86c85a0076c7b0e9c6c08a55ef314461d45db65/ALLaVA-Caption-LAION-4V.json
 {'id': 'allava_laion_cap_0', 'conversations': [{'from': 'human', 'value': '<image>\nPlease provide a vivid description of the image.'}, {'from': 'gpt', 'value': 'The image displays a figurine inside its packaging. The packaging is a box that is predominantly white with a clear plastic window allowing the figurine to be viewed. The box is branded with "Pop! Movies" at the top and "Home Alone" beneath it, indicating the movie theme of the collectible. The figure is labeled with the name "Kevin," which is printed in red font, and it\'s numbered 491 in its series. The figure inside resembles a young boy with simplistic features characteristic of the Funko Pop! style: large black eyes, a small nose, and no mouth. The hair is sculpted in a short, blonde style. The figurine is dressed in a red sweater with a quilted design and green pants. It\'s accessorized with two items, a rifle held in the left hand and an iron in the right hand. The iron and rifle are relatively plain with minimal details. The figure stands upright on its own, with brown shoes visible beneath the green pants. The box has red side panels and a green front bottom panel with additional branding and warnings typical of collectible packaging. There is a warning label indicating a choking hazard.'}], 'original_caption': 'Фигурка Funko POP! Vinyl: Home Alone: Kevin 21778', 'url': 'https://i3.stat01.com/2/490/104897720/075a3e/fun676-jpg.jpg'}
 
 https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_V2_196k
-/home/xuzhenbo/.cache/huggingface/hub/datasets--WizardLM--WizardLM_evol_instruct_V2_196k/snapshots/29f88cf83c7e784cd942d26959d29192aa2cbdb1
+/home/xuzhenbo/.cache/huggingface/hub/datasets_own--WizardLM--WizardLM_evol_instruct_V2_196k/snapshots/29f88cf83c7e784cd942d26959d29192aa2cbdb1
 https://huggingface.co/datasets/Vision-Flan/vision-flan_191-task_1k/tree/main
 
 '''

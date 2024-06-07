@@ -67,7 +67,7 @@ def main(src_folder, dest_folder, max_threads=500):
 # main("/media/fast_data/food-101", "/mnt/data_llm/food_images/food-101")
 # main("/media/fast_data/VireoFood172", "/mnt/data_llm/food_images/VireoFood172")
 # main("/media/fast_data/nutrition5k_dataset", "/mnt/data_llm/food_images/nutrition5k_dataset")
-# main("/media/fast_data/huggingface/hub/datasets--LanguageBind--MoE-LLaVA/snapshots/78aa3747b7d65ec84486de39d3b644d7f863aa7b", "/mnt/data_llm/food_images/moe_data")
+# main("/media/fast_data/huggingface/hub/datasets_own--LanguageBind--MoE-LLaVA/snapshots/78aa3747b7d65ec84486de39d3b644d7f863aa7b", "/mnt/data_llm/food_images/moe_data")
 def change_image_path(source_path, dest_path, replace_path):
     new_datas = []
     with open(source_path, mode="r", encoding="utf-8") as f:
@@ -98,6 +98,6 @@ file_names = [
     # "train_title_QA.json",
     "mix_food.json"
 ]
-replace_path = "/media/fast_data/huggingface/hub/datasets--LanguageBind--MoE-LLaVA/snapshots/78aa3747b7d65ec84486de39d3b644d7f863aa7b"
+replace_path = "/media/fast_data/huggingface/hub/datasets_own--LanguageBind--MoE-LLaVA/snapshots/78aa3747b7d65ec84486de39d3b644d7f863aa7b"
 for file_name in file_names:
     change_image_path(old_json_path+file_name, new_json_path+file_name, replace_path)
