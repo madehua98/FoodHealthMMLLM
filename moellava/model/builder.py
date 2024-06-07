@@ -47,12 +47,10 @@ from moellava.constants import DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN
 from moellava.model.language_model.qwen.tokenization_qwen import QWenTokenizer
 
 
-# def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto",
-#                           device="cuda", padding_side="right", merge=False, **kwargs):
-def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False,
+def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto",
                           device="cuda", padding_side="right", merge=False, **kwargs):
-    #kwargs = {"device_map": device_map, **kwargs}
-    kwargs = {**kwargs}
+    kwargs = {"device_map": device_map, **kwargs}
+
     if device != "cuda":
         kwargs['device_map'] = {"": device}
 
@@ -197,7 +195,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                     deepspeed.init_distributed(dist_backend='nccl')
                     # Initialize the DeepSpeed-Inference engine
                     ds_engine = deepspeed.init_inference(model,
-                                                         # mp_size=4,
+                                                         # mp_size=2,
                                                          # dtype=torch.half,
                                                          checkpoint=None,
                                                          replace_with_kernel_inject=False)
@@ -208,14 +206,13 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False, padding_side=padding_side)
                 cfg_pretrained = LlavaPhiConfig.from_pretrained(model_path)
                 if getattr(cfg_pretrained, 'moe', {}).get('moe_enable', False):
-                    #model = EvalMoELLaVAPhiForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
-                    model = MoELLaVAPhiForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
+                    model = EvalMoELLaVAPhiForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
                     import deepspeed
                     deepspeed.init_distributed(dist_backend='nccl')
                     # Initialize the DeepSpeed-Inference engine
                     ds_engine = deepspeed.init_inference(model,
-                                                         #mp_size=4,
-                                                         dtype=torch.half,
+                                                         # mp_size=2,
+                                                         # dtype=torch.half,
                                                          checkpoint=None,
                                                          replace_with_kernel_inject=False)
                     model = ds_engine.module
@@ -356,7 +353,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                     deepspeed.init_distributed(dist_backend='nccl')
                     # Initialize the DeepSpeed-Inference engine
                     ds_engine = deepspeed.init_inference(model,
-                                                         # mp_size=4,
+                                                         # mp_size=2,
                                                          # dtype=torch.half,
                                                          checkpoint=None,
                                                          replace_with_kernel_inject=False)
@@ -369,17 +366,13 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 # print(tokenizer)
                 if 'moe' in model_name.lower():
                     assert not load_8bit and not load_4bit  # FIXME
-                    # 初始化分布式进程
+                    model = EvalMoELLaVAPhiForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)
                     import deepspeed
                     deepspeed.init_distributed(dist_backend='nccl')
-                    # 检查每个进程的rank和GPU分配
-                    local_rank = torch.distributed.get_rank()
-                    torch.cuda.set_device(local_rank)
-                    model = EvalMoELLaVAPhiForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, device_map=local_rank, **kwargs)
+                    # Initialize the DeepSpeed-Inference engine
                     ds_engine = deepspeed.init_inference(model,
-                                                         #mp_size=2,
-                                                         dtype=torch.half,
-                                                        #  config=inference_config,
+                                                         # mp_size=2,
+                                                         # dtype=torch.half,
                                                          checkpoint=None,
                                                          replace_with_kernel_inject=False)
                     model = ds_engine.module

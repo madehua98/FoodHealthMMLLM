@@ -7,13 +7,13 @@ use_residual=False
 router_aux_loss_coef=0.01
 JSON_FOLDER="ft_json"
 IMAGE_FOLDER="train_image_video"
+cd ~/MoE-LLaVA
 export NCCL_P2P_DISABLE=1
-gpus="0,1,2,3,4,8,9"
-HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 deepspeed --include localhost:$gpus --master_port=2223 /home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py \
+HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 deepspeed moellava/train/train_mem.py \
     --moe_enable True --num_experts ${num_experts} --top_k_experts ${top_k_experts} --capacity_factor 1.5 \
     --moe_mode ${moe_mode} --use_residual ${use_residual} --router_aux_loss_coef ${router_aux_loss_coef} \
     --train_modules fc1 fc2 wg \
-    --deepspeed ../..zero2.json \
+    --deepspeed ./scripts/zero2.json \
     --model_name_or_path ./checkpoints/llavaphi-2.7b-finetune \
     --version phi \
     --data_path ${JSON_FOLDER}/llava_image_tune_.json ${JSON_FOLDER}/nlp_tune.json \

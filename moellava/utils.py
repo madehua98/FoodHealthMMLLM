@@ -6,13 +6,8 @@ import sys
 from torch import nn
 import numpy as np
 import requests
-import json
-import importlib.metadata
-import importlib.util
-from transformers.trainer import TRAINER_STATE_NAME
-from typing import List
+
 from moellava.constants import LOGDIR
-import math
 
 server_error_msg = "**NETWORK ERROR DUE TO HIGH TRAFFIC. PLEASE REGENERATE OR REFRESH THIS PAGE.**"
 moderation_msg = "YOUR INPUT VIOLATES OUR CONTENT MODERATION GUIDELINES. PLEASE TRY AGAIN."
@@ -32,50 +27,6 @@ def order_pick_k(lst, k):
     )
     return new_lst
 
-def _is_package_available(name: str) -> bool:
-    return importlib.util.find_spec(name) is not None
-
-def is_matplotlib_available():
-    return _is_package_available("matplotlib")
-
-if is_matplotlib_available():
-    import matplotlib.pyplot as plt
-
-def smooth(scalars: List[float]) -> List[float]:
-    r"""
-    EMA implementation according to TensorBoard.
-    """
-    last = scalars[0]
-    smoothed = list()
-    weight = 1.8 * (1 / (1 + math.exp(-0.05 * len(scalars))) - 0.5)  # a sigmoid function
-    for next_val in scalars:
-        smoothed_val = last * weight + (1 - weight) * next_val
-        smoothed.append(smoothed_val)
-        last = smoothed_val
-    return smoothed
-
-def plot_loss(save_dictionary: os.PathLike, keys: List[str] = ["loss"]) -> None:
-    with open(os.path.join(save_dictionary, TRAINER_STATE_NAME), "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    for key in keys:
-        steps, metrics = [], []
-        for i in range(len(data["log_history"])):
-            if key in data["log_history"][i]:
-                steps.append(data["log_history"][i]["step"])
-                metrics.append(data["log_history"][i][key])
-
-
-        plt.figure()
-        plt.plot(steps, metrics, color="#1f77b4", alpha=0.4, label="original")
-        #plt.plot(steps, smooth(metrics), color="#1f77b4", label="smoothed")
-        plt.title("training {} of {}".format(key, save_dictionary))
-        plt.xlabel("step")
-        plt.ylabel(key)
-        plt.legend()
-        figure_path = os.path.join(save_dictionary, "training_{}.png".format(key.replace(os.path.sep, "_")))
-        plt.savefig(figure_path, format="png", dpi=100)
-        print("Figure saved at:", figure_path)
 
 
 class HookTool:

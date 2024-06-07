@@ -1,5 +1,6 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 CONV="phi"
 CKPT="/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-v1-moe-v1"
 question_path="/mnt/data_llm/json_file/101_questions.jsonl"
@@ -16,3 +17,21 @@ deepspeed --include localhost:1 --master_port=2224 moellava/eval/model_vqa_loade
 #     --annotation-file ${EVAL}/vizwiz/llava_test.jsonl \
 #     --result-file ${EVAL}/vizwiz/answers/${CKPT_NAME}.jsonl \
 #     --result-upload-file ${EVAL}/vizwiz/answers_upload/${CKPT_NAME}.json
+=======
+CONV="conv_template"
+CKPT_NAME="your_ckpt_name"
+CKPT="checkpoints/${CKPT_NAME}"
+EVAL="eval"
+deepspeed moellava/eval/model_vqa_loader.py \
+    --model-path ${CKPT} \
+    --question-file ${EVAL}/vizwiz/llava_test.jsonl \
+    --image-folder ${EVAL}/vizwiz/test \
+    --answers-file ${EVAL}/vizwiz/answers/${CKPT_NAME}.jsonl \
+    --temperature 0 \
+    --conv-mode ${CONV}
+
+python3 scripts/convert_vizwiz_for_submission.py \
+    --annotation-file ${EVAL}/vizwiz/llava_test.jsonl \
+    --result-file ${EVAL}/vizwiz/answers/${CKPT_NAME}.jsonl \
+    --result-upload-file ${EVAL}/vizwiz/answers_upload/${CKPT_NAME}.json
+>>>>>>> upstream/main

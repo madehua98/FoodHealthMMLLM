@@ -18,6 +18,6 @@ Now you can install vLLM from source with CUDA 11.8 by simply running pip instal
 
 
 # run server
-python -m vllm.entrypoints.openai.api_server --model /media/fast_data/model/Meta-Llama-3-8B-Instruct --dtype half --max-model-len 1024
+python -m vllm.entrypoints.openai.api_server --model Qwen/Qwen1.5-7B-Chat --dtype half --max-model-len 1024
 # inference using
 tools/txt_filter_query.py

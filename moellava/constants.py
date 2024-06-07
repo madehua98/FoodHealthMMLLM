@@ -22,6 +22,6 @@ VIDEO_PLACEHOLDER = "<video-placeholder>"
 # ======================================================================================================
 
 MAX_IMAGE_LENGTH = 16
-MAX_VIDEO_LENGTH = 1  # current video datasets only have 1 video?
+MAX_VIDEO_LENGTH = 1  # current video datasets_own only have 1 video?
 
 PAD_LENGTH = 620

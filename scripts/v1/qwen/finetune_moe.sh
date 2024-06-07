@@ -10,10 +10,11 @@ IMAGE_FOLDER="/media/fast_data/huggingface/hub/datasets--LanguageBind--MoE-LLaVA
 JSON_FOLDER="/media/fast_data/huggingface/hub/datasets--LanguageBind--MoE-LLaVA/snapshots/78aa3747b7d65ec84486de39d3b644d7f863aa7b/train_json"
 export https_proxy=127.0.0.1:7890 && export http_proxy=127.0.0.1:7890
 export PYTHONPATH=/home/data_llm/FoodHealthMMLLM
+cd ~/MoE-LLaVA
 export NCCL_P2P_DISABLE=1
 
 export HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 NCCL_P2P_DISABLE=1
-deepspeed --num_gpus=4 /home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py \
+deepspeed --num_gpus=10 moellava/train/train_xformers.py \
     --moe_enable True --num_experts ${num_experts} --top_k_experts ${top_k_experts} --capacity_factor 1.5 \
     --moe_mode ${moe_mode} --use_residual ${use_residual} --router_aux_loss_coef ${router_aux_loss_coef} \
     --train_modules mlp.w1 mlp.w2 mlp.c_proj wg \

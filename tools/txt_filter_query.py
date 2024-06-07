@@ -23,7 +23,7 @@ for instruct in instructs:
 
     # instruct = "你好吗？"
     myobj = {
-        "model": "/media/fast_data/model/Meta-Llama-3-8B-Instruct",
+        "model": "Qwen/Qwen1.5-7B-Chat",
         "messages": [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": instruct},

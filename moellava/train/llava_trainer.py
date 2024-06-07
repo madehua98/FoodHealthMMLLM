@@ -147,28 +147,6 @@ class LLaVATrainer(Trainer):
         else:
             return super()._get_train_sampler()
 
-    def eval(self):
-        self.model.eval()  # 设置模型为评估模式
-        total_loss = 0
-        total_correct = 0
-        total_samples = 0
-
-        with torch.no_grad():  # 禁用梯度计算
-            for data, targets in dataloader:
-                data, targets = data.to(self.device), targets.to(self.device)
-                outputs = self.model(data)
-                loss = self.loss_fn(outputs, targets)
-                _, predicted = torch.max(outputs, 1)
-
-                total_loss += loss.item() * data.size(0)
-                total_correct += (predicted == targets).sum().item()
-                total_samples += data.size(0)
-
-        avg_loss = total_loss / total_samples
-        accuracy = total_correct / total_samples
-        print(f'Validation Loss: {avg_loss:.4f}, Accuracy: {accuracy:.4f}')
-    
-    
     def create_optimizer(self):
         """
         Setup the optimizer.

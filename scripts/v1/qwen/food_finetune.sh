@@ -2,7 +2,7 @@
 CACHE_FOLDER="/media/fast_data/huggingface/hub/"
 food_image_folder="/media/LLM_data/food_recognition_dataset"
 json_folder="/mnt/data_llm/json_file"
-check_point_name="v4"
+check_point_name="v2"
 #${json_folder}/train_ingredient_QA.json ${json_folder}/train_recipe_QA.json ${json_folder}/train_title_QA.json \
 #${json_folder}/2k_train_prompt1.json \
 #${json_folder}/172_train_prompt1.json ${json_folder}/172_ingredient_train_prompt1.json\

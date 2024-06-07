@@ -5,7 +5,7 @@ inp_size = (224, 224)
 
 from PIL import Image
 import torchvision.transforms as transforms
-from datasets.common_cls_dataset import SquarePad
+from datasets_own.common_cls_dataset import SquarePad
 from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 transform = transforms.Compose([
     SquarePad(),

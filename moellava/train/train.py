@@ -41,8 +41,6 @@ from moellava.mm_utils import tokenizer_image_token
 from PIL import Image
 from moellava.utils import order_pick_k
 
-
-
 local_rank = None
 
 
@@ -154,7 +152,6 @@ class TrainingArguments(transformers.TrainingArguments):
 def maybe_zero_3(param, ignore_status=False, name=None):
     from deepspeed import zero
     from deepspeed.runtime.zero.partition_parameters import ZeroParamStatus
-    deepspeed.ops.op_builder.CPUAdamBuilder().load()
     if hasattr(param, "ds_id"):
         if param.ds_status == ZeroParamStatus.NOT_AVAILABLE:
             if not ignore_status:
@@ -1161,6 +1158,7 @@ def train():
         training_dict = asdict(training_args)
         merged_dict = data_dict | training_dict | model_dict
         json.dump(merged_dict, file, ensure_ascii=False, indent=4)
+
     local_rank = training_args.local_rank
     compute_dtype = (torch.float16 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
 
@@ -1546,19 +1544,11 @@ def train():
                     args=training_args,
                     **data_module)
 
-    if training_args.do_train:
-        if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
-            print("*"*100)
-            train_result=trainer.train(resume_from_checkpoint=True)
-        else:
-            train_result=trainer.train()
-        trainer.log_metrics("train", train_result.metrics)
-        trainer.save_metrics("train", train_result.metrics)
-        trainer.save_state()
-        if trainer.is_world_process_zero():
-            from moellava.utils import plot_loss
-            plot_loss(training_args.output_dir, keys=["loss", "eval_loss"])
-        
+    if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
+        print("*"*100)
+        trainer.train(resume_from_checkpoint=True)
+    else:
+        trainer.train()
     trainer.save_state()
     model.config.use_cache = True
     if training_args.lora_enable and not model_args.moe_enable:

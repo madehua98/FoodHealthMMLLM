@@ -4,11 +4,12 @@
 from moellava.train.llama_xformers_attn_monkey_patch import (
     replace_llama_attn_with_xformers_attn,
 )
-import os
-replace_llama_attn_with_xformers_attn()
+
+#replace_llama_attn_with_xformers_attn()
 
 from moellava.train.train import train
+import os
+os.environ['PATH'] += '/home/xuzhenbo/anaconda3/envs/moellava/bin/'
 
 if __name__ == "__main__":
-    os.environ['NCCL_TIMEOUT'] = '3600000'
     train()

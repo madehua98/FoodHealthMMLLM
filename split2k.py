@@ -52,8 +52,3 @@ image_folder_path = "/media/fast_data/Data/Food2k_complete"
 
 # split_2k(image_folder_path)
 
-
-for i in range(10):
-    print(i)
-    i += 1
-

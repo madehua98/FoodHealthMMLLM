@@ -383,7 +383,7 @@ if __name__ == '__main__':
     model = torch.jit.load(save_jit_path + '_gpu.pt').to(device)
     from PIL import Image
     import torchvision.transforms as transforms
-    from datasets.common_cls_dataset import SquarePad
+    from datasets_own.common_cls_dataset import SquarePad
     from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
     transform = transforms.Compose([
         SquarePad(),
