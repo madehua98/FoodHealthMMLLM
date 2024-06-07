@@ -8,6 +8,19 @@ def calculate_edit_distance(text1, text2):
     return edit_distance(text1, text2)
 
 
+def sort_jsonl_by_question_id(input_file, output_file):
+    # 读取 JSONL 文件中的所有行
+    with open(input_file, 'r', encoding='utf-8') as f:
+        json_lines = [json.loads(line) for line in f]
+    
+    # 按照 question_id 对 JSON 对象进行排序
+    sorted_json_lines = sorted(json_lines, key=lambda x: int(x['question_id']))
+    
+    # 将排序后的 JSON 对象写回到新的 JSONL 文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for json_obj in sorted_json_lines:
+            f.write(json.dumps(json_obj, ensure_ascii=False) + '\n')
+
 def read_jsonl(file):
     data_list = []
     with open(file, mode='r', encoding='utf-8') as fr:
@@ -56,14 +69,17 @@ def get_metrics(answer_file_path, gold_answer_file_path):
         y = answer_dict[gold_answer_file[i]['text']]
         y_true.append(y)
     y_pred = []
+    question_ids = []
     for i in tqdm(range(len(answer_file))):
-        if answer_file[i]['text'] in answer_dict.keys():
-            y = answer_dict[answer_file[i]['text']]
-            y_pred.append(y)
-        else:
-            answer, _ = find_most_similar_word(answer_file[i]['text'], list(answer_dict.keys()))
-            y = answer_dict[answer]
-            y_pred.append(y)
+        if answer_file[i]['question_id'] not in question_ids:
+            question_ids.append(answer_file[i]['question_id'])
+            if answer_file[i]['text'] in answer_dict.keys():
+                y = answer_dict[answer_file[i]['text']]
+                y_pred.append(y)
+            else:
+                answer, _ = find_most_similar_word(answer_file[i]['text'], list(answer_dict.keys()))
+                y = answer_dict[answer]
+                y_pred.append(y)
     
     metrics = evaluate_multiclass(y_true, y_pred)
     accuracy = metrics['accuracy'] 
@@ -74,9 +90,11 @@ def get_metrics(answer_file_path, gold_answer_file_path):
 
 
 # if __name__ == "__main()__":
-gold_answer_file_path = "/mnt/data_llm/json_file/101_answers.jsonl"
-answer_file_path = "/home/data_llm/madehua/FoodHealthMMLLM/eval/food101/answers/MoE-LLaVA-Phi2-2.7B-4e-v101_0426_prompt1-checkpoint-1773-1.jsonl"
-accuracy, precision, recall, f1 = get_metrics(answer_file_path, gold_answer_file_path)
+gold_answer_file_path = "/mnt/data_llm/json_file/2k_answers.jsonl"
+answer_file_path = "/home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000.jsonl"
+sorted_answer_file_path = "/home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000.jsonl"
+sort_jsonl_by_question_id(answer_file_path, sorted_answer_file_path)
+accuracy, precision, recall, f1 = get_metrics(sorted_answer_file_path, gold_answer_file_path)
 print(accuracy, precision, recall, f1)
 # file_dir = '/home/data_llm/madehua/FoodHealthMMLLM/eval/food101/answers/'
 # filename = 'MoE-LLaVA-Phi2-2.7B-4e-v101_0426_prompt1-checkpoint-1773.jsonl'

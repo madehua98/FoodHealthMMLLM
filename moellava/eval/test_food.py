@@ -155,8 +155,6 @@ def eval_model(args):
     questions = [json.loads(q) for q in open(os.path.expanduser(args.question_file), "r")]
     questions = get_chunk(questions, args.num_chunks, args.chunk_idx)
     data_loader = create_data_loader(questions, args.image_folder, tokenizer, image_processor, model.config, batch_size=1)
-    sampler = DistributedSampler(data_loader.dataset, num_replicas=torch.distributed.get_world_size(), rank=local_rank)
-    data_loader = DataLoader(data_loader.dataset, sampler=sampler, batch_size=1)
     
     # Check if answers file exists
     if os.path.exists(args.answers_file):
@@ -205,7 +203,7 @@ def eval_model(args):
                 "metadata": {}
             }) + "\n")
 
-
+    del model
 
 
 if __name__ == "__main__":
@@ -218,7 +216,7 @@ if __name__ == "__main__":
     parser.add_argument("--conv-mode", type=str, default="llava_v1")
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--chunk-idx", type=int, default=0)                                                                                                                                           
-    parser.add_argument("--temperature", type=float, default=0.2)
+    parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--top_p", type=float, default=None)
     parser.add_argument("--num_beams", type=int, default=1)
     parser.add_argument("--max_new_tokens", type=int, default=128)

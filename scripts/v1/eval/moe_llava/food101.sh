@@ -8,9 +8,9 @@ cd /home/data_llm/madehua/FoodHealthMMLLM/moellava/eval
 
 CONV="phi"
 CKPT="/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v101_0426/checkpoint-1419"
-model_name="MoE-LLaVA-Phi2-2.7B-4e-v101_0426-checkpoint-1419"
+model_name="MoE-LLaVA-Phi2-2.7B-4e-v101_0426-checkpoint-1419-1"
 prompt_num=10
-GPUs=("1" "2" "3" "4")
+GPUs=("0" "1" "2" "3" "4")
 question_path="/mnt/data_llm/json_file/101_questions.jsonl"
 answer_path="/home/data_llm/madehua/FoodHealthMMLLM/eval/food101/answers"
 out_path="/home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava"

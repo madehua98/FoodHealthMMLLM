@@ -1,0 +1,125 @@
+food2k.sh: 行 60: 未预期的符号“)”附近有语法错误
+food2k.sh: 行 60: `done < <(python split_jsonl.py --input_file $question_path --n ${#GPUs[@]}))'
+food2k.sh: 行 60: 未预期的符号“)”附近有语法错误
+food2k.sh: 行 60: `done < <(python split_jsonl.py --input_file $question_path --n ${#GPUs[@]}))'
+Split files: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part1.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part2.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part3.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part4.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part5.jsonl
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-12000
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-12000.jsonl
+Master Port: 29500
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu2_checkpoint-12000.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-12000
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-12000.jsonl
+Master Port: 29501
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu3_checkpoint-12000.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-12000
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-12000.jsonl
+Master Port: 29502
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu4_checkpoint-12000.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-12000
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-12000.jsonl
+Master Port: 29503
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu6_checkpoint-12000.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-12000
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-12000
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-12000.jsonl
+Master Port: 29504
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu7_checkpoint-12000.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-14500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-14500
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-14500.jsonl
+Master Port: 29505
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu2_checkpoint-14500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-14500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-14500
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-14500.jsonl
+Master Port: 29506
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu3_checkpoint-14500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-14500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-14500
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-14500.jsonl
+Master Port: 29507
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu4_checkpoint-14500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-14500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-14500
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-14500.jsonl
+Master Port: 29508
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu6_checkpoint-14500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-14500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-14500
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-14500.jsonl
+Master Port: 29509
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu7_checkpoint-14500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-8500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-8500
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-8500.jsonl
+Master Port: 29510
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu2_checkpoint-8500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-8500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-8500
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-8500.jsonl
+Master Port: 29511
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu3_checkpoint-8500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-8500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-8500
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-8500.jsonl
+Master Port: 29512
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu4_checkpoint-8500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-8500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-8500
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-8500.jsonl
+Master Port: 29513
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu6_checkpoint-8500.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426/checkpoint-8500
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v2k_0426-checkpoint-8500
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/answers/checkpoint-8500.jsonl
+Master Port: 29514
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food2k/2k_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/log_gpu7_checkpoint-8500.txt

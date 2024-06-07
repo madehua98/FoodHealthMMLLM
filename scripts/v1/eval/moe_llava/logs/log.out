@@ -1,0 +1,161 @@
+Split files: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part1.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part2.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part3.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part4.jsonl /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part5.jsonl
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1032
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1032
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29500
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu2_checkpoint-1032.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1032
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1032
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29501
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu3_checkpoint-1032.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1032
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1032
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29502
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu4_checkpoint-1032.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1032
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1032
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29503
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu6_checkpoint-1032.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1032
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1032
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29504
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu7_checkpoint-1032.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1376
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1376
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29505
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu2_checkpoint-1376.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1376
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1376
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29506
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu3_checkpoint-1376.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1376
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1376
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29507
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu4_checkpoint-1376.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1376
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1376
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29508
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu6_checkpoint-1376.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-1376
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-1376
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29509
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu7_checkpoint-1376.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-344
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-344
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29510
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu2_checkpoint-344.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-344
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-344
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29511
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu3_checkpoint-344.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-344
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-344
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29512
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu4_checkpoint-344.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-344
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-344
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29513
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu6_checkpoint-344.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-344
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-344
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29514
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu7_checkpoint-344.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-688
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-688
+GPU: 2
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29515
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part1.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu2_checkpoint-688.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-688
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-688
+GPU: 3
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29516
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part2.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu3_checkpoint-688.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-688
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-688
+GPU: 4
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29517
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part3.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu4_checkpoint-688.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-688
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-688
+GPU: 6
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29518
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part4.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu6_checkpoint-688.txt
+Running deepspeed.sh with the following parameters:
+Checkpoint: /mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v172_ingredient_0426/checkpoint-688
+Model Name: MoE-LLaVA-Phi2-2.7B-4e-v172_ingredient_0426-checkpoint-688
+GPU: 7
+Answer Path: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/answers
+Master Port: 29519
+Question File: /home/data_llm/madehua/FoodHealthMMLLM/eval/food172_ingredient/172_ingredient_questions_part5.jsonl
+Log File: /home/data_llm/madehua/FoodHealthMMLLM/scripts/v1/eval/moe_llava/logs/log_gpu7_checkpoint-688.txt

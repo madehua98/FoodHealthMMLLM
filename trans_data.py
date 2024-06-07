@@ -300,7 +300,7 @@ def food172_ingredient_split_trans(image_fn, label_fn, ingredient_label_fn, json
         if len(label_l) > 1:
             parts = label.split(", ")
             processed_parts = [parts[0]] + [part.lower() for part in parts[1:-1]] + ["and " + parts[-1].lower()]
-            label = "，".join(processed_parts)
+            label = ", ".join(processed_parts)
             prompt = ingredient_recognition_prompts[index%8]
             gen_data(prompt, label, index, image_path, data)
             index += 1

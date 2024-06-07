@@ -23,7 +23,7 @@ def worker(file_queue, src_base, dest_base, progress):
         file_queue.task_done()
 
 # 主函数
-def main(src_folder, dest_folder, max_threads=500):
+def main(src_folder, dest_folder, max_threads=100):
     start_time = time.time()
 
     # 遍历源文件夹中的文件和子目录
@@ -62,7 +62,7 @@ def main(src_folder, dest_folder, max_threads=500):
     print(f"All files copied in {end_time - start_time} seconds.")
     print("*"*100)
 # 使用示例
-main('/media/fast_data/datacomp_small', '/mnt/data_llm/datacomp_small')
+main('/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426', '/media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426')
 # main("/media/fast_data/recipe1M", "/mnt/data_llm/food_images/recipe1M")
 # main("/media/fast_data/food-101", "/mnt/data_llm/food_images/food-101")
 # main("/media/fast_data/VireoFood172", "/mnt/data_llm/food_images/VireoFood172")

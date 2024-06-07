@@ -12,7 +12,6 @@ def split_jsonl(input_file, n):
     base_filename = os.path.splitext(os.path.basename(input_file))[0]
     # Ensure the output directory exists
     output_dir = os.path.dirname(input_file)
-    
     # Read the input file
     with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
