@@ -1,0 +1,6 @@
+import nvidia_smi failed
+Traceback (most recent call last):
+  File "/home/data_llm/madehua/FoodHealthMMLLM/tools/img_filter_food.py", line 85, in <module>
+    SquarePad(),
+    ^^^^^^^^^
+NameError: name 'SquarePad' is not defined

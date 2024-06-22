@@ -258,7 +258,7 @@ def load_json(filename):
 
 
 def save_json(filename, res):
-    json.dump(res, open(filename, 'w'))
+    json.dump(res, open(filename, 'w'), indent=4)
 
 
 def save_json_with_np(filename, res):

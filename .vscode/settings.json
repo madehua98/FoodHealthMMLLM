@@ -1,3 +1,7 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.envFile": "/home/data_llm/madehua/FoodHealthMMLLM/.env",
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "$/home/data_llm/madehua/FoodHealthMMLLM"
+    }
 }

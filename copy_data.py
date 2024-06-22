@@ -23,7 +23,7 @@ def worker(file_queue, src_base, dest_base, progress):
         file_queue.task_done()
 
 # 主函数
-def main(src_folder, dest_folder, max_threads=100):
+def main(src_folder, dest_folder, max_threads=64):
     start_time = time.time()
 
     # 遍历源文件夹中的文件和子目录
@@ -62,7 +62,88 @@ def main(src_folder, dest_folder, max_threads=100):
     print(f"All files copied in {end_time - start_time} seconds.")
     print("*"*100)
 # 使用示例
-main('/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426', '/media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426')
+#main('/media/fast_data/datacomp_1b/shards', '/media/fast_data/datacomp_1b/datacomp_1b_food/shards')
+
+
+# import os
+# import shutil
+# from multiprocessing import Pool, cpu_count
+# from tqdm import tqdm
+
+# def copy_file(file_info):
+#     src_file, dest_dir = file_info
+#     dest_file = os.path.join(dest_dir, os.path.basename(src_file))
+#     shutil.copy(src_file, dest_file)
+
+# def copy_files_in_directory(src_dir, dest_dir):
+#     if not os.path.exists(dest_dir):
+#         os.makedirs(dest_dir)
+
+#     # 获取源目录中的所有文件路径
+#     files = [os.path.join(src_dir, file) for file in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, file))]
+
+#     # 创建包含源文件路径和目标目录的元组列表
+#     file_info_list = [(file, dest_dir) for file in files]
+
+#     # 获取系统中的CPU核心数量
+#     num_processes = 16
+
+#     # 使用多进程池来并行复制文件
+#     with Pool(processes=num_processes) as pool:
+#         # 使用tqdm显示进度条
+#         for _ in tqdm(pool.imap_unordered(copy_file, file_info_list), total=len(file_info_list), desc="Copying files"):
+#             pass
+
+# if __name__ == "__main__":
+#     src_directory = '/media/fast_data/datacomp_1b/shards'
+#     dest_directory = '/media/fast_data/datacomp_1b/datacomp_1b_food/shards'
+#     copy_files_in_directory(src_directory, dest_directory)
+
+
+import os
+import shutil
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from tqdm import tqdm
+import time
+
+def copy_file(file_info):
+    src_file, dest_dir = file_info
+    dest_file = os.path.join(dest_dir, os.path.basename(src_file))
+    shutil.copy(src_file, dest_file)  # 使用copy2保留文件元数据
+
+def copy_files_in_directory(src_dir, dest_dir, num_threads=8):
+    start_time = time.time()  # Start time
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+
+    # 获取源目录中的所有文件路径
+    files = [os.path.join(src_dir, file) for file in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, file))]
+
+    # 创建包含源文件路径和目标目录的元组列表
+    file_info_list = [(file, dest_dir) for file in files]
+
+    # 使用线程池并行复制文件
+    with ThreadPoolExecutor(max_workers=num_threads) as executor:
+        # 提交所有复制任务
+        futures = [executor.submit(copy_file, file_info) for file_info in file_info_list]
+
+        # 使用tqdm显示进度条
+        for _ in tqdm(as_completed(futures), total=len(file_info_list), desc="Copying files"):
+            pass
+        
+    end_time = time.time()  # End time
+    total_time = end_time - start_time
+    print(f"Total time taken: {total_time} seconds")
+
+if __name__ == "__main__":
+    src_directory = '/media/fast_data/datacomp_1b/shards1'
+    dest_directory = '/media/fast_data/datacomp_1b/datacomp_1b_food/shards1'
+    copy_files_in_directory(src_directory, dest_directory, num_threads=4)
+
+
+
+
+
 # main("/media/fast_data/recipe1M", "/mnt/data_llm/food_images/recipe1M")
 # main("/media/fast_data/food-101", "/mnt/data_llm/food_images/food-101")
 # main("/media/fast_data/VireoFood172", "/mnt/data_llm/food_images/VireoFood172")

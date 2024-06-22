@@ -2,25 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Current File with Arguments",
+            "name": "Python: Current File",
             "type": "debugpy",
             "request": "launch",
-            "program": "/home/data_llm/anaconda3/envs/moellava/bin/deepspeed",
-            "justMyCode": false,
+            "program": "tools/img_filter_food.py",
             "console": "integratedTerminal",
-            "args": [
-                "--include=localhost:1,2,3,4",
-                "--master_addr=127.0.0.1",
-                "--master_port=2227",
-                "--enable_each_rank_log=None",
-                "moellava/eval/model_vqa_loader.py",
-                "--model-path=/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-v1-moe-v1",
-                "--question-file=/mnt/data_llm/json_file/101_questions.jsonl",
-                "--image-folder=' '",
-                "--answers-file=/home/data_llm/madehua/FoodHealthMMLLM/eval/food101/answers",
-                "--temperature=0",
-                "--conv-mode=phi"
-            ]
+            "justMyCode": false,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "9"
+            }
         }
     ]
 }
