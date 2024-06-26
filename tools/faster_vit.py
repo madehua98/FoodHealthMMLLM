@@ -1083,7 +1083,7 @@ def faster_vit_3_224(pretrained=False, **kwargs):
                       **kwargs)
     model.default_cfg = default_cfgs['faster_vit_3_224']
     if pretrained:
-        model.load_state_dict(torch.load(pretrained, map_location='cpu')['state_dict'])
+        model.load_state_dict(torch.load(pretrained, map_location='cpu')['state_dict'], strict=False)
     return model
 
 

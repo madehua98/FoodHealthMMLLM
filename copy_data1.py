@@ -22,8 +22,8 @@ def copy_item(src_path, dest_dir):
 
 def main():
     # 定义源目录和目标目录
-    src_dir = "/mnt/data_llm/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426"
-    dest_dir = "/media/fast_data/model/checkpoints/checkpoints-phi-2.7b-moe-v2k_0426"
+    src_dir = "/media/fast_data/laion2b/shards1_part2"
+    dest_dir = "/media/fast_data/laion2b/shards1"
     
     # 获取源目录下的所有文件和目录
     src_paths = [os.path.join(src_dir, f) for f in os.listdir(src_dir)]

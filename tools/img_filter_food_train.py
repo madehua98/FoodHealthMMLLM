@@ -50,41 +50,41 @@ old_data1["train"] = {}
 old_data1["test"] = {}
 # print
 count = 0
-for key, value in tqdm(old_data['train'].items(), total=len(old_data['train'])):
-    # if '/home/xuzhenbo/dishes_DaNeng/' not in key and '/home/xuzhenbo/food_dataset/food-101/' not in key and '/home/xuzhenbo/food_dataset/isia_500/ISIA_Food500/' not in key and '/home/xuzhenbo/food_dataset/isia_200/' not in key and '/home/xuzhenbo/dishes_DaNeng_val/' not in key:
-    if not os.path.exists(key):
-        if '/home/xuzhenbo/food_dataset/food-101/' in key:
-            key = key.replace('/home/xuzhenbo/food_dataset/food-101/images', '/home/xuzhenbo/food_dataset/food-101/train')
-    if count % 10 == 0:
-        if os.path.exists(key):
-            old_data1["train"][key] = value
-            count += 1
+# for key, value in tqdm(old_data['train'].items(), total=len(old_data['train'])):
+#     # if '/home/xuzhenbo/dishes_DaNeng/' not in key and '/home/xuzhenbo/food_dataset/food-101/' not in key and '/home/xuzhenbo/food_dataset/isia_500/ISIA_Food500/' not in key and '/home/xuzhenbo/food_dataset/isia_200/' not in key and '/home/xuzhenbo/dishes_DaNeng_val/' not in key:
+#     if not os.path.exists(key):
+#         if '/home/xuzhenbo/food_dataset/food-101/' in key:
+#             key = key.replace('/home/xuzhenbo/food_dataset/food-101/images', '/home/xuzhenbo/food_dataset/food-101/train')
+#     if count % 10 == 0:
+#         if os.path.exists(key):
+#             old_data1["train"][key] = value
+#     count += 1
 
-count = 0
-for key, value in tqdm(old_data['val'].items(), total=len(old_data['val'])):
-    # if '/home/xuzhenbo/dishes_DaNeng/' not in key and '/home/xuzhenbo/food_dataset/food-101/' not in key and '/home/xuzhenbo/food_dataset/isia_500/ISIA_Food500/' not in key and '/home/xuzhenbo/food_dataset/isia_200/' not in key and '/home/xuzhenbo/dishes_DaNeng_val/' not in key:
-    if count % 10 == 0:
-        if os.path.exists(key):
-            old_data1["test"][key] = value
-            count += 1
+# count = 0
+# for key, value in tqdm(old_data['val'].items(), total=len(old_data['val'])):
+#     # if '/home/xuzhenbo/dishes_DaNeng/' not in key and '/home/xuzhenbo/food_dataset/food-101/' not in key and '/home/xuzhenbo/food_dataset/isia_500/ISIA_Food500/' not in key and '/home/xuzhenbo/food_dataset/isia_200/' not in key and '/home/xuzhenbo/dishes_DaNeng_val/' not in key:
+#     if count % 10 == 0:
+#         if os.path.exists(key):
+#             old_data1["test"][key] = value
+#     count += 1
 
 img_dir = '/media/fast_data/image_hasfood_label/res_2_3_part1'
 
-for (key, value) in train_data:
-    path = os.path.join(img_dir, key)
-    if value == "是":
-        old_data1["train"][path] = 1
-    if value == "否":
-        old_data1["train"][path] = 0
+# for (key, value) in train_data:
+#     path = os.path.join(img_dir, key)
+#     if value == "是":
+#         old_data1["train"][path] = 1
+#     if value == "否":
+#         old_data1["train"][path] = 0
 
-for (key, value) in test_data:
-    path = os.path.join(img_dir, key)
-    if value == "是":
-        old_data1["test"][path] = 1
-    if value == "否":
-        old_data1["test"][path] = 0
+# for (key, value) in test_data:
+#     path = os.path.join(img_dir, key)
+#     if value == "是":
+#         old_data1["test"][path] = 1
+#     if value == "否":
+#         old_data1["test"][path] = 0
 
-save_pickle(old_data_path1, old_data1)
+# save_pickle(old_data_path1, old_data1)
 # pos 169731  neg 160000
 #print(old_data['train'])
 
@@ -151,30 +151,30 @@ val_dataset = ImageDataset(test_data, img_dir, transform=transform)
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=64)
 val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=64)
 
-# 定义模型
-model = faster_vit_4_224(pretrained='/home/xuzhenbo/Downloads/fastervit_4_21k_224_w14.pth.tar')
+# 定义模型并加载预训练权重
+model = faster_vit_2_224(pretrained='/home/xuzhenbo/Downloads/fastervit_2_224_1k.pth.tar')
 model.head = nn.Linear(model.num_features, 2)
 
 best_accuracy = 0.0
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "9"
 
 criterion = CustomClassificationLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-6, weight_decay=1e-4)  
-#scheduler = StepLR(optimizer, step_size=2, gamma=0.1)  # 每5个epoch将学习率降低到原来的10%
+# scheduler = StepLR(optimizer, step_size=2, gamma=0.1)  # 每2个epoch将学习率降低到原来的10%
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 criterion.to(device)
 
-num_epochs = 4
-best_accuracy=0
+num_epochs = 60
+best_accuracy = 0
 for epoch in range(num_epochs):
     model.train()
     running_loss = 0.0
     accurate_predictions = 0
     total_predictions = 0
-    val_loss = 0
+
     for images, labels in tqdm(train_loader, total=len(train_loader)):
         images = images.to(device)
         labels = labels.to(device)
@@ -191,15 +191,11 @@ for epoch in range(num_epochs):
         accurate_predictions += (predictions == labels).sum().item()
         total_predictions += labels.size(0)
 
-    val_loss /= val_size
+    running_loss /= train_size  # Compute the average loss for this epoch
     accuracy = accurate_predictions / total_predictions
-    logging.info(f'Validation Loss: {val_loss:.4f}, Accuracy: {accuracy:.4f}')
-    print(f'Validation Loss: {val_loss:.4f}, Accuracy: {accuracy:.4f}')
+    logging.info(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {running_loss:.4f}, Accuracy: {accuracy:.4f}')
+    print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {running_loss:.4f}, Accuracy: {accuracy:.4f}')
 
-
-    epoch_loss = running_loss / train_size
-    logging.info(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {epoch_loss:.4f}')
-    print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {epoch_loss:.4f}')
 
     # scheduler.step()
 
@@ -226,11 +222,20 @@ for epoch in range(num_epochs):
     logging.info(f'Validation Loss: {val_loss:.4f}, Accuracy: {accuracy:.4f}')
     print(f'Validation Loss: {val_loss:.4f}, Accuracy: {accuracy:.4f}')
     
-    # 更新最佳准确率
+    # 更新最佳准确率并保存模型
     if accuracy > best_accuracy:
         best_accuracy = accuracy
-        torch.save(model.state_dict(), f'/media/fast_data/tool_models/hasfood_fastervit_4_21k_224.pth')
+        model_save_path = f'/media/fast_data/tool_models/hasfood_fastervit_2_224_v2.pth'
+        torch.save({'model_state_dict': model.state_dict(),
+                    'head_state_dict': model.head.state_dict()},
+                   model_save_path)
+        print(f'Model head after saving: {model.head}')
 
+# 加载模型
+checkpoint = torch.load(model_save_path)
+model.load_state_dict(checkpoint['model_state_dict'])
+model.head.load_state_dict(checkpoint['head_state_dict'])
+print(f'Model head after loading: {model.head}')
 
 # # 使用最佳alpha重新训练模型
 # criterion = CustomClassificationLoss(alpha=best_alpha)

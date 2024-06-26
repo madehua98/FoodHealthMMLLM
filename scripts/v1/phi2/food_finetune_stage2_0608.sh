@@ -6,7 +6,7 @@ export PYTHONPATH=/home/data_llm/FoodHealthMMLLM
 CACHE_FOLDER="/media/fast_data/huggingface/hub/"
 food_image_folder="/media/LLM_data/food_recognition_dataset"
 json_folder="/mnt/data_llm/json_file"
-check_point_name="v0608_6"
+check_point_name="v0608_4"
 export NCCL_P2P_DISABLE=1
 export https_proxy=127.0.0.1:7890 && export http_proxy=127.0.0.1:7890
 #export HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1
@@ -20,7 +20,7 @@ export MAX_JOBS=64
 #             ${json_folder}/172_train_prompt1.json ${json_folder}/172_ingredient_train_prompt1.json \
 #             ${json_folder}/nutrition5k_train.json ${json_folder}/mix_food.json\
 #             ${json_folder}/weight_dataset_train2.json ${json_folder}/train_nutrition_QA.json \
-gpus="1,2,6,7,8,9"
+gpus="2,3,4,7"
 deepspeed --include localhost:$gpus --master_port=22224 /home/data_llm/FoodHealthMMLLM/moellava/train/train_xformers.py \
     --deepspeed ../../zero2.json \
     --model_name_or_path microsoft/phi-2 \
@@ -44,7 +44,7 @@ deepspeed --include localhost:$gpus --master_port=22224 /home/data_llm/FoodHealt
     --gradient_accumulation_steps 8 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
-    --save_steps 1500 \
+    --save_steps 3000 \
     --save_total_limit 50 \
     --learning_rate 2e-5 \
     --weight_decay 0. \

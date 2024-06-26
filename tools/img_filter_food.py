@@ -89,6 +89,10 @@ from datasets_own.common_cls_dataset import SquarePad
 from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 import tarfile
 import random
+from faster_vit import faster_vit_1_224, faster_vit_2_224
+
+import torch.nn as nn
+
 # Define transformations
 inp_size = (384, 384)
 transform = transforms.Compose([
@@ -104,7 +108,20 @@ directory_path_set = '/media/fast_data/datacomp_1b/extracted_shards'
 num_gpus = torch.cuda.device_count()
 print(num_gpus)
 # Load model
-jit_model_path = '/media/fast_data/tool_models/has_food_fv_gpu.pt'
+
+# 假设您的模型定义如下
+model = faster_vit_2_224(pretrained=None)  # 这里设置为 None，因为我们要加载训练好的参数
+model.head = nn.Linear(model.num_features, 2)
+
+model_load_path = '/media/fast_data/tool_models/hasfood_fastervit_2_224_1.pth'
+model.load_state_dict(torch.load(model_load_path))
+
+# 将模型转换为 TorchScript 格式
+scripted_model = torch.jit.script(model)
+# 保存模型
+jit_model_path = '/media/fast_data/tool_models/hasfood_fastervit_2_224_1.pth'
+scripted_model.save(jit_model_path)
+
 device = torch.device("cuda")
 model = torch.jit.load(jit_model_path).to(device)
 model.eval()
@@ -114,7 +131,7 @@ print(model)
 
 random.seed(0)
 directory_paths = [os.path.join(directory_path_set, f) for f in os.listdir(directory_path_set)]
-directory_paths = random.sample(directory_paths, 50)
+directory_paths = random.sample(directory_paths, 5)
 # Parameters for batching
 batch_size = 512
 res = []
@@ -133,71 +150,71 @@ def load_jsonl(filename):
             res.append(json.loads(line))
     return res
 
-threshold_lower = 0.2
-threshold_upper = 0.3
+threshold_lower = 0.6
+threshold_upper = 1.0
 
-# # Iterate over directories
-# for directory_path in directory_paths:
-#     real_input_paths = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if f.endswith('jpg')]
-#     food_images_status = {}
-#     for real_input_path in tqdm(real_input_paths):
-#         hasFood_count = 0
-#         try:
-#             # Load and transform image
-#             real_input = transform(Image.open(real_input_path).convert('RGB')).unsqueeze(0).to(device)
-#             input_shape = real_input.shape
-#             batch_inputs.append(real_input)
-#             batch_items.append(real_input_path)
+# Iterate over directories
+for directory_path in directory_paths:
+    real_input_paths = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if f.endswith('jpg')]
+    food_images_status = {}
+    for real_input_path in tqdm(real_input_paths):
+        hasFood_count = 0
+        try:
+            # Load and transform image
+            real_input = transform(Image.open(real_input_path).convert('RGB')).unsqueeze(0).to(device)
+            input_shape = real_input.shape
+            batch_inputs.append(real_input)
+            batch_items.append(real_input_path)
 
-#             # If batch is full, process it
-#             if len(batch_inputs) >= batch_size:
-#                 batch_tensor = torch.cat(batch_inputs).to(device)
-#                 with torch.no_grad():
-#                     re = model(batch_tensor)
-#                     re = torch.softmax(re, dim=-1)
-#                     #hasFood = re[:, 1] > threshold_lower
-#                     hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
-#                     res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
-#                     for i in range(len(hasFood)):
-#                         if hasFood[i]:
-#                             food_images_status[batch_items[i]] = 1
-#                         else:
-#                             food_images_status[batch_items[i]] = 0
+            # If batch is full, process it
+            if len(batch_inputs) >= batch_size:
+                batch_tensor = torch.cat(batch_inputs).to(device)
+                with torch.no_grad():
+                    re = model(batch_tensor)
+                    re = torch.softmax(re, dim=-1)
+                    #hasFood = re[:, 1] > threshold_lower
+                    hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
+                    res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
+                    for i in range(len(hasFood)):
+                        if hasFood[i]:
+                            food_images_status[batch_items[i]] = 1
+                        else:
+                            food_images_status[batch_items[i]] = 0
 
-#                 # Clear batch
-#                 batch_inputs = []
-#                 batch_items = []
+                # Clear batch
+                batch_inputs = []
+                batch_items = []
 
-#         except Exception as e:
-#             print(f"Error processing {real_input_path}: {e}")
+        except Exception as e:
+            print(f"Error processing {real_input_path}: {e}")
 
-#     # Process remaining images if any
-#     if batch_inputs:
-#         batch_tensor = torch.cat(batch_inputs).to(device)
-#         with torch.no_grad():
-#             re = model(batch_tensor)
-#             re = torch.softmax(re, dim=-1)
-#             hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
-#             res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
-#             for i in range(len(hasFood)):
-#                 if hasFood[i]:
-#                     food_images_status[batch_items[i]] = 1
-#                 else:
-#                     food_images_status[batch_items[i]] = 0
+    # Process remaining images if any
+    if batch_inputs:
+        batch_tensor = torch.cat(batch_inputs).to(device)
+        with torch.no_grad():
+            re = model(batch_tensor)
+            re = torch.softmax(re, dim=-1)
+            hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
+            res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
+            for i in range(len(hasFood)):
+                if hasFood[i]:
+                    food_images_status[batch_items[i]] = 1
+                else:
+                    food_images_status[batch_items[i]] = 0
 
-#         # Clear batch after processing
-#         batch_inputs = []
-#         batch_items = []
-#     has_food_count = 0
-#     no_food_count = 0
-#     for key, value in food_images_status.items():
-#         if value == 1:
-#             has_food_count += 1
-#         elif value == 0:
-#             no_food_count += 1
-#     filename = f'/media/fast_data/datacomp_1b/threshold_{threshold_lower}_{threshold_upper}.jsonl'
-#     print(len(food_images_status))
-#     save_jsonl(filename, food_images_status)
+        # Clear batch after processing
+        batch_inputs = []
+        batch_items = []
+    has_food_count = 0
+    no_food_count = 0
+    for key, value in food_images_status.items():
+        if value == 1:
+            has_food_count += 1
+        elif value == 0:
+            no_food_count += 1
+    filename = f'/media/fast_data/datacomp_1b/threshold_{threshold_lower}_{threshold_upper}.jsonl'
+    print(len(food_images_status))
+    save_jsonl(filename, food_images_status)
 #Save results
 # print(save_file, len(res), len(res)/len(info))
 # save_json(save_file, res)
@@ -255,22 +272,22 @@ tasks_pos = []
 #         #     count += 1
 #     count_total += len(res1)
 
-random.seed(0)
-image_dir = f'/media/fast_data/datacomp_1b/res_2_3'
-image_dir1 = f'/media/fast_data/datacomp_1b/res_2_3_part1'
-image_dir2 = f'/media/fast_data/datacomp_1b/res_2_3_part2'
-images_path = [f for f in os.listdir(image_dir) if os.path.isfile(os.path.join(image_dir, f))]
-random.shuffle(images_path)
-images_path1 = images_path[:6000]
-images_path2 = images_path[6000:12000]
-tasks1 = [[os.path.join(image_dir, f), os.path.join(image_dir1, f)] for f in images_path1]
-tasks2 = [[os.path.join(image_dir, f), os.path.join(image_dir2, f)] for f in images_path2]
-print(tasks1)
-for task in tqdm(tasks1,total=len(tasks1)):
-    shutil.copy(task[0], task[1])
+# random.seed(0)
+# image_dir = f'/media/fast_data/datacomp_1b/res_2_3'
+# image_dir1 = f'/media/fast_data/datacomp_1b/res_2_3_part1'
+# image_dir2 = f'/media/fast_data/datacomp_1b/res_2_3_part2'
+# images_path = [f for f in os.listdir(image_dir) if os.path.isfile(os.path.join(image_dir, f))]
+# random.shuffle(images_path)
+# images_path1 = images_path[:6000]
+# images_path2 = images_path[6000:12000]
+# tasks1 = [[os.path.join(image_dir, f), os.path.join(image_dir1, f)] for f in images_path1]
+# tasks2 = [[os.path.join(image_dir, f), os.path.join(image_dir2, f)] for f in images_path2]
+# print(tasks1)
+# for task in tqdm(tasks1,total=len(tasks1)):
+#     shutil.copy(task[0], task[1])
 
-for task in tqdm(tasks2, total=len(tasks2)):
-    shutil.copy(task[0], task[1])
+# for task in tqdm(tasks2, total=len(tasks2)):
+#     shutil.copy(task[0], task[1])
 
 
 # print(count)
