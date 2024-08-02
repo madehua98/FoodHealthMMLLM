@@ -1,7 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.envFile": "/home/data_llm/madehua/FoodHealthMMLLM/.env",
+    "python.envFile": "/ML-A800/home/guoshuyue/madehua/code/FoodHealthMMLLM/.env",
     "terminal.integrated.env.linux": {
-        "PYTHONPATH": "$/home/data_llm/madehua/FoodHealthMMLLM"
+        "PYTHONPATH": "$/ML-A800/home/guoshuyue/madehua/code/FoodHealthMMLLM"
     }
 }

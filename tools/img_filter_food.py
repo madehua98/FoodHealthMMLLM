@@ -64,20 +64,19 @@ sys.path.append(project_root)
 # save_json(save_file, res)
 
 '''
-CUDA_VISIBLE_DEVICES=0 nohup python -u tools/img_filter_food.py 0 > log0.out &
-CUDA_VISIBLE_DEVICES=1 nohup python -u tools/img_filter_food.py 1 > log1.out &
-CUDA_VISIBLE_DEVICES=2 nohup python -u tools/img_filter_food.py 2 > log2.out &
-CUDA_VISIBLE_DEVICES=3 nohup python -u img_filter_food.py 3 > log3.out &
-CUDA_VISIBLE_DEVICES=4 nohup python -u tools/img_filter_food.py 4 > log4.out &
-CUDA_VISIBLE_DEVICES=6 nohup python -u tools/img_filter_food.py 6 > log6.out &
-CUDA_VISIBLE_DEVICES=7 nohup python -u tools/img_filter_food.py 7 > log7.out &
-CUDA_VISIBLE_DEVICES=8 nohup python -u tools/img_filter_food.py 8 > log8.out &
-CUDA_VISIBLE_DEVICES=9 nohup python -u img_filter_food.py > log9.out &
-
+nohup python -u img_filter_food.py 1 0.0 1.0 0.1 1 > 1.out &
+nohup python -u img_filter_food.py 2 0.0 1.0 0.1 2 > 2.out &
+nohup python -u img_filter_food.py 3 0.0 1.0 0.1 3 > 3.out &
+nohup python -u img_filter_food.py 4 0.0 1.0 0.1 4 > 4.out &
+nohup python -u img_filter_food.py 5 0.0 1.0 0.1 5 > 5.out &
+nohup python -u img_filter_food.py 6 0.0 1.0 0.1 6 > 6.out &
+nohup python -u img_filter_food.py 7 0.0 1.0 0.1 7 > 7.out &
+nohup python -u img_filter_food.py 0 0.0 1.0 0.1 0 > 0.out &
 '''
 
 
-
+import torch
+print(torch.cuda.is_available())
 
 import json
 import sys
@@ -87,57 +86,31 @@ import torch
 import torchvision.transforms as transforms
 from datasets_own.common_cls_dataset import SquarePad
 from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
-import tarfile
 import random
 from faster_vit import faster_vit_1_224, faster_vit_2_224
-
+from torch.utils.data import DataLoader, Dataset
 import torch.nn as nn
 
 # Define transformations
 inp_size = (384, 384)
+# transform = transforms.Compose([
+#     SquarePad(),
+#     transforms.Resize(inp_size, interpolation=3),  # BICUBIC interpolation
+#     transforms.ToTensor(),
+#     transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD)
+# ])
 transform = transforms.Compose([
-    SquarePad(),
-    transforms.Resize(inp_size, interpolation=3),  # BICUBIC interpolation
+    transforms.Resize((224, 224)),
+    transforms.RandomHorizontalFlip(),  
     transforms.ToTensor(),
-    transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD)
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 
-os.environ['CUDA_VISIBLE_DEVICES'] = f'8'
-
-directory_path_set = '/media/fast_data/datacomp_1b/extracted_shards'
+#os.environ['CUDA_VISIBLE_DEVICES'] = sys.argv[1]
 num_gpus = torch.cuda.device_count()
 print(num_gpus)
-# Load model
-
-# 假设您的模型定义如下
-model = faster_vit_2_224(pretrained=None)  # 这里设置为 None，因为我们要加载训练好的参数
-model.head = nn.Linear(model.num_features, 2)
-
-model_load_path = '/media/fast_data/tool_models/hasfood_fastervit_2_224_1.pth'
-model.load_state_dict(torch.load(model_load_path))
-
-# 将模型转换为 TorchScript 格式
-scripted_model = torch.jit.script(model)
-# 保存模型
-jit_model_path = '/media/fast_data/tool_models/hasfood_fastervit_2_224_1.pth'
-scripted_model.save(jit_model_path)
-
-device = torch.device("cuda")
-model = torch.jit.load(jit_model_path).to(device)
-model.eval()
-print(model)
-
-
 
 random.seed(0)
-directory_paths = [os.path.join(directory_path_set, f) for f in os.listdir(directory_path_set)]
-directory_paths = random.sample(directory_paths, 5)
-# Parameters for batching
-batch_size = 512
-res = []
-batch_inputs = []
-batch_items = []
-food_images_status = {}
 
 def save_jsonl(filename, object):
     with open(filename, 'a+') as fw:
@@ -150,71 +123,91 @@ def load_jsonl(filename):
             res.append(json.loads(line))
     return res
 
-threshold_lower = 0.6
-threshold_upper = 1.0
+class ImageDataset(Dataset):
+    def __init__(self, image_paths, transform=None):
+        self.image_paths = image_paths
+        self.transform = transform
 
-# Iterate over directories
-for directory_path in directory_paths:
-    real_input_paths = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if f.endswith('jpg')]
-    food_images_status = {}
-    for real_input_path in tqdm(real_input_paths):
-        hasFood_count = 0
+    def __len__(self):
+        return len(self.image_paths)
+
+    def __getitem__(self, idx):
+        image_path = self.image_paths[idx]
         try:
-            # Load and transform image
-            real_input = transform(Image.open(real_input_path).convert('RGB')).unsqueeze(0).to(device)
-            input_shape = real_input.shape
-            batch_inputs.append(real_input)
-            batch_items.append(real_input_path)
+            image = Image.open(image_path).convert('RGB')
+        except (IOError, OSError):
+            return self.__getitem__((idx + 1) % len(self.image_paths))  # Skip this image and get the next one
+        
+        if self.transform:
+            image = self.transform(image)
+        return image, image_path
 
-            # If batch is full, process it
-            if len(batch_inputs) >= batch_size:
-                batch_tensor = torch.cat(batch_inputs).to(device)
-                with torch.no_grad():
-                    re = model(batch_tensor)
-                    re = torch.softmax(re, dim=-1)
-                    #hasFood = re[:, 1] > threshold_lower
-                    hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
-                    res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
-                    for i in range(len(hasFood)):
-                        if hasFood[i]:
-                            food_images_status[batch_items[i]] = 1
-                        else:
-                            food_images_status[batch_items[i]] = 0
+def main(device_id, threshold_lower, threshold_upper, interval_step, idx):
+    device = torch.device(f'cuda:{device_id}' if torch.cuda.is_available() else 'cpu')
+    inp_size = (384, 384)
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
 
-                # Clear batch
-                batch_inputs = []
-                batch_items = []
+    directory_path_set = '/ML-A100/team/mm/models/laion2b/extracted_shards3'
+    directory_paths = [os.path.join(directory_path_set, f) for f in os.listdir(directory_path_set)]
+    
+    directory_paths.sort()
+    # 将目录分成8份
+    num_partitions = 8
+    part_size = len(directory_paths) // num_partitions
+    partitioned_directories = [directory_paths[i*part_size : (i+1)*part_size] for i in range(num_partitions)]
+    partitioned_directories_new = partitioned_directories[idx]
 
-        except Exception as e:
-            print(f"Error processing {real_input_path}: {e}")
+    model = faster_vit_2_224(pretrained=None)
+    model.head = nn.Linear(model.num_features, 2)
+    model_load_path = '/ML-A100/team/mm/models/hasfood_fastervit_2_224_v2.pth'
+    checkpoint = torch.load(model_load_path)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    model.head.load_state_dict(checkpoint['head_state_dict'])
+    model = model.to(device)
+    model.eval()
 
-    # Process remaining images if any
-    if batch_inputs:
-        batch_tensor = torch.cat(batch_inputs).to(device)
-        with torch.no_grad():
-            re = model(batch_tensor)
-            re = torch.softmax(re, dim=-1)
-            hasFood = (re[:, 1] > threshold_lower) & (re[:, 1] < threshold_upper)
-            res.extend([batch_items[i] for i in range(len(hasFood)) if hasFood[i]])
-            for i in range(len(hasFood)):
-                if hasFood[i]:
-                    food_images_status[batch_items[i]] = 1
-                else:
-                    food_images_status[batch_items[i]] = 0
+    batch_size = 512
+    for directory_path in tqdm(partitioned_directories_new, total=len(partitioned_directories_new)):
+        real_input_paths = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if f.endswith('jpg')]
+        dataset = ImageDataset(real_input_paths, transform=transform)
+        dataloader = DataLoader(dataset, batch_size=batch_size, num_workers=4, pin_memory=True)
 
-        # Clear batch after processing
-        batch_inputs = []
-        batch_items = []
-    has_food_count = 0
-    no_food_count = 0
-    for key, value in food_images_status.items():
-        if value == 1:
-            has_food_count += 1
-        elif value == 0:
-            no_food_count += 1
-    filename = f'/media/fast_data/datacomp_1b/threshold_{threshold_lower}_{threshold_upper}.jsonl'
-    print(len(food_images_status))
-    save_jsonl(filename, food_images_status)
+        food_images_status = {}
+        for batch_inputs, batch_items in dataloader:
+            batch_inputs = batch_inputs.to(device)
+            with torch.no_grad():
+                outputs = model(batch_inputs)
+                probabilities = torch.softmax(outputs, dim=-1)
+                food_probabilities = probabilities[:, 1]
+                for i, item in enumerate(batch_items):
+                    if food_probabilities[i] < threshold_lower:
+                        interval_id = 0  # 低于下限
+                    elif food_probabilities[i] >= threshold_upper:
+                        interval_id = num_intervals  # 高于上限
+                    else:
+                        interval_id = int((food_probabilities[i] - threshold_lower) // interval_step) + 1
+                    food_images_status[item] = interval_id
+
+        filename = f'/ML-A100/team/mm/models/laion2b/threshold_record.jsonl'
+        if food_images_status != {}:
+            save_jsonl(filename, food_images_status)
+        
+import sys
+device_id = int(sys.argv[1])
+threshold_lower = float(sys.argv[2])
+threshold_upper = float(sys.argv[3])
+interval_step = float(sys.argv[4])
+idx = int(sys.argv[5])
+print(idx)
+main(device_id, threshold_lower, threshold_upper, interval_step, idx)
+print("done")
+    
+    
 #Save results
 # print(save_file, len(res), len(res)/len(info))
 # save_json(save_file, res)
@@ -236,28 +229,29 @@ for directory_path in directory_paths:
 # 将判断不为食品的图像下载到本地
 # """
 
-filename_2 = '/media/fast_data/datacomp_1b/threshold_0.0_0.1.jsonl'
-filename_1 = '/media/fast_data/datacomp_1b/threshold_0.1_0.2.jsonl'
-filename_3 = '/media/fast_data/datacomp_1b/threshold_0.2_0.3.jsonl'
-filename_4 = '/media/fast_data/datacomp_1b/threshold_0.3_0.4.jsonl'
-filename_5 = '/media/fast_data/datacomp_1b/threshold_0.4_0.5.jsonl'
+# filename_2 = '/ML-A100/team/mm/models/datacomp_1b/threshold_0.0_0.1.jsonl'
+# filename_1 = '/ML-A100/team/mm/models/datacomp_1b/threshold_0.9_1.0.jsonl'
+# filename_3 = '/ML-A100/team/mm/models/datacomp_1b/threshold_0.2_0.3.jsonl'
+# filename_4 = '/ML-A100/team/mm/models/datacomp_1b/threshold_0.3_0.4.jsonl'
+# filename_5 = '/ML-A100/team/mm/models/datacomp_1b/threshold_0.4_0.5.jsonl'
 
-source_dir = '/media/fast_data/datacomp_1b/extracted_shards'
+# source_dir = '/ML-A100/team/mm/models/datacomp_1b/extracted_shards'
 
 
-res_1 = load_jsonl(filename_1)
-res_2 = load_jsonl(filename_2)
-res_3 = load_jsonl(filename_3)
-res_4 = load_jsonl(filename_4)
-res_5 = load_jsonl(filename_5)
+# res_1 = load_jsonl(filename_1)
+# res_2 = load_jsonl(filename_2)
+# res_3 = load_jsonl(filename_3)
+# res_4 = load_jsonl(filename_4)
+# res_5 = load_jsonl(filename_5)
 
-res_1_list = []
-count = 0
-count_total = 0
-tasks = []
-tasks_pos = []
-# for res1 in res_3:
-#     destination_dir_1 = f'/media/fast_data/datacomp_1b/res_2_3'
+# res_1_list = []
+# count = 0
+# count_total = 0
+# tasks = []
+# tasks_pos = []
+# for res1 in res_1:
+#     destination_dir_1 = f'/ML-A100/team/mm/models/datacomp_1b/res/9_0'
+#     os.makedirs(destination_dir_1, exist_ok=True)
 #     #destination_dir_2 = f'/media/fast_data/datacomp_1b/res_pos_5'
 #     for k,v in res1.items():
 #         if v == 1:
@@ -265,13 +259,12 @@ tasks_pos = []
 #             destination_file = os.path.join(destination_dir_1, file_name)
 #             tasks.append([k, destination_file])
 #             count += 1
-#         # if v == 1:
-#         #     file_name = os.path.basename(k)
-#         #     destination_file = os.path.join(destination_dir_2, file_name)
-#         #     tasks_pos.append([k, destination_file])
-#         #     count += 1
 #     count_total += len(res1)
 
+
+# for task in tqdm(tasks,total=len(tasks)):
+#     shutil.copy(task[0], task[1])
+    
 # random.seed(0)
 # image_dir = f'/media/fast_data/datacomp_1b/res_2_3'
 # image_dir1 = f'/media/fast_data/datacomp_1b/res_2_3_part1'
@@ -283,30 +276,9 @@ tasks_pos = []
 # tasks1 = [[os.path.join(image_dir, f), os.path.join(image_dir1, f)] for f in images_path1]
 # tasks2 = [[os.path.join(image_dir, f), os.path.join(image_dir2, f)] for f in images_path2]
 # print(tasks1)
-# for task in tqdm(tasks1,total=len(tasks1)):
-#     shutil.copy(task[0], task[1])
+
+
 
 # for task in tqdm(tasks2, total=len(tasks2)):
 #     shutil.copy(task[0], task[1])
 
-
-# print(count)
-# print(count_total)
-
-# res_2_list = []
-# for res2 in res_2:
-#     for k,v in res2.items():
-#         if v == 0:
-#             res_2_list.append(k)
-
-# res_3_list = []
-# for res3 in res_3:
-#     for k,v in res3.items():
-#         if v == 0:
-#             res_3_list.append(k)
-
-# res_4_list = []
-# for res4 in res_4:
-#     for k,v in res4.items():
-#         if v == 0:
-#             res_4_list.append(k)
